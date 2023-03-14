@@ -1,15 +1,8 @@
 {
-  "name": "client",
-  "version": "1.0.0",
+  "name": "artmart",
+  "version": "0.1.0",
   "private": true,
-  "description": "",
   "proxy": "http://localhost:3001",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
   "dependencies": {
     "@apollo/client": "^3.7.9",
     "@testing-library/jest-dom": "^5.16.5",
@@ -23,8 +16,13 @@
     "react-router-dom": "^6.2.1",
     "jwt-decode": "^3.1.2"
   },
-  "author": "",
   "license": "ISC",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -42,5 +40,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-}
+  }
 }
