@@ -1,5 +1,4 @@
 import logo from "./logo.svg";
-import "./App.css";
 import React from "react";
 import {
   ApolloClient,
@@ -9,6 +8,8 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+
 
 function App() {
   return (
