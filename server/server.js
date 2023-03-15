@@ -6,6 +6,8 @@ const {
 } = require("@apollo/server/plugin/drainHttpServer");
 const http = require("http");
 
+const { authMiddleware } = require("./utils/auth");
+
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 
@@ -36,10 +38,9 @@ const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   app.use(
     "/graphql",
-    //FIXME: Are we using the Auth middleware
-    // expressMiddleware(server, {
-    //   context: authMiddleware,
-    // })
+     expressMiddleware(server, {
+       context: authMiddleware,
+     })
   );
 
   db.once("open", () => {
