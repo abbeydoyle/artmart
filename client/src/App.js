@@ -8,9 +8,9 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Home from './pages/Homepage';
-import Signup from './pages/signup';
-import Login from './pages/login';
+import Home from "./pages/Home";
+import Signup from "./pages/signup";
+import Login from "./pages/login";
 // import Header from './components/header';
 // import Footer from './components/footer';
 // import Cart from './pages/mycart';
@@ -22,15 +22,15 @@ import Login from './pages/login';
 // import Singleart from './pages/singleart'
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -40,33 +40,23 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
 function App() {
   return (
     <ApolloProvider client={client}>
-    <Router>
-      <div className="flex-column justify-flex-start min-100-vh">
-        {/* <Header /> */}
-        <div className="container">
-          <Routes>
-            <Route 
-              path="/"
-              element={<Home />}
-            />
-            <Route 
-              path="/login" 
-              element={<Login />}
-            />
-            <Route 
-              path="/signup" 
-              element={<Signup />}
-            />
-          </Routes>
+      <Router>
+        <div className="flex-column justify-flex-start min-100-vh">
+          {/* <Header /> */}
+          <div className="container">
+            <Routes>
+              {/* <Route path="/" element={<Home />} /> */}
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+            </Routes>
+          </div>
+          {/* <Footer /> */}
         </div>
-        {/* <Footer /> */}
-      </div>
-    </Router>
-  </ApolloProvider>
+      </Router>
+    </ApolloProvider>
   );
 }
 
