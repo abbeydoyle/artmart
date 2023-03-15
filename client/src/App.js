@@ -1,4 +1,5 @@
 import "./App.css";
+import logo from "./logo.svg";
 import React from "react";
 import {
   ApolloClient,
@@ -9,9 +10,11 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
-import Signup from "./pages/signup";
-import Login from "./pages/login";
+
+
+import Home from './pages/Home';
+import Signup from './pages/signup';
+import Login from './pages/login';
 // import Header from './components/header';
 // import Footer from './components/footer';
 // import Cart from './pages/mycart';
