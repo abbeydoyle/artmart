@@ -1,50 +1,57 @@
 const typeDefs = `#graphql
-
-
-for example
-type User {
+  type Category {
     _id: ID
-    username: String
+    name: String
+  }
+
+  type Product {
+    _id: ID
+    name: String
+    description: String
+    image: String
+    quantity: Int
+    price: Float
+    category: Category
+  }
+
+  type Order {
+    _id: ID
+    purchaseDate: String
+    products: [Product]
+  }
+
+  type User {
+    _id: ID
+    firstName: String
+    lastName: String
     email: String
-    password: String
-    thoughts: [Thought]!
+    orders: [Order]
   }
 
-  type Artist {
-    _id: ID
-    Description: String
-    createdAt: String
-    
-  }
-
-//Stretch goal
-  type Comment {
-    _id: ID
-    commentText: String
-    commentAuthor: String
-    createdAt: String
+  type Checkout {
+    session: ID
   }
 
   type Auth {
-    token: ID!
+    token: ID
     user: User
   }
 
   type Query {
-    Artist: [User]
-    me: User
+    categories: [Category]
+    products(category: ID, name: String): [Product]
+    product(_id: ID!): Product
+    user: User
+    order(_id: ID!): Order
+    checkout(products: [ID]!): Checkout
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    addOrder(products: [ID]!): Order
+    updateUser(firstName: String, lastName: String, email: String, password: String): User
+    updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
-
   }
-
-
 `;
-
-
-
-
 module.exports = typeDefs;
