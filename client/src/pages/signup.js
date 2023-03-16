@@ -1,11 +1,12 @@
+import "../index.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // TODO: import CSS ???
 import { useMutation } from "@apollo/client";
-//import Auth from "../utils/auth";  //TODO: likely need auth.
+import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 
-function signupForm(props) {
+const Signup = (props) => {
   // set initial form state
   const [formState, setFormState] = useState({
     fname: "",
@@ -13,8 +14,7 @@ function signupForm(props) {
     email: "",
     password: "",
   });
-  // set state for form validation
-  const [validated] = useState(false);
+
   const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
@@ -22,7 +22,7 @@ function signupForm(props) {
 
     try {
       const { data } = await addUser({
-        variables: { ...userFormData },
+        variables: { ...formState },
       });
 
       // console.log(data);
@@ -30,6 +30,13 @@ function signupForm(props) {
     } catch (err) {
       console.error(err);
     }
+
+    setFormState({
+      fname: "",
+      lname: "",
+      email: "",
+      password: "",
+    });
   };
 
   const handleInputChange = (event) => {
@@ -45,71 +52,72 @@ function signupForm(props) {
   // TODO: Style - get rid of either placeholder or label?
   return (
     <>
-      <Link to="/login">← Go to Login</Link>
-
       <h2>Signup</h2>
-      <Form onSubmit={handleFormSubmit}>
-        <Form.Group>
-          <Form.Label>First Name</Form.Label>
-          <Form.Control
+      <form className="flex flex-col gap-4" onSubmit={handleFormSubmit}>
+        <Link to="/login">← Go to Login</Link>
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="fname" value="first name" />
+          </div>
+          <TextInput
+            id="fnameInput"
             type="text"
-            placeholder="First Name"
-            name="fname"
+            placeholder="first name"
+            required={true}
+            shadow={true}
             onChange={handleInputChange}
-            value={userFormData.fname}
-            required
           />
-        </Form.Group>
+        </div>
 
-        <Form.Group>
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="lname" value="last name" />
+          </div>
+          <TextInput
+            id="lnameInput"
             type="text"
-            placeholder="Last Name"
-            name="lname"
+            placeholder="last name"
+            required={true}
+            shadow={true}
             onChange={handleInputChange}
-            value={userFormData.lname}
-            required
           />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Email"
-            name="email"
+        </div>
+
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="email" value="email" />
+          </div>
+          <TextInput
+            id="emailInput"
+            type="email"
+            placeholder="email"
+            required={true}
+            shadow={true}
             onChange={handleInputChange}
-            value={userFormData.email}
-            required
           />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Password</Form.Label>
-          <Form.Control
+        </div>
+
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="password" value="password" />
+          </div>
+          <TextInput
+            id="passwordInput"
             type="password"
-            placeholder="password"
-            name="password"
+            required={true}
+            shadow={true}
             onChange={handleInputChange}
-            value={userFormData.password}
-            required
           />
-        </Form.Group>
-        <Button
-          disabled={
-            !(
-              userFormData.username &&
-              userFormData.email &&
-              userFormData.password
-            )
-          }
-          type="submit"
-          variant="primary"
-        >
-          SUBMIT
-        </Button>
-      </Form>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <Checkbox id="agree" />
+          <Label htmlFor="agree">I agree with the terms and conditions</Label>
+        </div>
+        <Button type="submit">Sign Up</Button>
+      </form>
     </>
   );
-}
+};
 
-export default signupForm;
+export default Signup;
