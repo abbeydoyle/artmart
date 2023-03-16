@@ -1,21 +1,26 @@
 const typeDefs = `#graphql
-  type Category {
+  type ArtCategory {
     _id: ID
     name: String
   }
 
-  type Product {
+  type ArtProduct {
     _id: ID
     name: String
+    artistname: Strig
     description: String
     image: String
     quantity: Int
     price: Float
+    size:string or boolean
     category: Category
   }
 
-  type Order {
+  type ArtOrder {
     _id: ID
+    userid: String
+    sizeid: String
+    user: [user]
     purchaseDate: String
     products: [Product]
   }
@@ -24,6 +29,8 @@ const typeDefs = `#graphql
     _id: ID
     firstName: String
     lastName: String
+    address: String
+    Password: String
     email: String
     orders: [Order]
   }
