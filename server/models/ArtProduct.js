@@ -8,6 +8,11 @@ const itemSchema = new Schema({
       required: true,
       trim: true
     },
+    artistName: {
+      type: String,
+      required: true,
+      trim: true
+    },
     description: {
       type: String
     },
@@ -17,12 +22,17 @@ const itemSchema = new Schema({
     price: {
       type: Number,
       required: true,
-      min: 100.00
+      min: 10.00
     },
     quantity: {
       type: Number,
       min: 0,
       default: 0
+    },
+    Size: {
+      type: boolean,
+      required: true,
+      min: [5*8, 8*10, 18*24, 24*36 ]
     },
     category: {
       type: Schema.Types.ObjectId,
@@ -32,6 +42,6 @@ const itemSchema = new Schema({
   });
 
 
-const Product = mongoose.model('ArtShowcase', itemSchema);
+const Product = mongoose.model('ArtProduct', itemSchema);
 
 module.exports = ArtShowcase;
