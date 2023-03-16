@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./gallery.css" />
+    <link
+      href="https://fonts.cdnfonts.com/css/franklin-gothic"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded">
+        <div
+          class="container flex flex-wrap items-center justify-between mx-auto"
+        >
+          <a href="" class="flex items-center">
+            <img
+              src="https://previews.123rf.com/images/asmati/asmati1603/asmati160301294/53564314-palette-and-paint-brush-line-vector-icon-on-transparent-background.jpg"
+              class="h-6 mr-3 sm:h-9"
+              alt="Flowbite Logo"
+            />
+            <span
+              class="self-center text-2xl font-semibold whitespace-nowrap text-[#508192]"
+              >ArtMart</span
+            >
+          </a>
+          <button
+            data-collapse-toggle="navbar-default"
+            type="button"
+            class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            aria-controls="navbar-default"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="w-6 h-6"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+            <ul
+              class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-md md:font-medium md:border-0 md:bg-white"
+            >
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-[#508192] md:p-0"
+                  aria-current="page"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#508192] md:p-0"
+                  >Profile</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#508192] md:p-0"
+                  >Signup</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#508192] md:p-0"
+                  >My Cart</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#508192] md:p-0"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="gap-8 columns-3 m-5">
+        <div class="group mb-2">
+          <img
+            class="w-full aspect-video mb-2 border-solid border-8 border-[#56280e] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]"
+            src="https://picsum.photos/500/300?random=1"
+          />
+          <div class="invisible group-hover:visible text-center">
+            <p class="font-bold">Artist Name</p>
+            <p>Title of Work</p>
+            <p>Medium of Work</p>
+          </div>
+        </div>
+        <div class="group mb-2">
+          <img
+            class="w-full aspect-square mb-2 border-solid border-8 border-[#56280e] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]"
+            src="https://picsum.photos/500/300?random=2"
+          />
+          <div class="invisible group-hover:visible text-center">
+            <p class="font-bold">Artist Name</p>
+            <p>Title of Work</p>
+            <p>Medium of Work</p>
+          </div>
+        </div>
+        <div class="group mb-2">
+          <img
+            class="w-full aspect-square mb-2 border-solid border-8 border-[#56280e] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]"
+            src="https://picsum.photos/500/300?random=3"
+          />
+          <div class="invisible group-hover:visible text-center">
+            <p class="font-bold">Artist Name</p>
+            <p>Title of Work</p>
+            <p>Medium of Work</p>
+          </div>
+        </div>
+        <div class="group mb-2">
+          <img
+            class="w-full aspect-square mb-2 border-solid border-8 border-[#56280e] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]"
+            src="https://picsum.photos/500/300?random=4"
+          />
+          <div class="invisible group-hover:visible text-center">
+            <p class="font-bold">Masonry Layout</p>
+            <p>Abbey Doyle, 2023</p>
+            <p>Digital</p>
+          </div>
+        </div>
+        <div class="group mb-2">
+          <img
+            class="w-full aspect-video mb-2 border-solid border-8 border-[#56280e] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]"
+            src="https://picsum.photos/500/300?random=5"
+          />
+          <div class="invisible group-hover:visible text-center">
+            <p class="font-bold">Artist Name</p>
+            <p>Title of Work</p>
+            <p>Medium of Work</p>
+          </div>
+        </div>
+        <div class="group mb-2">
+          <img
+            class="w-full aspect-video mb-2 border-solid border-8 border-[#56280e] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]"
+            src="https://picsum.photos/500/300?random=6"
+          />
+          <div class="invisible group-hover:visible text-center">
+            <p class="font-bold">Artist Name</p>
+            <p>Title of Work</p>
+            <p>Medium of Work</p>
+          </div>
+        </div>
+        <div class="group mb-2">
+          <img
+            class="w-full aspect-square mb-2 border-solid border-8 border-[#56280e] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]"
+            src="https://picsum.photos/500/300?random=7"
+          />
+          <div class="invisible group-hover:visible text-center">
+            <p>class="font-bold"Artist Name</p>
+            <p>Title of Work</p>
+            <p>Medium of Work</p>
+          </div>
+        </div>
+        <div class="group mb-2">
+          <img
+            class="w-full aspect-video mb-2 border-solid border-8 border-[#56280e] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]"
+            src="https://picsum.photos/500/300?random=8"
+          />
+          <div class="invisible group-hover:visible text-center">
+            <p class="font-bold">Artist Name</p>
+            <p>Title of Work</p>
+            <p>Medium of Work</p>
+          </div>
+        </div>
+        <div class="group mb-2">
+          <img
+            class="w-full aspect-square mb-2 border-solid border-8 border-[#56280e] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]"
+            src="https://picsum.photos/500/300?random=9"
+          />
+          <div class="invisible group-hover:visible text-center">
+            <p class="font-bold">Artist Name</p>
+            <p>Title of Work</p>
+            <p>Medium of Work</p>
+          </div>
+        </div>
+        <div class="group mb-2">
+          <img
+            class="w-full aspect-square mb-2 border-solid border-8 border-[#56280e] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]"
+            src="https://picsum.photos/500/300?random=10"
+          />
+          <div class="invisible group-hover:visible text-center">
+            <p class="font-bold">Artist Name</p>
+            <p>Title of Work</p>
+            <p>Medium of Work</p>
+          </div>
+        </div>
+        <div class="group mb-2">
+          <img
+            class="w-full aspect-video mb-2 border-solid border-8 border-[#56280e] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]"
+            src="https://picsum.photos/500/300?random=11"
+          />
+          <div class="invisible group-hover:visible text-center">
+            <p class="font-bold">Artist Name</p>
+            <p>Title of Work</p>
+            <p>Medium of Work</p>
+          </div>
+        </div>
+        <!-- <img class="w-full aspect-video mb-6 border-solid border-8 border-[# d4af37] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]" src="https://picsum.photos/500/300?random=1" />
+            <img class="w-full aspect-square mb-6 border-solid border-8 border-[#d4af37] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]" src="https://picsum.photos/500/300?random=2" />
+            <img class="w-full aspect-square mb-6 border-solid border-8 border-[#000000] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]" src="https://picsum.photos/500/300?random=3" />
+            <img class="w-full aspect-square mb-6 border-solid border-8 border-[#000000] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]" src="https://picsum.photos/500/300?random=4" />
+            <img class="w-full aspect-video mb-6 border-solid border-8 border-[#d4af37] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]" src="https://picsum.photos/500/300?random=5" />
+            <img class="w-full aspect-video mb-6 border-solid border-8 border-[#d4af37] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]" src="https://picsum.photos/500/300?random=6" />
+            <img class="w-full aspect-square mb-6 border-solid border-8 border-[#d4af37] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]" src="https://picsum.photos/500/300?random=7" />
+            <img class="w-full aspect-video mb-6 border-solid border-8 border-[#d4af37] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]" src="https://picsum.photos/500/300?random=8" />
+            <img class="w-full aspect-aquare mb-6 border-solid border-8 border-[#d4af37] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]" src="https://picsum.photos/500/300?random=9" /> -->
+      </div>
+    </main>
+  </body>
+</html>
