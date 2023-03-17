@@ -93,7 +93,7 @@ const Cart = () => {
               <span>(log in to check out)</span>
             )}
           </div>
-        </div> */}
+        </div>
       ) : (
         <h3>
           <span role="img" aria-label="shocked">
@@ -101,7 +101,7 @@ const Cart = () => {
           </span>
           You haven't added anything to your cart yet!
         </h3>
-      )}
+      )} */}
     </div>
   );
 };
