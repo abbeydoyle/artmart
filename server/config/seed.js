@@ -27,6 +27,14 @@ db.once('open', async () => {
         name: 'Name of Art',
         description: 'Description of Art',
         image: '.jpg',
+        category: categories[0]._id,
+        size: ["5x7","8x10","18x24","24x36"]
+      },
+      {
+        artistName: 'name of artist',  
+        name: 'Name of Art',
+        description: 'Description of Art',
+        image: '.jpg',
         category: categories[1]._id,
         size: ["5x7","8x10","18x24","24x36"]
       },
@@ -35,15 +43,7 @@ db.once('open', async () => {
         name: 'Name of Art',
         description: 'Description of Art',
         image: '.jpg',
-        category: categories[2]._id,
-        size: ["5x7","8x10","18x24","24x36"]
-      },
-      {
-        artistName: 'name of artist',  
-        name: 'Name of Art',
-        description: 'Description of Art',
-        image: '.jpg',
-        category: categories[3]._id,
+        category: categories[1]._id,
         size: ["5x7","8x10","18x24","24x36"]
       }
    
