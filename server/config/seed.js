@@ -4,7 +4,7 @@ const { User, ArtShowcase, ArtCategory } = require('../models');
 db.once('open', async () => {
   await ArtCategory.deleteMany();
 
-  const categories = await ArtCategory.insertone([
+  const categories = await ArtCategory.insertOne([
     { name: 'ART work' },
   ]);
 
@@ -99,7 +99,7 @@ db.once('open', async () => {
     email: '',
     password: ''
   });
-  
+
   await User.create({
     firstName: '',
     lastName: '',
