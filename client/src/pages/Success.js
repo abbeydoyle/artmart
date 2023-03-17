@@ -1,12 +1,14 @@
 import React from "react";
-
+import Jumbotron from '../components/Jumbotron';
 const Success = () => {
   return (
     <>
+     <Jumbotron>
     <div classname="">
         <h1>Congratulations!!</h1>
         <h3>Your Order has been sucessful</h3>
     </div>
+    </Jumbotron>
     </>
   )
 };
