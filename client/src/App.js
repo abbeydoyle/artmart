@@ -10,11 +10,13 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+
 import Home from './pages/Home';
 import Signup from './pages/signup';
 import Login from './pages/login';
 import Nav from './components/Nav';
 // import Footer from './components/footer';
+
 // import Cart from './pages/mycart';
 // import Pastorders from './pages/pastorder';
 // import Profile from './pages/profile';
@@ -58,7 +60,9 @@ function App() {
               <Route path="/success" element={<Success />} />
             </Routes>
           </div>
-          
+
+          <FooterApp />
+
         </div>
       </Router>
     </ApolloProvider>

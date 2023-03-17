@@ -13,7 +13,9 @@
 
 // const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
+
 const Cart = () => {
+
 //   // const [state, dispatch] = useStoreContext();
 //   // const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
@@ -106,6 +108,7 @@ const Cart = () => {
 //   );
 // };
 
+
   return (
     <div className="">
       <div className="">
@@ -141,3 +144,4 @@ const Cart = () => {
 };
 
 export default Cart;
+

@@ -7,14 +7,16 @@
 // function ProductItem(item) {
 // //   const [state, dispatch] = useStoreContext();
 
-  const {
-    image,
-    title, // name,
-    artist,
-    _id,
-    // price,
-    // quantity
-  } = item;
+
+// //   const {
+// //     image,
+// //     title, // name,
+// //     artist,
+// //     _id,
+// //     // price,
+// //     // quantity
+// //   } = item;
+
 
 // //   const { cart } = state
 
