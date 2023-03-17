@@ -6,8 +6,10 @@ db.once('open', async () => {
 
   const categories = await ArtCategory.insertMany([
     { name: 'Digital Print' },
+
     { name: 'Hand Drawn' },
     { name: 'poster' }  
+
   ]);
 
   console.log('categories seeded');
@@ -21,6 +23,7 @@ db.once('open', async () => {
         description: 'Description of Art',
         image: '.jpg',
         category: categories[0]._id,
+
         size: [{
           price: 10.00,
           size: "5x7"
@@ -37,12 +40,14 @@ db.once('open', async () => {
           size: "24x36"
         }
       ]},
+
       {
         artistName: 'name of artist',  
         name: 'Name of Art',
         description: 'Description of Art',
         image: '.jpg',
         category: categories[0]._id,
+
         size: [{
           price: 10.00,
           size: "5x7"
@@ -59,12 +64,14 @@ db.once('open', async () => {
           size: "24x36"
         }
       ]},
+
       {
         artistName: 'name of artist',  
         name: 'Name of Art',
         description: 'Description of Art',
         image: '.jpg',
         category: categories[1]._id,
+
         size: [{
           price: 10.00,
           size: "5x7"
@@ -81,12 +88,14 @@ db.once('open', async () => {
           size: "24x36"
         }
       ]},
+
       {
         artistName: 'name of artist',  
         name: 'Name of Art',
         description: 'Description of Art',
         image: '.jpg',
         category: categories[1]._id,
+
         size: [{
           price: 10.00,
           size: "5x7"
@@ -191,6 +200,9 @@ db.once('open', async () => {
           size: "24x36"
         }
       ]},
+    ]);
+
+
   console.log('art seeded');
 
   await User.deleteMany();
