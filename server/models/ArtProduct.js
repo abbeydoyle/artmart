@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-
 const { Schema } = mongoose;
-
+const Size = require('./Size')
 const itemSchema = new Schema({
     name: {
       type: String,
@@ -19,11 +18,8 @@ const itemSchema = new Schema({
     image: {
       type: String
     },
-    size: {
-      type: string,
-      required: true,
-      trim: true
-    },
+    sizes:[Size.schema],
+    
     category: {
       type: Schema.Types.ObjectId,
       ref: 'ArtCategory',

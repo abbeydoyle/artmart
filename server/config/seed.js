@@ -6,7 +6,8 @@ db.once('open', async () => {
 
   const categories = await ArtCategory.insertMany([
     { name: 'Digital Print' },
-    { name: 'Hand Drawn' } 
+    { name: 'Hand Drawn' },
+    { name: 'poster' }  
   ]);
 
   console.log('categories seeded');
@@ -20,35 +21,176 @@ db.once('open', async () => {
         description: 'Description of Art',
         image: '.jpg',
         category: categories[0]._id,
-        size: ["5x7","8x10","18x24","24x36"]
-      },
+        size: [{
+          price: 10.00,
+          size: "5x7"
+        },
+        {price: 20.00,
+        size: "8x10"
+        },
+        {
+          price:30.00,
+          size: "18x24"
+        },
+        {
+          price: 40.00,
+          size: "24x36"
+        }
+      ]},
       {
         artistName: 'name of artist',  
         name: 'Name of Art',
         description: 'Description of Art',
         image: '.jpg',
         category: categories[0]._id,
-        size: ["5x7","8x10","18x24","24x36"]
-      },
+        size: [{
+          price: 10.00,
+          size: "5x7"
+        },
+        {price: 20.00,
+        size: "8x10"
+        },
+        {
+          price:30.00,
+          size: "18x24"
+        },
+        {
+          price: 40.00,
+          size: "24x36"
+        }
+      ]},
       {
         artistName: 'name of artist',  
         name: 'Name of Art',
         description: 'Description of Art',
         image: '.jpg',
         category: categories[1]._id,
-        size: ["5x7","8x10","18x24","24x36"]
-      },
+        size: [{
+          price: 10.00,
+          size: "5x7"
+        },
+        {price: 20.00,
+        size: "8x10"
+        },
+        {
+          price:30.00,
+          size: "18x24"
+        },
+        {
+          price: 40.00,
+          size: "24x36"
+        }
+      ]},
       {
         artistName: 'name of artist',  
         name: 'Name of Art',
         description: 'Description of Art',
         image: '.jpg',
         category: categories[1]._id,
-        size: ["5x7","8x10","18x24","24x36"]
-      }
-   
-  ]);
-
+        size: [{
+          price: 10.00,
+          size: "5x7"
+        },
+        {price: 20.00,
+        size: "8x10"
+        },
+        {
+          price:30.00,
+          size: "18x24"
+        },
+        {
+          price: 40.00,
+          size: "24x36"
+        }
+      ]},
+      {
+        artistName: 'name of artist',  
+        name: 'Name of Art',
+        description: 'Description of Art',
+        image: '.jpg',
+        category: categories[1]._id,
+        size: [{
+          price: 10.00,
+          size: "5x7"
+        },
+        {price: 20.00,
+        size: "8x10"
+        },
+        {
+          price:30.00,
+          size: "18x24"
+        },
+        {
+          price: 40.00,
+          size: "24x36"
+        }
+      ]},
+      {
+        artistName: 'name of artist',  
+        name: 'Name of Art',
+        description: 'Description of Art',
+        image: '.jpg',
+        category: categories[1]._id,
+        size: [{
+          price: 10.00,
+          size: "5x7"
+        },
+        {price: 20.00,
+        size: "8x10"
+        },
+        {
+          price:30.00,
+          size: "18x24"
+        },
+        {
+          price: 40.00,
+          size: "24x36"
+        }
+      ]},
+      {
+        artistName: 'name of artist',  
+        name: 'Name of Art',
+        description: 'Description of Art',
+        image: '.jpg',
+        category: categories[2]._id,
+        size: [{
+          price: 10.00,
+          size: "5x7"
+        },
+        {price: 20.00,
+        size: "8x10"
+        },
+        {
+          price:30.00,
+          size: "18x24"
+        },
+        {
+          price: 40.00,
+          size: "24x36"
+        }
+      ]},
+      {
+        artistName: 'name of artist',  
+        name: 'Name of Art',
+        description: 'Description of Art',
+        image: '.jpg',
+        category: categories[2]._id,
+        size: [{
+          price: 10.00,
+          size: "5x7"
+        },
+        {price: 20.00,
+        size: "8x10"
+        },
+        {
+          price:30.00,
+          size: "18x24"
+        },
+        {
+          price: 40.00,
+          size: "24x36"
+        }
+      ]},
   console.log('art seeded');
 
   await User.deleteMany();
