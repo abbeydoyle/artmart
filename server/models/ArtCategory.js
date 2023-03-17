@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const ArtSchema = new Schema ({
+const ArtSizeSchema = new Schema ({
    
    //example
     title: { 
@@ -14,6 +14,6 @@ const ArtSchema = new Schema ({
 
 
 
-const ArtCategory = mongoose.model('ArtCategory', ArtSchema);
+const ArtCategory = mongoose.model('ArtCategory', ArtSizeSchema);
 
 module.exports = ArtCategory;
