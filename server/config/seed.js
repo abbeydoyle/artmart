@@ -191,6 +191,8 @@ db.once('open', async () => {
           size: "24x36"
         }
       ]},
+    ]);
+
   console.log('art seeded');
 
   await User.deleteMany();
