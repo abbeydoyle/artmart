@@ -52,10 +52,10 @@ const Signup = (props) => {
   //TODO: ADD FEEDBACK???
   // TODO: Style - get rid of either placeholder or label?
   return (
-    <>
-      <h2>Signup</h2>
+    <div class="bg-[#508192] m-5 p-5 rounded">
+      <h2 class="text-2xl">Welcome to ArtMart! Sign up here</h2>
       <form className="flex flex-col gap-4" onSubmit={handleFormSubmit}>
-        <Link to="/login">← Go to Login</Link>
+        {/* <Link to="/login">← Go to Login</Link> */}
         <div>
           <div className="mb-2 block">
             <Label htmlFor="fname" value="first name" />
@@ -117,7 +117,9 @@ const Signup = (props) => {
         </div>
         <Button type="submit">Sign Up</Button>
       </form>
-    </>
+      <div>Already have an account?</div>
+      <Link to="/login">Log in</Link>
+    </div>
   );
 };
 

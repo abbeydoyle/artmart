@@ -32,3 +32,8 @@ body {
     @apply class stuff;
   }
 } */
+/* FIXME: ugly */
+* {
+  /* background-image: url(https://res.cloudinary.com/duxmtidm1/image/upload/v1679075507/white-concrete-wall-texture-background_293060-18440_xlzqco.jpg); */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
