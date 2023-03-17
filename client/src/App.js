@@ -10,13 +10,12 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-
-import Home from './pages/Home';
-import Signup from './pages/signup';
-import Login from './pages/login';
-import Nav from './components/Nav';
+import Home from "./pages/Home";
+import Signup from "./pages/signup";
+import Login from "./pages/login";
+import Nav from "./components/Nav";
 // import Footer from './components/footer';
-import FooterApp from './components/Footer'
+import FooterApp from "./components/footer/index.js";
 // import Cart from './pages/mycart';
 // import Pastorders from './pages/pastorder';
 // import Profile from './pages/profile';
@@ -53,7 +52,7 @@ function App() {
           <Nav />
           <div className="container">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/address" element={<MyAddresses />} />
@@ -62,7 +61,6 @@ function App() {
           </div>
 
           <FooterApp />
-
         </div>
       </Router>
     </ApolloProvider>
