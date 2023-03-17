@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const Order = require('./ArtOrder');
+const ArtOrder = require('./ArtOrder');
 
 const userSchema = new Schema({
   firstName: {

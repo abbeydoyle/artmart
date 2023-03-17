@@ -13,15 +13,15 @@ const orderSchema = new Schema({
       ref: 'ArtProduct'
     }
   ],
-  size: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'ArtSize'
-      }
-  ]
+  // size: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'ArtSize'
+  //     }
+  // ]
   
 });
 
-const Order = mongoose.model('ArtOrder', orderSchema);
+const ArtOrder = mongoose.model('ArtOrder', orderSchema);
 
 module.exports = ArtOrder;

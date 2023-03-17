@@ -28,6 +28,6 @@ const itemSchema = new Schema({
   });
 
 
-const Product = mongoose.model('ArtProduct', itemSchema);
+const ArtProduct = mongoose.model('ArtProduct', itemSchema);
 
 module.exports = ArtProduct;
