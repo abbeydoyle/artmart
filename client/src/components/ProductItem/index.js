@@ -7,6 +7,7 @@
 // function ProductItem(item) {
 // //   const [state, dispatch] = useStoreContext();
 
+
 // //   const {
 // //     image,
 // //     title, // name,
@@ -15,6 +16,7 @@
 // //     // price,
 // //     // quantity
 // //   } = item;
+
 
 // //   const { cart } = state
 

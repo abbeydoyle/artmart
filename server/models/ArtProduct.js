@@ -18,8 +18,10 @@ const itemSchema = new Schema({
     image: {
       type: String
     },
+
     sizes:[Size.schema],
     
+
     category: {
       type: Schema.Types.ObjectId,
       ref: 'ArtCategory',
