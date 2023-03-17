@@ -19,20 +19,10 @@ const itemSchema = new Schema({
     image: {
       type: String
     },
-    price: {
-      type: Number,
+    size: {
+      type: string,
       required: true,
-      min: 10.00
-    },
-    quantity: {
-      type: Number,
-      min: 0,
-      default: 0
-    },
-    Size: {
-      type: boolean,
-      required: true,
-      min: [5*8, 8*10, 18*24, 24*36 ]
+      trim: true
     },
     category: {
       type: Schema.Types.ObjectId,
@@ -44,4 +34,4 @@ const itemSchema = new Schema({
 
 const Product = mongoose.model('ArtProduct', itemSchema);
 
-module.exports = ArtShowcase;
+module.exports = ArtProduct;
