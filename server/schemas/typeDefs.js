@@ -10,16 +10,14 @@ const typeDefs = `#graphql
     artistname: Strig
     description: String
     image: String
-    quantity: Int
-    price: Float
-    size:string or boolean
+    size: String 
     category: Category
   }
 
   type ArtOrder {
     _id: ID
     userid: String
-    sizeid: String
+    size: String
     user: [user]
     purchaseDate: String
     products: [Product]
@@ -54,11 +52,11 @@ const typeDefs = `#graphql
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    ADD_USER(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     addOrder(products: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateProduct(_id: ID!, quantity: Int!): Product
-    login(email: String!, password: String!): Auth
+    LOGIN_USER(email: String!, password: String!): Auth
   }
 `;
 module.exports = typeDefs;

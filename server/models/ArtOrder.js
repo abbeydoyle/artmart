@@ -12,7 +12,14 @@ const orderSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'ArtProduct'
     }
+  ],
+  size: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'ArtSize'
+      }
   ]
+  
 });
 
 const Order = mongoose.model('ArtOrder', orderSchema);

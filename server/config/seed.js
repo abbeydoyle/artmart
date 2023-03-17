@@ -1,57 +1,50 @@
 const db = require('./connection');
-const { User, ArtShowcase, ArtCategory } = require('../models');
+const { User, ArtProduct, ArtCategory } = require('../models');
 
 db.once('open', async () => {
   await ArtCategory.deleteMany();
 
-  const categories = await ArtCategory.insertOne([
-    { name: 'ART work' },
+  const categories = await ArtCategory.insertMany([
+    { name: 'Digital Print' },
+    { name: 'Hand Drawn' } 
   ]);
 
   console.log('categories seeded');
 
-  await ArtShowcase.deleteMany();
+  await ArtProduct.deleteMany();
 
-  const products = await ArtShowcase.insertMany([
+  const products = await ArtProduct.insertMany([
     {
         artistName: 'name of artist',  
         name: 'Name of Art',
         description: 'Description of Art',
         image: '.jpg',
         category: categories[0]._id,
-        price: [10.00, 20.00, 40.00, 60.00],
-        quantity: 5,
-        size: 
+        size: ["5x7","8x10","18x24","24x36"]
       },
       {
         artistName: 'name of artist',  
         name: 'Name of Art',
         description: 'Description of Art',
         image: '.jpg',
-        category: categories[0]._id,
-        price: [10.00, 20.00, 40.00, 60.00],
-        quantity: 5,
-        size: 
+        category: categories[1]._id,
+        size: ["5x7","8x10","18x24","24x36"]
       },
       {
         artistName: 'name of artist',  
         name: 'Name of Art',
         description: 'Description of Art',
         image: '.jpg',
-        category: categories[0]._id,
-        price: [10.00, 20.00, 40.00, 60.00],
-        quantity: 5,
-        size: 
+        category: categories[2]._id,
+        size: ["5x7","8x10","18x24","24x36"]
       },
       {
         artistName: 'name of artist',  
         name: 'Name of Art',
         description: 'Description of Art',
         image: '.jpg',
-        category: categories[0]._id,
-        price: [10.00, 20.00, 40.00, 60.00],
-        quantity: 5,
-        size: 
+        category: categories[3]._id,
+        size: ["5x7","8x10","18x24","24x36"]
       }
    
   ]);
