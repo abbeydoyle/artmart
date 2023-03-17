@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 
-import Home from './pages/Home';
+// import Home from './pages/Home';
 import Signup from './pages/signup';
 import Login from './pages/login';
 // import Header from './components/header';
@@ -21,9 +21,10 @@ import Login from './pages/login';
 // import Pastorders from './pages/pastorder';
 // import Profile from './pages/profile';
 // import Wishlist from './pages/wishlist';
-// import Adress from './pages/address';
+ import MyAddresses from './pages/MyAddresses';
 // import Checkout from './pages/checkout';
-// import Singleart from './pages/singleart'
+// import Singleart from './pages/singleart';
+ import Success from './pages/Success';
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -55,6 +56,8 @@ function App() {
               {/* <Route path="/" element={<Home />} /> */}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/address" element={<MyAddresses />} />
+              <Route path="/success" element={<Success />} />
             </Routes>
           </div>
           {/* <Footer /> */}
