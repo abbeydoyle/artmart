@@ -49,8 +49,9 @@ function Nav() {
   }
 
   return (
-    <header className="flex-row px-1">
-      <h1>
+    <header class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded">
+      <div class="container flex flex-wrap items-center justify-between mx-auto">
+        <h1>
         <Link to="/">
           {/* <span role="img" aria-label="shopping bag">🛍️</span> */}
           ARTMART
@@ -60,6 +61,8 @@ function Nav() {
       <nav>
         {showNavigation()}
       </nav>
+      </div>
+      
     </header>
   );
 }
