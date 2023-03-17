@@ -10,8 +10,6 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-
-
 import Home from './pages/Home';
 import Signup from './pages/signup';
 import Login from './pages/login';
@@ -21,10 +19,10 @@ import Nav from './components/Nav';
 // import Pastorders from './pages/pastorder';
 // import Profile from './pages/profile';
 // import Wishlist from './pages/wishlist';
- import MyAddresses from './pages/MyAddresses';
+import MyAddresses from "./pages/MyAddresses";
 // import Checkout from './pages/checkout';
 // import Singleart from './pages/singleart';
- import Success from './pages/Success';
+import Success from "./pages/Success";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -60,7 +58,7 @@ function App() {
               <Route path="/success" element={<Success />} />
             </Routes>
           </div>
-          {/* <Footer /> */}
+          <FooterApp />
         </div>
       </Router>
     </ApolloProvider>
