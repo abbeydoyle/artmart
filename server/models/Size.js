@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const priceSchema = new Schema ({
@@ -15,6 +16,6 @@ const priceSchema = new Schema ({
 
 });
 
-const Size = Mongoose.model('Size', priceSchema);
+const Size = mongoose.model('Size', priceSchema);
 
 module.exports = Size;
