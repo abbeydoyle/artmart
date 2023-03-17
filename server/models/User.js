@@ -30,9 +30,10 @@ const userSchema = new Schema({
     required: true,
     trim: true
     },
-  }
-  orders: [Order.schema]
+  
+  orders: [ArtOrder.schema]
 });
+
 
 // set up pre-save middleware to create password
 userSchema.pre('save', async function(next) {
