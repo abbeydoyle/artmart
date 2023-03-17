@@ -11,11 +11,11 @@ function profileLinks() {
               Addresses
             </Link>
           </li>
-          <li className="mx-1">
+          {/* <li className="mx-1">
             <Link to={`/wishlist`} className="button">
               My Wishlist
             </Link>
-          </li>
+          </li> */}
           <li className="mx-1">
             <Link to={`/editemail`} className="button">
             Edit Email
