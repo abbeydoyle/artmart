@@ -1,5 +1,5 @@
 const { GraphQLError } = require("graphql");
-const { User, ArtPoduct, ArtCategory, ArtOrder } = require("../models");
+const { User, ArtProduct, ArtCategory, ArtOrder } = require("../models");
 const { signToken } = require("../utils/auth");
 require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
@@ -22,10 +22,10 @@ const resolvers = {
         };
       }
 
-      return await ArtPoduct.find(params).populate("category");
+      return await ArtProduct.find(params).populate("category");
     },
     product: async (parent, { _id }) => {
-      return await ArtPoduct.findById(_id).populate("category");
+      return await ArtProduct.findById(_id).populate("category");
     },
     user: async (parent, args, context) => {
       if (context.user) {
@@ -139,7 +139,7 @@ const resolvers = {
     updateProduct: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
-      return await ArtPoduct.findByIdAndUpdate(
+      return await ArtProduct.findByIdAndUpdate(
         _id,
         { $inc: { quantity: decrement } },
         { new: true }
