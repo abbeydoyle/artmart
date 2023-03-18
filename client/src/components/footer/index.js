@@ -3,8 +3,9 @@ import { Footer } from "flowbite-react";
 
 const FooterApp = () => {
   return (
-    <Footer container={true}>
-      <Footer.Copyright href="#" by="ArtMart" year={2022} />
+    // TODO: link open in new tab
+    <Footer container={true} class="flex justify-center">
+      <Footer.Copyright href="https://github.com/abbeydoyle/artmart/blob/develop/LICENSE" by="ArtMart" year={2023} />
     </Footer>
   );
 };
