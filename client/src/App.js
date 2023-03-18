@@ -16,7 +16,7 @@ import Login from "./pages/login";
 import Nav from "./components/Nav";
 // import Footer from './components/footer';
 import FooterApp from "./components/footer/index.js";
-// import Cart from './pages/mycart';
+// import Cart from "./components/Cart/index.js";
 // import Pastorders from './pages/pastorder';
 // import Profile from './pages/profile';
 // import Wishlist from './pages/wishlist';
@@ -57,6 +57,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/address" element={<MyAddresses />} />
               <Route path="/success" element={<Success />} />
+              {/* <Route path="/cart" element={<Cart />} /> */}
             </Routes>
           </div>
 
