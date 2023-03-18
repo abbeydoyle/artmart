@@ -20,6 +20,7 @@ function ProductItem(item) {
 
   const { cart } = state
 
+//TODO: we probably don't need addToCart here because you won't be able to add to cart straight from homepage without going to the artwork?
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === _id)
     if (itemInCart) {
@@ -45,7 +46,7 @@ function ProductItem(item) {
     <div className="">
         <p>TEST</p>
       <Link to={`/products/`}>
-        <img src={`${image}`}/>
+        <img alt={name} src={`${image}`}/>
         {/* <img
         
           src={`/images/`}
@@ -54,6 +55,7 @@ function ProductItem(item) {
         <p>{artistname}</p>
       </Link>
       {/* <button >Add to cart</button> */}
+      <button onClick={addToCart}>Add to cart</button>
     </div>
   );
 }
