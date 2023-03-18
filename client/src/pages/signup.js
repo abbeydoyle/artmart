@@ -52,7 +52,7 @@ const Signup = (props) => {
   //TODO: ADD FEEDBACK???
   // TODO: Style - get rid of either placeholder or label?
   return (
-    <div class="bg-[#508192] m-5 p-5 rounded md:w-[50%]">
+    <div class="bg-[#508192] m-5 p-5 rounded md:w-[50%] w-[80%]">
       <h2 class="text-2xl font-bold text-white pb-2">Welcome to ArtMart!</h2>
       <form className="flex flex-col gap-4 pb-8" onSubmit={handleFormSubmit}>
         {/* <Link to="/login">← Go to Login</Link> */}
@@ -105,7 +105,7 @@ const Signup = (props) => {
           <TextInput
             id="passwordInput"
             type="password"
-            placeholder="password"
+            placeholder="*******"
             required={true}
             shadow={true}
             onChange={handleInputChange}
