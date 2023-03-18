@@ -1,5 +1,5 @@
-// import React, { useEffect } from 'react';
-// import ProductItem from '../ProductItem';
+import React, { useEffect } from 'react';
+import ProductItem from '../ProductItem';
 // // import { useStoreContext } from '../../utils/GlobalState';
 // // import { UPDATE_PRODUCTS } from '../../utils/actions';
 // import { useQuery } from '@apollo/client';
@@ -7,7 +7,7 @@
 // // import { idbPromise } from '../../utils/helpers';
 // // import spinner from '../../assets/spinner.gif';
 
-// function ProductList() {
+function ProductList() {
 // //   const [state, dispatch] = useStoreContext();
 
 // // //   const { currentCategory } = state; // I don't know if this is needed if we aren't doing categories at the moment
@@ -67,6 +67,6 @@
 //       {loading ? <img src={spinner} alt="loading" /> : null} */}
 //     </div>
 //   );
-// }
+}
 
-// export default ProductList;
+export default ProductList;
