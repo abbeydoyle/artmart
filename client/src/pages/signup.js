@@ -52,8 +52,8 @@ const Signup = (props) => {
   //TODO: ADD FEEDBACK???
   // TODO: Style - get rid of either placeholder or label?
   return (
-    <div class="bg-[#508192] m-5 p-5 rounded">
-      <h2 class="text-2xl">Welcome to ArtMart! Sign up here</h2>
+    <div class="bg-[#508192] m-5 p-5 rounded w-[75%]">
+      <h2 class="text-2xl">Welcome to ArtMart!</h2>
       <form className="flex flex-col gap-4" onSubmit={handleFormSubmit}>
         {/* <Link to="/login">← Go to Login</Link> */}
         <div>
