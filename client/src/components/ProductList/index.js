@@ -10,7 +10,7 @@ import { idbPromise } from '../../utils/helpers';
 function ProductList() {
   const [state, dispatch] = useStoreContext();
 
-// // //   const { currentCategory } = state; // I don't know if this is needed if we aren't doing categories at the moment
+  const { currentCategory } = state; // I don't know if this is needed if we aren't doing categories at the moment
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
@@ -35,31 +35,31 @@ function ProductList() {
 
 
 
-// ///// REACH GOAL /////
+///// REACH GOAL? /////
 
-// //   function filterProducts() {
-// //     if (!currentCategory) {
-// //       return state.products;
-// //     }
+  function filterProducts() {
+    if (!currentCategory) {
+      return state.products;
+    }
 
-// //     return state.products.filter(
-// //       (product) => product.category._id === currentCategory
-// //     );
-// //   }
+    return state.products.filter(
+      (product) => product.category._id === currentCategory
+    );
+  }
 
   return (
-    <div className="my-2">
+    <div className="">
       {state.products.length ? (
-        <div className="flex-row">
-          {/* {filterProducts().map((product) => (
+        <div className="">
+          {filterProducts().map((product) => (
             <ProductItem
               key={product._id}
               _id={product._id}
               image={product.image}
-              title={product.title}
-              artist={product.artist}
+              title={product.name}
+              artist={product.artistname}
             />
-          ))} */}
+          ))}
         </div>
       ) : (
         <h3>You haven't added any products yet!</h3>
