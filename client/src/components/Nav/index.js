@@ -26,19 +26,26 @@ function Nav() {
           </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse>
-            <Navbar.Link
-            href="/">
-              <span className = "block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">Prints</span>
+            <Navbar.Link href="/">
+              <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
+                Prints
+              </span>
             </Navbar.Link>
             <Navbar.Link href="/login">
-              <span className = "block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">Profile</span>
-              </Navbar.Link>
-              {/* TODO: wishlist */}
-            <Navbar.Link href="/mywishlist">
-              <span className = "block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">Wishlist</span>
+              <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
+                Profile
+              </span>
             </Navbar.Link>
-            <Navbar.Link href="/mycart">
-              <span className = "block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">My Cart</span>
+            {/* TODO: wishlist */}
+            <Navbar.Link href="/mywishlist">
+              <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
+                Wishlist
+              </span>
+            </Navbar.Link>
+            <Navbar.Link href="/cart">
+              <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
+                My Cart
+              </span>
             </Navbar.Link>
           </Navbar.Collapse>
         </Navbar>
@@ -64,15 +71,25 @@ function Nav() {
           </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse>
-            <Navbar.Link
-            href="/">
-              <span className = "block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">Prints</span>
+            <Navbar.Link href="/">
+              <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
+                Prints
+              </span>
             </Navbar.Link>
             <Navbar.Link href="/login">
-              <span className = "block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">Log in</span>
-              </Navbar.Link>
+              <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
+                Log in
+              </span>
+            </Navbar.Link>
             <Navbar.Link href="/signup">
-              <span className = "block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">Sign up</span>
+              <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
+                Sign up
+              </span>
+            </Navbar.Link>
+            <Navbar.Link href="/cart">
+              <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
+                My Cart
+              </span>
             </Navbar.Link>
           </Navbar.Collapse>
         </Navbar>
