@@ -212,6 +212,7 @@ db.once('open', async () => {
     lastName: 'Kim',
     email: 'hkim@email.com',
     password: 'password12345',
+    address: '12534 bcamp ave sw lynnwood, Wa 88888',
     orders: [
       {
         products: [products[0]._id, products[0]._id, products[1]._id]
@@ -223,36 +224,37 @@ db.once('open', async () => {
     firstName: 'nooh',
     lastName: 'mik',
     email: 'nmik@email.com',
-    password: 'password12345'
+    password: 'password12345',
+    address: '123 bootcamp ave n seattle, Wa 99999'
   });
 
-  await User.create({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: ''
-  });
+  // await User.create({
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  //   password: ''
+  // });
 
-  await User.create({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: ''
-  });
+  // await User.create({
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  //   password: ''
+  // });
 
-  await User.create({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: ''
-  });
+  // await User.create({
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  //   password: ''
+  // });
 
-  await User.create({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: ''
-  });
+  // await User.create({
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  //   password: ''
+  // });
 
   console.log('users seeded');
 
