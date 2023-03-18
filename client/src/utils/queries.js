@@ -10,3 +10,21 @@ export const QUERY_CHECKOUT = gql`
     }
   }
 `;
+
+
+export const QUERY_PRODUCTS = gql`
+    query getProducts($category: ID) {
+        products(category: $category) {
+            _id
+            name
+            artistname
+            description
+            image
+            size
+            category {
+                _id
+            }
+        }
+    }
+`;
+
