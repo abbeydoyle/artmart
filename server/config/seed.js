@@ -6,7 +6,6 @@ db.once('open', async () => {
 
   const categories = await ArtCategory.insertMany([
     { name: 'Digital Print' },
-
     { name: 'Hand Drawn' },
     { name: 'poster' }  
 

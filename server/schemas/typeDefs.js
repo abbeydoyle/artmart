@@ -7,11 +7,11 @@ const typeDefs = `#graphql
   type ArtProduct {
     _id: ID
     name: String
-    artistname: Strig
+    artistname: String
     description: String
     image: String
     size: String 
-    category: Category
+    category: ArtCategory
   }
 
   type ArtOrder {
@@ -20,7 +20,7 @@ const typeDefs = `#graphql
     size: String
     user: [user]
     purchaseDate: String
-    products: [Product]
+    products: [ArtProduct]
   }
 
   type User {
@@ -30,7 +30,7 @@ const typeDefs = `#graphql
     address: String
     Password: String
     email: String
-    orders: [Order]
+    orders: [ArtOrder]
   }
 
   type Checkout {
@@ -43,8 +43,8 @@ const typeDefs = `#graphql
   }
 
   type Query {
-    categories: [Category]
-    products(category: ID, name: String): [Product]
+    categories: [ArtCategory]
+    products(category: ID, name: String): [ArtProduct]
     product(_id: ID!): Product
     user: User
     order(_id: ID!): Order
@@ -56,6 +56,7 @@ const typeDefs = `#graphql
     addOrder(products: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateProduct(_id: ID!, quantity: Int!): Product
+    updateAddress(mailAddress: string!)
     LOGIN_USER(email: String!, password: String!): Auth
   }
 `;
