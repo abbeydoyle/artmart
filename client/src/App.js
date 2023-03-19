@@ -16,7 +16,7 @@ import Login from "./pages/login";
 import Nav from "./components/Nav";
 // import Footer from './components/footer';
 import FooterApp from "./components/footer/index.js";
-// import Cart from './pages/mycart';
+// import Cart from "./components/Cart/index.js";
 // import Pastorders from './pages/pastorder';
 // import Profile from './pages/profile';
 import Wishlist from './pages/MyWishlist';
@@ -48,15 +48,16 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
+        <div className="min-100-vh">
           <Nav />
-          <div className="container">
+          <div className="container flex flex-col justify-center items-center md:ml-[5rem]">
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/address" element={<MyAddresses />} />
               <Route path="/success" element={<Success />} />
+              {/* <Route path="/cart" element={<Cart />} /> */}
               <Route path="/wishlist" element={<Wishlist />} />
             </Routes>
           </div>

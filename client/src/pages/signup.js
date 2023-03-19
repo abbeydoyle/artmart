@@ -52,18 +52,18 @@ const Signup = (props) => {
   //TODO: ADD FEEDBACK???
   // TODO: Style - get rid of either placeholder or label?
   return (
-    <>
-      <h2>Signup</h2>
-      <form className="flex flex-col gap-4" onSubmit={handleFormSubmit}>
-        <Link to="/login">← Go to Login</Link>
+    <div class="bg-[#508192] m-5 p-5 rounded md:w-[50%] w-[80%]">
+      <h2 class="text-2xl font-bold text-white pb-2">Welcome to ArtMart!</h2>
+      <form className="flex flex-col gap-4 pb-8" onSubmit={handleFormSubmit}>
+        {/* <Link to="/login">← Go to Login</Link> */}
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="fname" value="first name" />
+            <Label htmlFor="fname" value="First Name" />
           </div>
           <TextInput
             id="fnameInput"
             type="text"
-            placeholder="first name"
+            placeholder="Jane"
             required={true}
             shadow={true}
             onChange={handleInputChange}
@@ -72,12 +72,12 @@ const Signup = (props) => {
 
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="lname" value="last name" />
+            <Label htmlFor="lname" value="Last Name" />
           </div>
           <TextInput
             id="lnameInput"
             type="text"
-            placeholder="last name"
+            placeholder="Doe"
             required={true}
             shadow={true}
             onChange={handleInputChange}
@@ -86,12 +86,12 @@ const Signup = (props) => {
 
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="email" value="email" />
+            <Label htmlFor="email" value="Email Address" />
           </div>
           <TextInput
             id="emailInput"
             type="email"
-            placeholder="email"
+            placeholder="janedoe@email.com"
             required={true}
             shadow={true}
             onChange={handleInputChange}
@@ -100,11 +100,12 @@ const Signup = (props) => {
 
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="password" value="password" />
+            <Label htmlFor="password" value="Password" />
           </div>
           <TextInput
             id="passwordInput"
             type="password"
+            placeholder="*******"
             required={true}
             shadow={true}
             onChange={handleInputChange}
@@ -115,9 +116,17 @@ const Signup = (props) => {
           <Checkbox id="agree" />
           <Label htmlFor="agree">I agree with the terms and conditions</Label>
         </div>
-        <Button type="submit">Sign Up</Button>
+        <Button type="submit" outline={true} className="md:w-[20%] w-[50%] md:ml-[40%]" gradientDuoTone="redToYellow">
+          Sign Up
+        </Button>
       </form>
-    </>
+      <h2 class="text-xl font-bold text-white pb-5">
+        Already have an account?
+      </h2>
+      <Button type="submit" outline={true} className="md:w-[20%] w-[50%] md:ml-[40%]" gradientDuoTone="redToYellow">
+        <Link to="/login">Log in</Link>
+      </Button>
+    </div>
   );
 };
 
