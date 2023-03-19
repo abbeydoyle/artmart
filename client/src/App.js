@@ -19,7 +19,7 @@ import FooterApp from "./components/footer/index.js";
 // import Cart from "./components/Cart/index.js";
 // import Pastorders from './pages/pastorder';
 
-// import Profile from './pages/profile';
+import Profile from './pages/MyProfile';
 // import Wishlist from "./pages/MyWishlist";
 // import MyAddresses from "./pages/MyAddresses";
 

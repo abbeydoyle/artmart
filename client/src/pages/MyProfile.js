@@ -7,7 +7,7 @@ function Profile() {
     <div class="md:grid md:grid-cols-8 gap-1">
       <div class="bg-[#508192] m-5 p-5 rounded md:col-span-4 shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
         <h2 class="text-2xl font-bold text-white pt-2">My Profile</h2>
-        <Table className="bg-transparent text-black text-lg">
+        <Table className="bg-transparent text-white text-lg">
           <Table.Head className="bg-transparent text-black"> 
             <Table.HeadCell className="sr-only">Profile</Table.HeadCell>
             <Table.HeadCell className="sr-only">Current input</Table.HeadCell>
@@ -64,7 +64,7 @@ function Profile() {
 
       <div class="bg-[#508192] m-5 p-5 rounded md:col-span-4 shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
         <h2 class="text-2xl font-bold text-white pt-2">My Lists</h2>
-        <Table className="bg-transparent text-black text-lg">
+        <Table className="bg-transparent text-white text-lg">
           <Table.Head className="bg-transparent text-black"> 
             <Table.HeadCell className="sr-only">My Lists</Table.HeadCell>
             <Table.HeadCell>
