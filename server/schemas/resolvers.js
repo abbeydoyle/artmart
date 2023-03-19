@@ -30,7 +30,7 @@ const resolvers = {
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: "artorders.product",
+          path: "orders.products",
           populate: "category",
         });
 
@@ -48,7 +48,7 @@ const resolvers = {
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: "artorders.product",
+          path: "orders.products",
           populate: "category",
         });
 
@@ -66,7 +66,7 @@ const resolvers = {
       const order = new ArtOrder({ products: args.products });
       const line_items = [];
 
-      const { products } = await order.populate("product");
+      const { products } = await order.populate("products");
 
       for (let i = 0; i < products.length; i++) {
         const product = await stripe.products.create({

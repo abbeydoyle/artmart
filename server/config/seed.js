@@ -5,9 +5,9 @@ db.once("open", async () => {
   await ArtCategory.deleteMany();
 
   const categories = await ArtCategory.insertMany([
-    { name: "Digital Print" },
-    { name: "Hand Drawn" },
-    { name: "poster" },
+    { name: "print" },
+    { name: "handmade" },
+    { name: "graphic" },
   ]);
 
   console.log("categories seeded");
@@ -16,36 +16,36 @@ db.once("open", async () => {
 
   const products = await ArtProduct.insertMany([
     {
+      name: "Name of Art",
+      artistName: "name of artist",
+      description: "Description of Art",
+      image: ".jpg",
+      sizes: [
+        {
+          price: 10.0,
+          size: "5x7",
+        },
+        { price: 20.0, size: "8x10" },
+        {
+          price: 30.0,
+          size: "18x24",
+        },
+        {
+          price: 40.0,
+          size: "24x36",
+        },
+      ],
+      category: categories[0]._id,
+    },
+
+    {
       artistName: "name of artist",
       name: "Name of Art",
       description: "Description of Art",
       image: ".jpg",
       category: categories[0]._id,
-      size: [
-        {
-          price: 10.0,
-          size: "5x7",
-        },
-        { price: 20.0, size: "8x10" },
-        {
-          price: 30.0,
-          size: "18x24",
-        },
-        {
-          price: 40.0,
-          size: "24x36",
-        },
-      ],
-    },
 
-    {
-      artistName: "name of artist",
-      name: "Name of Art",
-      description: "Description of Art",
-      image: ".jpg",
-      category: categories[0]._id,
-
-      size: [
+      sizs: [
         {
           price: 10.0,
           size: "5x7",
@@ -69,7 +69,7 @@ db.once("open", async () => {
       image: ".jpg",
       category: categories[1]._id,
 
-      size: [
+      sizes: [
         {
           price: 10.0,
           size: "5x7",
@@ -92,8 +92,7 @@ db.once("open", async () => {
       description: "Description of Art",
       image: ".jpg",
       category: categories[1]._id,
-
-      size: [
+      sizes: [
         {
           price: 10.0,
           size: "5x7",
@@ -115,7 +114,7 @@ db.once("open", async () => {
       description: "Description of Art",
       image: ".jpg",
       category: categories[1]._id,
-      size: [
+      sizes: [
         {
           price: 10.0,
           size: "5x7",
@@ -137,7 +136,7 @@ db.once("open", async () => {
       description: "Description of Art",
       image: ".jpg",
       category: categories[1]._id,
-      size: [
+      sizes: [
         {
           price: 10.0,
           size: "5x7",
@@ -159,7 +158,7 @@ db.once("open", async () => {
       description: "Description of Art",
       image: ".jpg",
       category: categories[2]._id,
-      size: [
+      sizes: [
         {
           price: 10.0,
           size: "5x7",
@@ -181,7 +180,7 @@ db.once("open", async () => {
       description: "Description of Art",
       image: ".jpg",
       category: categories[2]._id,
-      size: [
+      sizes: [
         {
           price: 10.0,
           size: "5x7",
@@ -222,6 +221,11 @@ db.once("open", async () => {
     email: "nmik@email.com",
     password: "password12345",
     address: "123 bootcamp ave n seattle, Wa 99999",
+    orders: [
+      {
+        products: [products[0]._id, products[0]._id, products[1]._id],
+      },
+    ],
   });
 
   // await User.create({

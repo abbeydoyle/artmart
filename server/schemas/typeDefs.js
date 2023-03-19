@@ -7,18 +7,15 @@ const typeDefs = `#graphql
   type ArtProduct {
     _id: ID
     name: String
-    artistname: String
+    artistName: String
     description: String
     image: String
-    size: String 
+    sizes: [String] 
     category: ArtCategory
   }
 
   type ArtOrder {
     _id: ID
-    userid: String
-    size: String
-    user: [user]
     purchaseDate: String
     products: [ArtProduct]
   }
@@ -28,7 +25,7 @@ const typeDefs = `#graphql
     firstName: String
     lastName: String
     address: String
-    Password: String
+    password: String
     email: String
     orders: [ArtOrder]
   }
@@ -45,19 +42,19 @@ const typeDefs = `#graphql
   type Query {
     categories: [ArtCategory]
     products(category: ID, name: String): [ArtProduct]
-    product(_id: ID!): Product
+    product(_id: ID!): ArtProduct
     user: User
-    order(_id: ID!): Order
+    order(_id: ID!): ArtOrder
     checkout(products: [ID]!): Checkout
   }
 
   type Mutation {
-    ADD_USER(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    addOrder(products: [ID]!): ArtOrder
     updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
-    updateAddress(mailAddress: string!)
-    LOGIN_USER(email: String!, password: String!): Auth
+    updateProduct(_id: ID!, quantity: Int!): ArtProduct
+    updateAddress(mailAddress: String!): User
+    login(email: String!, password: String!): Auth
   }
 `;
 module.exports = typeDefs;

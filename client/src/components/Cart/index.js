@@ -8,7 +8,6 @@ import { idbPromise } from "../../utils/helpers";
 // import Auth from "../../utils/auth";
 import { useStoreContext } from "../../utils/GlobalState";
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
-import {} from "flowbite-react";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
@@ -16,50 +15,50 @@ const Cart = () => {
   const [state, dispatch] = useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
-  useEffect(() => {
-    if (data) {
-      stripePromise.then((res) => {
-        res.redirectToCheckout({ sessionId: data.checkout.session });
-      });
-    }
-  }, [data]);
+  //   useEffect(() => {
+  //     if (data) {
+  //       stripePromise.then((res) => {
+  //         res.redirectToCheckout({ sessionId: data.checkout.session });
+  //       });
+  //     }
+  //   }, [data]);
 
-  useEffect(() => {
-    async function getCart() {
-      const cart = await idbPromise("cart", "get");
-      dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
-    }
+  //   useEffect(() => {
+  //     async function getCart() {
+  //       const cart = await idbPromise("cart", "get");
+  //       dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
+  //     }
 
-    if (!state.cart.length) {
-      getCart();
-    }
-  }, [state.cart.length, dispatch]);
+  //     if (!state.cart.length) {
+  //       getCart();
+  //     }
+  //   }, [state.cart.length, dispatch]);
 
-  function toggleCart() {
-    dispatch({ type: TOGGLE_CART });
-  }
+  //   function toggleCart() {
+  //     dispatch({ type: TOGGLE_CART });
+  //   }
 
-  function calculateTotal() {
-    let sum = 0;
-    state.cart.forEach((item) => {
-      sum += item.price * item.purchaseQuantity;
-    });
-    return sum.toFixed(2);
-  }
+  //   function calculateTotal() {
+  //     let sum = 0;
+  //     state.cart.forEach((item) => {
+  //       sum += item.price * item.purchaseQuantity;
+  //     });
+  //     return sum.toFixed(2);
+  //   }
 
-  function submitCheckout() {
-    const productIds = [];
+  //   function submitCheckout() {
+  //     const productIds = [];
 
-    state.cart.forEach((item) => {
-      for (let i = 0; i < item.purchaseQuantity; i++) {
-        productIds.push(item._id);
-      }
-    });
+  //     state.cart.forEach((item) => {
+  //       for (let i = 0; i < item.purchaseQuantity; i++) {
+  //         productIds.push(item._id);
+  //       }
+  //     });
 
-    getCheckout({
-      variables: { products: productIds },
-    });
-  }
+  //     getCheckout({
+  //       variables: { products: productIds },
+  //     });
+  //   }
 
   return (
     <div className="cart">
