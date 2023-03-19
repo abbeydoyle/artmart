@@ -41,7 +41,7 @@ const Login = (props) => {
   };
 
   return (
-    <div class="bg-[#508192] m-5 p-5 rounded md:w-[50%] w-[80%]">
+    <div class="bg-[#508192] m-5 p-5 rounded md:w-[50%] w-[80%] shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
       <h2 class="text-2xl font-bold text-white pb-2">Welcome back!</h2>
       <div className="card-body">
         {data ? (
