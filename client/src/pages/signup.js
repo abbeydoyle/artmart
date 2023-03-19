@@ -117,7 +117,7 @@ const Signup = (props) => {
           <Label htmlFor="agree">I agree with the terms and conditions</Label>
         </div>
         <Button type="submit" outline={true} className="md:w-[20%] w-[50%] md:ml-[40%]" gradientDuoTone="redToYellow">
-          Sign Up
+          Sign up
         </Button>
       </form>
       <h2 class="text-xl font-bold text-white pb-5">

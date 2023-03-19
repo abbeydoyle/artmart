@@ -78,7 +78,7 @@ const Login = (props) => {
               />
             </div>
             <Button type="submit" outline={true} className="md:w-[20%] w-[50%] md:ml-[40%] mt-[1rem]" gradientDuoTone="redToYellow">
-          Sign Up
+          Log in
         </Button>
           </form>
           <h2 class="text-xl font-bold text-white pb-5 pt-5">
