@@ -24,6 +24,7 @@
   "dependencies": {
     "@stripe/stripe-js": "^1.49.0",
     "axios": "^1.3.4",
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "http-proxy-middleware": "^2.0.6"
   }
 }

@@ -3,12 +3,14 @@ import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import Cart from '../components/Cart';
+import Wishlist from './MyWishlist';
 import { useStoreContext } from '../utils/GlobalState';
 import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
   ADD_TO_CART,
   UPDATE_PRODUCTS,
+  ADD_TO_WISHLIST
 } from '../utils/actions';
 import { QUERY_PRODUCTS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
@@ -72,6 +74,21 @@ function Detail() {
     }
   };
 
+  const addToWishlist = () => {
+  const itemInWishlist = Wishlist.find((WishlistItem) => WishlistItem._id === id);
+    if (itemInWishlist) {
+      idbPromise('wishlist', 'put', {
+        ...itemInWishlist,
+      });
+    } else {
+      dispatch({
+        type: ADD_TO_WISHLIST,
+        product: { ...currentProduct },
+      });
+      idbPromise('wishlist', 'put', { ...currentProduct});
+    }
+  };
+
   const removeFromCart = () => {
     dispatch({
       type: REMOVE_FROM_CART,
@@ -99,6 +116,7 @@ function Detail() {
           <p>
             <strong>Price:</strong>${currentProduct.price}{" "}
             <button onClick={addToCart}>Add to Cart</button>
+            <button onClick={addToWishlist}>Add to Cart</button>
           </p>
 
           <div>
@@ -125,6 +143,7 @@ function Detail() {
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
       <Cart />
+      <Wishlist />
     </>
   );
 }

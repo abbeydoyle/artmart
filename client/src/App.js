@@ -19,7 +19,7 @@ import FooterApp from "./components/footer/index.js";
 // import Cart from "./components/Cart/index.js";
 // import Pastorders from './pages/pastorder';
 // import Profile from './pages/profile';
-// import Wishlist from './pages/wishlist';
+import Wishlist from './pages/MyWishlist';
 import MyAddresses from "./pages/MyAddresses";
 // import Checkout from './pages/checkout';
 // import Singleart from './pages/singleart';
@@ -58,6 +58,7 @@ function App() {
               <Route path="/address" element={<MyAddresses />} />
               <Route path="/success" element={<Success />} />
               {/* <Route path="/cart" element={<Cart />} /> */}
+              <Route path="/wishlist" element={<Wishlist />} />
             </Routes>
           </div>
 
