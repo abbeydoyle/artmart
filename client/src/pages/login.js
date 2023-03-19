@@ -82,11 +82,8 @@ const Login = (props) => {
         </Button>
           </form>
           <h2 class="text-xl font-bold text-white pb-5 pt-5">
-        New user?
+        New user? <Link to="/signup" className="hover:text-[#cccccc] underline">Sign up</Link>
       </h2>
-      <Button type="submit" outline={true} className="md:w-[20%] w-[50%] md:ml-[40%]" gradientDuoTone="redToYellow">
-        <Link to="/signup">Sign up</Link>
-      </Button>
     </div>
         )}
 
