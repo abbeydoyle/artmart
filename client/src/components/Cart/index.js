@@ -1,28 +1,28 @@
 import React, { useEffect } from "react";
-// import { loadStripe } from "@stripe/stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 //useLazyQuery function returns a promise that fulfills with a query result when the query succeeds or fails.
 import { useLazyQuery } from "@apollo/client";
 import { QUERY_CHECKOUT } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
-import CartItem from "../CartItem";
-import Auth from "../../utils/auth";
+// import CartItem from "../CartItem";
+// import Auth from "../../utils/auth";
 import { useStoreContext } from "../../utils/GlobalState";
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
-// import {} from "flowbite-react";
+import {} from "flowbite-react";
 
-// const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
-  // useEffect(() => {
-  //   if (data) {
-  //     stripePromise.then((res) => {
-  //       res.redirectToCheckout({ sessionId: data.checkout.session });
-  //     });
-  //   }
-  // }, [data]);
+  useEffect(() => {
+    if (data) {
+      stripePromise.then((res) => {
+        res.redirectToCheckout({ sessionId: data.checkout.session });
+      });
+    }
+  }, [data]);
 
   useEffect(() => {
     async function getCart() {
@@ -35,9 +35,9 @@ const Cart = () => {
     }
   }, [state.cart.length, dispatch]);
 
-  // function toggleCart() {
-  //   dispatch({ type: TOGGLE_CART });
-  // }
+  function toggleCart() {
+    dispatch({ type: TOGGLE_CART });
+  }
 
   function calculateTotal() {
     let sum = 0;
