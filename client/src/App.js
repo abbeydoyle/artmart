@@ -16,11 +16,13 @@ import Login from "./pages/login";
 import Nav from "./components/Nav";
 // import Footer from './components/footer';
 import FooterApp from "./components/footer/index.js";
-// import Cart from "./components/Cart/index.js";
+import Cart from "./components/Cart";
 // import Pastorders from './pages/pastorder';
-// import Profile from './pages/profile';
-import Wishlist from './pages/MyWishlist';
-import MyAddresses from "./pages/MyAddresses";
+
+import Profile from "./pages/MyProfile";
+// import Wishlist from "./pages/MyWishlist";
+// import MyAddresses from "./pages/MyAddresses";
+
 // import Checkout from './pages/checkout';
 // import Singleart from './pages/singleart';
 import Success from "./pages/Success";
@@ -55,10 +57,11 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/address" element={<MyAddresses />} />
+              {/* <Route path="/address" element={<MyAddresses />} /> */}
               <Route path="/success" element={<Success />} />
-              {/* <Route path="/cart" element={<Cart />} /> */}
-              <Route path="/wishlist" element={<Wishlist />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/profile" element={<Profile />} />
+              {/* <Route path="/wishlist" element={<Wishlist />} /> */}
             </Routes>
           </div>
 
