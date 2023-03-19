@@ -14,13 +14,12 @@ import Home from "./pages/Home";
 import Signup from "./pages/signup";
 import Login from "./pages/login";
 import Nav from "./components/Nav";
-// import Footer from './components/footer';
 import FooterApp from "./components/footer/index.js";
 import Cart from "./components/Cart";
 // import Pastorders from './pages/pastorder';
 
 import Profile from "./pages/MyProfile";
-// import Wishlist from "./pages/MyWishlist";
+import Wishlist from "./pages/MyWishlist";
 // import MyAddresses from "./pages/MyAddresses";
 
 // import Checkout from './pages/checkout';
@@ -61,7 +60,7 @@ function App() {
               <Route path="/success" element={<Success />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/profile" element={<Profile />} />
-              {/* <Route path="/wishlist" element={<Wishlist />} /> */}
+              { <Route path="/wishlist" element={<Wishlist />} /> }
             </Routes>
           </div>
 
