@@ -3,9 +3,11 @@ import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import { Navbar } from "flowbite-react";
 import LogoutModal from "../../pages/logout";
+import Signup from "../../pages/signup";
 
 function Nav() {
   const [showLogoutModal, setshowLogoutModal] = useState(false);
+  const [showSignupModal, setshowSignupModal] = useState(false);
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
@@ -93,7 +95,9 @@ function Nav() {
                 Log in
               </span>
             </Navbar.Link>
-            <Navbar.Link href="/signup">
+            <Navbar.Link onClick={() => {
+                setshowSignupModal(true);
+              }}>
               <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
                 Sign up
               </span>
@@ -103,12 +107,8 @@ function Nav() {
                 My Cart
               </span>
             </Navbar.Link>
-            {/* <Navbar.Link onClick={Auth.logout}>
-              <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
-                Logout
-              </span>
-            </Navbar.Link> */}
           </Navbar.Collapse>
+          {showSignupModal && <Signup setOpenSignupModal={setshowSignupModal} />}
         </Navbar>
       );
     }
