@@ -4,6 +4,7 @@ import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 import { Label, TextInput, Button } from "flowbite-react";
+import Login from "./login";
 
 const Signup = ({ setOpenSignupModal }) => {
   // set initial form state
@@ -59,6 +60,11 @@ const Signup = ({ setOpenSignupModal }) => {
       [name]: value,
     });
   };
+
+  function SignupSwitch() {
+    setOpenSignupModal(false);
+    Login()
+  }
 
   //TODO: HAVE TO CHANGE A LOT OF THESE NAMES BELOW
   //TODO: ADD FEEDBACK???
@@ -219,9 +225,10 @@ const Signup = ({ setOpenSignupModal }) => {
                   <h2 className="text-xl font-bold text-white pb-5">
                     Already have an account?{" "}
                     <Link
-                      to="/login"
                       className="hover:text-[#cccccc] underline"
-                      onClick={() => setOpenSignupModal(false)}
+                      onClick={() => 
+                        SignupSwitch()
+                      }
                     >
                       Log in
                     </Link>
