@@ -1,11 +1,9 @@
-// import "../index.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// TODO: import CSS ???
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
-import { Label, TextInput, Checkbox, Button } from "flowbite-react";
+import { Label, TextInput, Button } from "flowbite-react";
 
 const Signup = (props) => {
   // set initial form state
@@ -15,30 +13,21 @@ const Signup = (props) => {
     email: "",
     password: "",
   });
-
   const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
-
-    try {
-      const { data } = await addUser({
-        variables: { ...formState },
-      });
-
-      console.log(data);
-      Auth.login(data.addUser.token);
-    } catch (err) {
-      console.error(err);
-    }
-
-    setFormState({
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
+    const mutationResponse = await addUser({
+      variables: {
+        firstName: formState.firstName,
+        lastName: formState.lastName,
+        email: formState.email,
+        password: formState.password,
+      },
     });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
   };
 
   // const handleFormSubmit = async (event) => {
@@ -81,56 +70,52 @@ const Signup = (props) => {
         {/* <Link to="/login">← Go to Login</Link> */}
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="firstName" value="First Name" />
+            <label htmlFor="firstName">First Name:</label>
           </div>
-          <TextInput
-            id="fnameInput"
-            type="text"
+          <input
             placeholder="Jane"
-            required={true}
-            shadow={true}
+            name="firstName"
+            type="firstName"
+            id="firstName"
             onChange={handleInputChange}
           />
         </div>
 
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="lastName" value="Last Name" />
+            <label htmlFor="lastName">Last Name:</label>
           </div>
-          <TextInput
-            id="lnameInput"
-            type="text"
+          <input
             placeholder="Doe"
-            required={true}
-            shadow={true}
+            name="lastName"
+            type="lastName"
+            id="lastName"
             onChange={handleInputChange}
           />
         </div>
 
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="email" value="Email Address" />
+            <label htmlFor="email">Email:</label>
           </div>
-          <TextInput
-            id="emailInput"
+          <input
+            placeholder="janedoe@gmail.com"
+            name="email"
             type="email"
-            placeholder="janedoe@email.com"
-            required={true}
-            shadow={true}
+            id="email"
             onChange={handleInputChange}
           />
         </div>
 
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="password" value="Password" />
+            <label htmlFor="pwd">Password:</label>
           </div>
-          <TextInput
-            id="passwordInput"
+          <input
+            placeholder="******"
+            name="password"
             type="password"
-            placeholder="*******"
-            required={true}
-            shadow={true}
+            id="pwd"
             onChange={handleInputChange}
           />
         </div>
