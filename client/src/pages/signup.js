@@ -69,7 +69,6 @@ const Signup = (props) => {
         Welcome to ArtMart!
       </h2>
       <form className="flex flex-col gap-4 pb-8" onSubmit={handleFormSubmit}>
-        {/* <Link to="/login">← Go to Login</Link> */}
         <div>
           <div className="mb-2 block">
             <label htmlFor="firstName">First Name:</label>
