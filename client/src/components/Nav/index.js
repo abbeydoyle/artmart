@@ -31,7 +31,7 @@ function Nav() {
                 Prints
               </span>
             </Navbar.Link>
-            <Navbar.Link href="/login">
+            <Navbar.Link href="/profile">
               <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
                 Profile
               </span>
