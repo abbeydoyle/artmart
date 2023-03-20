@@ -23,7 +23,7 @@ import Wishlist from "./pages/MyWishlist";
 // import MyAddresses from "./pages/MyAddresses";
 
 // import Checkout from './pages/checkout';
-// import Singleart from './pages/singleart';
+// import SingleArtDetail from './pages/SingleArtDetail';
 import Success from "./pages/Success";
 
 const httpLink = createHttpLink({
@@ -53,6 +53,7 @@ function App() {
           <Nav />
           <div className="container flex flex-col justify-center items-center md:ml-[5rem]">
             <Routes>
+              <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
