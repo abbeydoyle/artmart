@@ -12,7 +12,7 @@ function ProductItem(item) {
   const {
     image,
     name, // title,
-    artistname, // artist
+    artistName, // artist
     _id,
     // price,
     // quantity
@@ -50,7 +50,7 @@ function ProductItem(item) {
         <img alt={name} src={`${image}`} />
 
         <p>{name}</p>
-        <p>{artistname}</p>
+        <p>{artistName}</p>
       </Link>
       {/* <button >Add to cart</button> */}
       {/* <button onClick={addToCart}>Add to cart</button> */}
