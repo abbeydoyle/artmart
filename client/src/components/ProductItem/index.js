@@ -45,15 +45,11 @@ function ProductItem(item) {
   return (
     <div className="">
         <p>TEST</p>
-      {/* <Link to={`/products/`}> */}
-        {/* <img alt={name} src={`${image}`}/> */}
-        {/* <img
-        
-          src={`/images/`}
-        /> */}
-        {/* <p>{name}</p>
-        <p>{artistname}</p> */}
-      {/* </Link> */}
+      <Link to={`/products/${_id}`}>
+        <img alt={name} src={`${image}`}/>
+        <p>{name}</p>
+        <p>{artistname}</p>
+      </Link>
       {/* <button >Add to cart</button> */}
       {/* <button onClick={addToCart}>Add to cart</button> */}
     </div>
