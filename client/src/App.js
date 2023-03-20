@@ -60,7 +60,7 @@ function App() {
               <Route path="/success" element={<Success />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/profile" element={<Profile />} />
-              { <Route path="/wishlist" element={<Wishlist />} /> }
+              {<Route path="/wishlist" element={<Wishlist />} />}
             </Routes>
           </div>
 
