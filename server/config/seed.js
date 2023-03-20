@@ -19,7 +19,7 @@ db.once("open", async () => {
       name: "Name of Art",
       artistName: "name of artist",
       description: "Description of Art",
-      image: ".jpg",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679278576/placeholder_sxktxc.png",
       sizes: [
         {
           price: 10.0,
@@ -42,7 +42,7 @@ db.once("open", async () => {
       artistName: "name of artist",
       name: "Name of Art",
       description: "Description of Art",
-      image: ".jpg",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679278576/placeholder_sxktxc.png",
       category: categories[0]._id,
 
       sizs: [
@@ -66,7 +66,7 @@ db.once("open", async () => {
       artistName: "name of artist",
       name: "Name of Art",
       description: "Description of Art",
-      image: ".jpg",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679278576/placeholder_sxktxc.png",
       category: categories[1]._id,
 
       sizes: [
@@ -90,7 +90,7 @@ db.once("open", async () => {
       artistName: "name of artist",
       name: "Name of Art",
       description: "Description of Art",
-      image: ".jpg",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679278576/placeholder_sxktxc.png",
       category: categories[1]._id,
       sizes: [
         {
@@ -112,7 +112,7 @@ db.once("open", async () => {
       artistName: "name of artist",
       name: "Name of Art",
       description: "Description of Art",
-      image: ".jpg",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679278576/placeholder_sxktxc.png",
       category: categories[1]._id,
       sizes: [
         {
@@ -134,7 +134,7 @@ db.once("open", async () => {
       artistName: "name of artist",
       name: "Name of Art",
       description: "Description of Art",
-      image: ".jpg",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679278576/placeholder_sxktxc.png",
       category: categories[1]._id,
       sizes: [
         {
@@ -156,7 +156,7 @@ db.once("open", async () => {
       artistName: "name of artist",
       name: "Name of Art",
       description: "Description of Art",
-      image: ".jpg",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679278576/placeholder_sxktxc.png",
       category: categories[2]._id,
       sizes: [
         {
@@ -178,7 +178,7 @@ db.once("open", async () => {
       artistName: "name of artist",
       name: "Name of Art",
       description: "Description of Art",
-      image: ".jpg",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679278576/placeholder_sxktxc.png",
       category: categories[2]._id,
       sizes: [
         {
@@ -203,8 +203,8 @@ db.once("open", async () => {
   await User.deleteMany();
 
   await User.create({
-    firstName: "Hoon",
-    lastName: "Kim",
+    firstName: "hoon",
+    lastName: "kim",
     email: "hkim@email.com",
     password: "password12345",
     address: "12534 bcamp ave sw lynnwood, Wa 88888",
