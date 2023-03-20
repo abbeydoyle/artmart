@@ -7,6 +7,7 @@ import {
   TOGGLE_CART,
   ADD_TO_WISHLIST,
   REMOVE_FROM_WISHLIST,
+  UPDATE_PRODUCTS,
 } from "./actions";
 
 export const reducer = (state, action) => {
@@ -68,6 +69,12 @@ export const reducer = (state, action) => {
         ...state,
         wishlistOpen: newwishlistState.length > 0,
         wishlist: newwishlistState,
+      };
+
+      case UPDATE_PRODUCTS:
+      return {
+        ...state,
+        products: [...action.products],
       };
 
     default:
