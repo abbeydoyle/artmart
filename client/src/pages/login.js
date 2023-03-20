@@ -41,8 +41,8 @@ const Login = (props) => {
   };
 
   return (
-    <div class="bg-[#508192] m-5 p-5 rounded md:w-[50%] w-[80%] shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
-      <h2 class="text-2xl font-bold text-white pb-2">Welcome back!</h2>
+    <div className="bg-[#508192] m-5 p-5 rounded md:w-[50%] w-[80%] shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
+      <h2 className="text-2xl font-bold text-white pb-2">Welcome back!</h2>
       <div className="card-body">
         {data ? (
           <p>
@@ -81,7 +81,7 @@ const Login = (props) => {
           Log in
         </Button>
           </form>
-          <h2 class="text-xl font-bold text-white pb-5 pt-5">
+          <h2 className="text-xl font-bold text-white pb-5 pt-5">
         New user? <Link to="/signup" className="hover:text-[#cccccc] underline">Sign up</Link>
       </h2>
     </div>
