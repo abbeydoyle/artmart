@@ -6,7 +6,7 @@ export default function LogoutModal({ setOpenLogoutModal }) {
     <>
       <div className="fixed inset-0 z-10 overflow-y-auto">
         <div
-          className="fixed inset-0 w-full h-full bg-black opacity-40"
+          className="fixed inset-0 w-full h-full bg-black opacity-70"
           onClick={() => setOpenLogoutModal(false)}
         ></div>
         <div className="flex items-center min-h-screen px-4 py-8">

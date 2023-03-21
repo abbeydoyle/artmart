@@ -50,7 +50,7 @@ function ProductList() {
 
   return (
     <main class="whitespace-nowrap text-sm">
-      <div class="gap-4 columns-5 m-5 whitespace-nowrap">
+      <div class="gap-4 md:columns-5 columns-2 m-5 whitespace-nowrap">
         <div className="">
           <>{console.log(state)}</>
           {state.products.length ? (

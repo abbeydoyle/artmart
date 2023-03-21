@@ -4,7 +4,6 @@ import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 import { Label, TextInput, Button } from "flowbite-react";
-import Login from "./login";
 
 const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOpenLoginModal }) => {
   // set initial form state
@@ -31,28 +30,6 @@ const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOp
     Auth.login(token);
   };
 
-  // const handleFormSubmit = async (event) => {
-  //   event.preventDefault();
-  //   console.log(formState);
-  //   // const mutationResponse = await addUser({
-  //   //   variables: {
-  //   //     firstName: formState.firstName,
-  //   //     lastName: formState.lastName,
-  //   //     email: formState.email,
-  //   //     password: formState.password,
-  //   //   },
-  //   // });
-  //   // const token = mutationResponse.data.addUser.token;
-  //   // Auth.login(token);
-
-  //   // setFormState({
-  //   //   firstName: "",
-  //   //   lastName: "",
-  //   //   email: "",
-  //   //   password: "",
-  //   // });
-  // };
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormState({
@@ -62,19 +39,14 @@ const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOp
   };
 
   function SignupSwitch() {
-    // setOpenSignupModal(false);
-    // Login()
     loginToggle()
   }
 
-  //TODO: HAVE TO CHANGE A LOT OF THESE NAMES BELOW
-  //TODO: ADD FEEDBACK???
-  // TODO: Style - get rid of either placeholder or label?
   return (
     <>
       <div className="fixed inset-0 overflow-y-auto z-10">
         <div
-          className="fixed inset-0 w-full h-full bg-black opacity-40"
+          className="fixed inset-0 w-full h-full bg-black opacity-70"
           onClick={() => setOpenSignupModal(false)}
         ></div>
         <div className="flex items-center min-h-screen px-4 py-8">
