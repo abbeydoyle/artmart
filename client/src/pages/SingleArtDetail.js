@@ -106,16 +106,15 @@ function Detail() {
   return (
     <>
       {currentProduct && cart ? (
-        <div className="">
-          <Link to={`/`}>← Back to Gallery</Link>
+        <div>
           <div className="grid md:grid-cols-3 gap-4 text-[#36392c]">
             <img
               src={`${currentProduct.image}`}
               alt={currentProduct.title}
               className="border-solid border-8 border-[#56280e] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)] md:col-span-2 mt-8 mb-8 md:h-[40rem] h-[20rem]"
             />
-            <div className="md:mt-8 md:mb-8 md:ml-5 text-center">
-              <div className="content-center rounded-sm md:mt-[40%]">
+            <div className="md:mt-8 md:ml-5 text-center">
+              <div className="content-center rounded-sm md:mt-[40%] pb-5">
                 <div className="mb-3 text-xl">
                   <h2 className="font-bold">{currentProduct.name}</h2>
                   <p className="">{currentProduct.artistName}</p>
@@ -173,6 +172,7 @@ function Detail() {
                 </div>
               </div>
             </div>
+            <Link to={`/`} className="text-[#36392c] float-left font-bold">← Back to Gallery</Link>
           </div>
         </div>
       ) : null}

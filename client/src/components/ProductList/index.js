@@ -7,6 +7,7 @@ import { QUERY_PRODUCTS } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
 // import spinner from '../../assets/spinner.gif';
 import { Link, useParams } from "react-router-dom";
+import { Spinner } from "flowbite-react";
 
 function ProductList() {
   const [state, dispatch] = useStoreContext();
@@ -69,7 +70,7 @@ function ProductList() {
               ))}
             </div>
           ) : (
-            <h3>You haven't added any products yet!</h3>
+            <div><Spinner color="warning" aria-label="Warning spinner example" size="lg"/></div>
           )}
 
           {/* {loading ? <img src={spinner} alt="loading" /> : null} */}
