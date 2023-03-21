@@ -45,12 +45,11 @@ function ProductItem(item) {
 
   return (
     <div className="">
-        <p>ProductItem comp</p>
       <Link to={`/products/${_id}`}>
         {/* <p>plz work</p> */}
         <img alt={name} src={`${image}`}/>
-        <p>Name{name}</p>
-        <p>Artist{artistName}</p>
+        <p>{name}</p>
+        <p>{artistName}</p>
       </Link>
     </div>
   );
