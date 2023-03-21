@@ -11,6 +11,29 @@ function Nav() {
   const [showSignupModal, setshowSignupModal] = useState(false);
   const [showLoginModal, setshowLoginModal] = useState(false);
 
+  function loginToggle() {
+    console.log(showLoginModal)
+    console.log(showSignupModal)
+    if (showSignupModal) {
+      setshowSignupModal(false);
+      setshowLoginModal(true);
+    } else {
+      return
+    }
+  }
+
+  function signupToggle() {
+    console.log(showLoginModal)
+    console.log(showSignupModal)
+    if (showLoginModal) {
+      setshowSignupModal(true);
+      setshowLoginModal(false);
+    } else {
+      return
+    }
+  }
+
+
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
@@ -113,8 +136,8 @@ function Nav() {
               </span>
             </Navbar.Link>
           </Navbar.Collapse>
-          {showSignupModal && <Signup setOpenSignupModal={setshowSignupModal} />}
-          {showLoginModal && <Login setOpenLoginModal={setshowLoginModal} />}
+          {showSignupModal && <Signup setOpenSignupModal={setshowSignupModal} loginToggle={loginToggle} showSignupModal={showSignupModal} setOpenLoginModal={setshowLoginModal}/>}
+          {showLoginModal && <Login setOpenLoginModal={setshowLoginModal} signupToggle={signupToggle} showLoginModal={showLoginModal} setOpenSignupModal={setshowSignupModal}/>}
         </Navbar>
       );
     }
