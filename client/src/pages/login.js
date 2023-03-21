@@ -6,7 +6,7 @@ import { Label, TextInput, Button } from "flowbite-react";
 import Auth from "../utils/auth";
 import Signup from "./signup";
 
-const Login = ({ setOpenLoginModal }) => {
+const Login = ({ props, setOpenLoginModal }) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 

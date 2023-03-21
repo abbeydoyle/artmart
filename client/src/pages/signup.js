@@ -6,7 +6,7 @@ import { ADD_USER } from "../utils/mutations";
 import { Label, TextInput, Button } from "flowbite-react";
 import Login from "./login";
 
-const Signup = ({ setOpenSignupModal }) => {
+const Signup = ({ props, setOpenSignupModal }) => {
   // set initial form state
   const [formState, setFormState] = useState({
     firstName: "",
