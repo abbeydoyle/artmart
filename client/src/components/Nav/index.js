@@ -3,9 +3,37 @@ import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import { Navbar } from "flowbite-react";
 import LogoutModal from "../../pages/logout";
+import Signup from "../../pages/signup";
+import Login from "../../pages/login";
 
 function Nav() {
   const [showLogoutModal, setshowLogoutModal] = useState(false);
+  const [showSignupModal, setshowSignupModal] = useState(false);
+  const [showLoginModal, setshowLoginModal] = useState(false);
+
+  function loginToggle() {
+    console.log(showLoginModal)
+    console.log(showSignupModal)
+    if (showSignupModal) {
+      setshowSignupModal(false);
+      setshowLoginModal(true);
+    } else {
+      return
+    }
+  }
+
+  function signupToggle() {
+    console.log(showLoginModal)
+    console.log(showSignupModal)
+    if (showLoginModal) {
+      setshowSignupModal(true);
+      setshowLoginModal(false);
+    } else {
+      return
+    }
+  }
+
+
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
@@ -88,12 +116,16 @@ function Nav() {
                 Prints
               </span>
             </Navbar.Link>
-            <Navbar.Link href="/login">
+            <Navbar.Link onClick={() => {
+                setshowLoginModal(true);
+              }}>
               <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
                 Log in
               </span>
             </Navbar.Link>
-            <Navbar.Link href="/signup">
+            <Navbar.Link onClick={() => {
+                setshowSignupModal(true);
+              }}>
               <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
                 Sign up
               </span>
@@ -103,12 +135,9 @@ function Nav() {
                 My Cart
               </span>
             </Navbar.Link>
-            {/* <Navbar.Link onClick={Auth.logout}>
-              <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
-                Logout
-              </span>
-            </Navbar.Link> */}
           </Navbar.Collapse>
+          {showSignupModal && <Signup setOpenSignupModal={setshowSignupModal} loginToggle={loginToggle} showSignupModal={showSignupModal} setOpenLoginModal={setshowLoginModal}/>}
+          {showLoginModal && <Login setOpenLoginModal={setshowLoginModal} signupToggle={signupToggle} showLoginModal={showLoginModal} setOpenSignupModal={setshowSignupModal}/>}
         </Navbar>
       );
     }
