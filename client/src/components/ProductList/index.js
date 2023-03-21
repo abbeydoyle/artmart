@@ -49,8 +49,8 @@ function ProductList() {
   //   }
 
   return (
-    <main class="whitespace-nowrap text-sm">
-      <div class="gap-4 md:columns-5 columns-2 m-5 whitespace-nowrap">
+    <main className="whitespace-nowrap text-sm">
+      <div className="gap-4 md:columns-5 columns-2 m-5 whitespace-nowrap">
         <div className="">
           <>{console.log(state)}</>
           {state.products.length ? (
