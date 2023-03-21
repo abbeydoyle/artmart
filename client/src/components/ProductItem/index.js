@@ -5,7 +5,9 @@ import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
 function ProductItem(item) {
+
   //   const [state, dispatch] = useStoreContext();
+
 
   const {
     image,
@@ -15,6 +17,7 @@ function ProductItem(item) {
     // price,
     // quantity
   } = item;
+
 
   //   const { cart } = state
 
@@ -45,6 +48,7 @@ function ProductItem(item) {
       <p>TEST</p>
       <Link to={`/products/${_id}`}>
         <img alt={name} src={`${image}`} />
+
         <p>{name}</p>
         <p>{artistname}</p>
       </Link>

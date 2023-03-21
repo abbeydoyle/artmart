@@ -50,6 +50,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="min-100-vh">
+
           <StoreProvider>
             <Nav />
             <div className="container flex flex-col justify-center items-center md:ml-[5rem]">
@@ -65,6 +66,7 @@ function App() {
                 {<Route path="/wishlist" element={<Wishlist />} />}
               </Routes>
             </div>
+
 
             <FooterApp />
           </StoreProvider>
