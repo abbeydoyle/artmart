@@ -48,7 +48,7 @@ db.once("open", async () => {
       image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679290114/reading_x38196.jpg",
       category: categories[0]._id,
 
-      sizs: [
+      sizes: [
         {
           price: 10.0,
           size: "5x7",

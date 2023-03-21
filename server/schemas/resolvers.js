@@ -10,19 +10,20 @@ const resolvers = {
       return await ArtCategory.find();
     },
     products: async (parent, { category, name }) => {
-      const params = {};
+      // const params = {};
 
-      if (category) {
-        params.category = category;
-      }
+      // if (category) {
+      //   params.category = category;
+      // }
 
-      if (name) {
-        params.name = {
-          $regex: name,
-        };
-      }
+      // if (name) {
+      //   params.name = {
+      //     $regex: name,
+      //   };
+      // }
 
-      return await ArtProduct.find(params).populate("category");
+      // return await ArtProduct.find(params).populate("category");
+      return await ArtProduct.find({}).populate("category");
     },
     product: async (parent, { _id }) => {
       return await ArtProduct.findById(_id).populate("category");
@@ -31,7 +32,7 @@ const resolvers = {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
           path: "orders.products",
-          populate: "category",
+          // populate: "category",
         });
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);

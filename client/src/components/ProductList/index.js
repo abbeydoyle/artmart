@@ -9,46 +9,42 @@ import { idbPromise } from "../../utils/helpers";
 
 function ProductList() {
 
-//   const [state, dispatch] = useStoreContext();
+  const [state, dispatch] = useStoreContext();
 
 //   const { currentCategory } = state; // I don't know if this is needed if we aren't doing categories at the moment
 
-//   const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  console.log(data)
 
-//   useEffect(() => {
-//     if (data) {
-//       dispatch({
-//         type: UPDATE_PRODUCTS,
-//         products: data.products,
-//       });
-//       data.products.forEach((product) => {
-//         idbPromise('products', 'put', product);
-//       });
-//     } else if (!loading) {
-//       idbPromise('products', 'get').then((products) => {
-//         dispatch({
-//           type: UPDATE_PRODUCTS,
-//           products: products,
-//         });
-//       });
-//     }
-//   }, [data, loading, dispatch]);
+  useEffect(() => {
+    if (data) {
+        console.log(data)
+      dispatch({
+        type: UPDATE_PRODUCTS,
+        products: data.products,
+      });
+      data.products.forEach((product) => {
+        idbPromise('products', 'put', product);
+      });
+    } else if (!loading) {
+      idbPromise('products', 'get').then((products) => {
+        dispatch({
+          type: UPDATE_PRODUCTS,
+          products: products,
+        });
+      });
+    }
+  }, [data, loading, dispatch]);
 
 
-  ///// REACH GOAL? /////
-
-  //   function filterProducts() {
-  //     if (!currentCategory) {
-  //       return state.products;
-  //     }
 
 
 ///// REACH GOAL? /////
 
 //   function filterProducts() {
-//     if (!currentCategory) {
-//       return state.products;
-//     }
+//     // if (!currentCategory) {
+//     //   return state.products;
+//     // }
 
 //     return state.products.filter(
 //       (product) => product.category._id === currentCategory
@@ -59,26 +55,25 @@ function ProductList() {
   // were not handing any props
   return (
     <div className="">
-
-  
-        <div>HELLO</div>
-        <ProductItem />
-
-      {/* {state.products.length ? (
+        {/* <div>ProductList comp</div>
+        <ProductItem /> */}
+    <>{console.log(state)}</>
+      {state.products.length ? (
         <div className="">
-          {filterProducts().map((product) => (
+          {state.products.map((product) => (
             <ProductItem
               key={product._id}
               _id={product._id}
               image={product.image}
               title={product.name}
-              artist={product.artistname}
+              artist={product.artistName}
             />
           ))}
         </div>
       ) : (
         <h3>You haven't added any products yet!</h3>
-      )} */}
+      )}
+
       {/* {loading ? <img src={spinner} alt="loading" /> : null} */}
     </div>
   );
