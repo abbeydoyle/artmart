@@ -11,12 +11,14 @@ function ProductList() {
 
   const [state, dispatch] = useStoreContext();
 
-  const { currentCategory } = state; // I don't know if this is needed if we aren't doing categories at the moment
+//   const { currentCategory } = state; // I don't know if this is needed if we aren't doing categories at the moment
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
+  console.log(data)
 
   useEffect(() => {
     if (data) {
+        console.log(data)
       dispatch({
         type: UPDATE_PRODUCTS,
         products: data.products,
@@ -35,25 +37,19 @@ function ProductList() {
   }, [data, loading, dispatch]);
 
 
-  ///// REACH GOAL? /////
-
-  //   function filterProducts() {
-  //     if (!currentCategory) {
-  //       return state.products;
-  //     }
 
 
 ///// REACH GOAL? /////
 
-  function filterProducts() {
-    if (!currentCategory) {
-      return state.products;
-    }
+//   function filterProducts() {
+//     // if (!currentCategory) {
+//     //   return state.products;
+//     // }
 
-    return state.products.filter(
-      (product) => product.category._id === currentCategory
-    );
-  }
+//     return state.products.filter(
+//       (product) => product.category._id === currentCategory
+//     );
+//   }
 
 
   // were not handing any props
@@ -61,10 +57,10 @@ function ProductList() {
     <div className="">
         {/* <div>ProductList comp</div>
         <ProductItem /> */}
-
+    <>{console.log(state)}</>
       {state.products.length ? (
         <div className="">
-          {filterProducts().map((product) => (
+          {state.products.map((product) => (
             <ProductItem
               key={product._id}
               _id={product._id}
