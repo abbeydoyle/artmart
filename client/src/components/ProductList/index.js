@@ -59,9 +59,7 @@ function ProductList() {
   // were not handing any props
   return (
     <div className="">
-
-  
-        <div>HELLO</div>
+        <div>ProductList comp</div>
         <ProductItem />
 
       {/* {state.products.length ? (
@@ -72,13 +70,14 @@ function ProductList() {
               _id={product._id}
               image={product.image}
               title={product.name}
-              artist={product.artistname}
+              artist={product.artistName}
             />
           ))}
         </div>
       ) : (
         <h3>You haven't added any products yet!</h3>
       )} */}
+
       {/* {loading ? <img src={spinner} alt="loading" /> : null} */}
     </div>
   );
