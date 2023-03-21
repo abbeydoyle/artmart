@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
+import { Button } from "flowbite-react";
 
 import Cart from "../components/Cart";
 import Wishlist from "./MyWishlist";
@@ -99,46 +100,79 @@ function Detail() {
 
     idbPromise("cart", "delete", { ...currentProduct });
   };
+  console.log(currentProduct);
+  console.log(currentProduct.price);
 
   return (
     <>
       {currentProduct && cart ? (
-        <div className="container my-1">
-          <Link to={`/`}>← Back to Gallery</Link>
+        <div>
+          <div className="grid md:grid-cols-3 gap-4 text-[#36392c]">
+            <img
+              src={`${currentProduct.image}`}
+              alt={currentProduct.title}
+              className="border-solid border-8 border-[#56280e] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)] md:col-span-2 mt-8 mb-8 md:h-[40rem] h-[20rem]"
+            />
+            <div className="md:mt-8 md:ml-5 text-center">
+              <div className="content-center rounded-sm md:mt-[40%] pb-5">
+                <div className="mb-3 text-xl">
+                  <h2 className="font-bold">{currentProduct.name}</h2>
+                  <p className="">{currentProduct.artistName}</p>
+                  <p className="">{currentProduct.description}</p>
+                </div>
+                <div className="grid md:grid-cols-2 mb-3 md:mb-8">
+                  <div>
+                    <p className="mb-1 text-md md:float-left md:pl-[2rem]">
+                      Select size:
+                    </p>
+                    <select className="md:w-[85%] rounded-lg text-center bg-white hover:text-white hover:bg-[#36392c] focus:ring-2 focus:outline-none focus:ring-[#36392c]">
+                      <option disabled>Size</option>
+                      <option>5x7</option>
+                      <option>8x10</option>
+                      <option>18x24</option>
+                      <option>24x36</option>
+                    </select>
+                  </div>
+                  <div>
+                    <p className="mb-1 text-md md:float-left md:pl-[2rem]">
+                      Quantity:
+                    </p>
+                    <select className="md:w-[85%] text-center rounded-lg bg-white hover:text-white hover:bg-[#36392c] focus:ring-2 focus:outline-none focus:ring-[#36392c]">
+                      <option disabled>Qty</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                </div>
 
-          <img
-            src={`${currentProduct.image}`}
-            alt={currentProduct.title}
-          />
-
-          <h2>{currentProduct.title}</h2>
-
-          <p>{currentProduct.artist}</p>
-
-          <p>
-            <strong>Price:</strong>${currentProduct.price}{" "}
-            <button onClick={addToCart}>Add to Cart</button>
-            <button onClick={addToWishlist}>Add to Wishlist</button>
-          </p>
-
-          <div>
-            <p>select size</p>
-            <select>
-              <option>5x7</option>
-              <option>8x10</option>
-              <option>18x24</option>
-              <option>24x36</option>
-            </select>
-          </div>
-          <div>
-            <p>quantity</p>
-            <select>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+                <p className="mb-3 md:mb-8 text-lg">
+                  <strong>Price: ${currentProduct.price} </strong>
+                </p>
+                {/* ${currentProduct.price}{" "} */}
+                <div className="grid md:grid-cols-2 mb-3">
+                  <div>
+                    <button
+                      className="md:w-[85%] text-[#36392c] hover:text-white border border-[#36392c] hover:bg-[#36392c] focus:ring-2 focus:outline-none focus:ring-[#36392c] font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2"
+                      onClick={addToCart}
+                    >
+                      🛒 Add to Cart
+                    </button>
+                  </div>
+                  <div>
+                    <button
+                      className="md:w-[85%] text-[#36392c] hover:text-white border border-[#36392c] hover:bg-[#36392c] focus:ring-2 focus:outline-none focus:ring-[#36392c] font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2"
+                      onClick={addToWishlist}
+                    >
+                      ✨ Add to Wishlist
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <Link to={`/`} className="text-[#36392c] float-left font-bold">← Back to Gallery</Link>
           </div>
         </div>
       ) : null}

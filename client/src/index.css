@@ -18,7 +18,7 @@ code {
 } */
 
 body {
-  cursor: crosshair;
+  cursor: pointer;
   font-family: Georgia, 'Times New Roman', Times, serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
