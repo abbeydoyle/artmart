@@ -126,7 +126,7 @@ function Detail() {
                     <p className="mb-1 text-md md:float-left md:pl-[2rem]">
                       Select size:
                     </p>
-                    <select className="w-[70%] rounded-lg bg-white hover:text-white hover:bg-[#36392c] focus:ring-2 focus:outline-none focus:ring-[#36392c]">
+                    <select className="md:w-[85%] rounded-lg text-center bg-white hover:text-white hover:bg-[#36392c] focus:ring-2 focus:outline-none focus:ring-[#36392c]">
                       <option disabled>Size</option>
                       <option>5x7</option>
                       <option>8x10</option>
@@ -138,7 +138,7 @@ function Detail() {
                     <p className="mb-1 text-md md:float-left md:pl-[2rem]">
                       Quantity:
                     </p>
-                    <select className="w-[70%] rounded-lg bg-white hover:text-white hover:bg-[#36392c] focus:ring-2 focus:outline-none focus:ring-[#36392c]">
+                    <select className="md:w-[85%] text-center rounded-lg bg-white hover:text-white hover:bg-[#36392c] focus:ring-2 focus:outline-none focus:ring-[#36392c]">
                       <option disabled>Qty</option>
                       <option>1</option>
                       <option>2</option>
@@ -156,18 +156,18 @@ function Detail() {
                 <div className="grid md:grid-cols-2 mb-3">
                   <div>
                     <button
-                      className="w-[70%] text-[#36392c] hover:text-white border border-[#36392c] hover:bg-[#36392c] focus:ring-2 focus:outline-none focus:ring-[#36392c] font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2"
+                      className="md:w-[85%] text-[#36392c] hover:text-white border border-[#36392c] hover:bg-[#36392c] focus:ring-2 focus:outline-none focus:ring-[#36392c] font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2"
                       onClick={addToCart}
                     >
-                      Add to Cart
+                      🛒 Add to Cart
                     </button>
                   </div>
                   <div>
                     <button
-                      className="w-[70%] text-[#36392c] hover:text-white border border-[#36392c] hover:bg-[#36392c] focus:ring-2 focus:outline-none focus:ring-[#36392c] font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2"
+                      className="md:w-[85%] text-[#36392c] hover:text-white border border-[#36392c] hover:bg-[#36392c] focus:ring-2 focus:outline-none focus:ring-[#36392c] font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2"
                       onClick={addToWishlist}
                     >
-                      Add to Wishlist
+                      ✨ Add to Wishlist
                     </button>
                   </div>
                 </div>
