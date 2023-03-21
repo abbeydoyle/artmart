@@ -82,7 +82,7 @@ function Profile() {
               </Table.Cell>
               <Table.Cell>
                 <a
-                  href="/mycart"
+                  href="/cart"
                   className="font-medium hover:text-[#cccccc] hover:underline"
                 >
                   View
