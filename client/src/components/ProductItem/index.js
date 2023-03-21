@@ -72,13 +72,13 @@ import { Link } from 'react-router-dom';
 
 function ProductItem({ _id, image, name, artistName }) {
   return (
-    <div className="product-item">
+    <div className="product-item group mb-2">
       <Link to={`/products/${_id}`}>
-        <div className="product-image">
+        <div class="product-image w-full mb-2 border-solid border-8 border-[#56280e] border-opacity-90 hover:border-opacity-100 shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_4px_rgba(0,0,0,0.75)]">
           <img src={`${image}`} alt={name} />
         </div>
-        <div className="product-info">
-          <h2 className="product-name">{name}</h2>
+        <div className="product-info invisible group-hover:visible text-center">
+          <h2 className="product-name font-bold">{name}</h2>
           <p className="product-artist">{artistName}</p>
         </div>
       </Link>
