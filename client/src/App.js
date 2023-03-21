@@ -9,7 +9,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { StoreProvider } from "./utils/GlobalState";
 import Home from "./pages/Home";
 import Signup from "./pages/signup";
 import Login from "./pages/login";
@@ -50,22 +50,26 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="min-100-vh">
-          <Nav />
-          <div className="container flex flex-col justify-center items-center md:ml-[5rem]">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              {/* <Route path="/address" element={<MyAddresses />} /> */}
-              <Route path="/success" element={<Success />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/profile" element={<Profile />} />
-              {<Route path="/wishlist" element={<Wishlist />} />}
-            </Routes>
-          </div>
 
-          <FooterApp />
+          <StoreProvider>
+            <Nav />
+            <div className="container flex flex-col justify-center items-center md:ml-[5rem]">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                {/* <Route path="/address" element={<MyAddresses />} /> */}
+                <Route path="/success" element={<Success />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/profile" element={<Profile />} />
+                {<Route path="/wishlist" element={<Wishlist />} />}
+              </Routes>
+            </div>
+
+
+            <FooterApp />
+          </StoreProvider>
         </div>
       </Router>
     </ApolloProvider>
