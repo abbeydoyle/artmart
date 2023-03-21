@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import { Navbar } from "flowbite-react";
+import LogoutModal from "../../pages/logout";
 
 function Nav() {
+  const [showLogoutModal, setshowLogoutModal] = useState(false);
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
@@ -31,7 +33,7 @@ function Nav() {
                 Prints
               </span>
             </Navbar.Link>
-            <Navbar.Link href="/login">
+            <Navbar.Link href="/profile">
               <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
                 Profile
               </span>
@@ -47,7 +49,17 @@ function Nav() {
                 My Cart
               </span>
             </Navbar.Link>
+            <Navbar.Link
+              onClick={() => {
+                setshowLogoutModal(true);
+              }}
+            >
+              <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
+                Logout
+              </span>
+            </Navbar.Link>
           </Navbar.Collapse>
+          {showLogoutModal && <LogoutModal setOpenLogoutModal={setshowLogoutModal} />}
         </Navbar>
       );
     } else {
@@ -91,12 +103,16 @@ function Nav() {
                 My Cart
               </span>
             </Navbar.Link>
+            {/* <Navbar.Link onClick={Auth.logout}>
+              <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
+                Logout
+              </span>
+            </Navbar.Link> */}
           </Navbar.Collapse>
         </Navbar>
       );
     }
   }
-
   return <header>{showNavigation()}</header>;
 }
 
