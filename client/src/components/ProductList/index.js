@@ -6,10 +6,11 @@ import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
 // import spinner from '../../assets/spinner.gif';
+import { Link, useParams } from "react-router-dom";
 
 function ProductList() {
   const [state, dispatch] = useStoreContext();
-
+  const { id } = useParams();
   //   const { currentCategory } = state; // I don't know if this is needed if we aren't doing categories at the moment
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
@@ -55,13 +56,16 @@ function ProductList() {
           {state.products.length ? (
             <div className="">
               {state.products.map((product) => (
-                <ProductItem
-                  key={product._id}
-                  _id={product._id}
-                  image={product.image}
-                  name={product.name}
-                  artistName={product.artistName}
-                />
+                <Link to={`/products/${product._id}`}>
+                  <ProductItem
+                    key={product._id}
+                    _id={product._id}
+                    id={product._id}
+                    image={product.image}
+                    name={product.name}
+                    artistName={product.artistName}
+                  />
+                </Link>
               ))}
             </div>
           ) : (

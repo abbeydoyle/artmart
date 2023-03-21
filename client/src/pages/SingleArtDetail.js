@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
 
-import Cart from '../components/Cart';
-import Wishlist from './MyWishlist';
-import { useStoreContext } from '../utils/GlobalState';
+import Cart from "../components/Cart";
+import Wishlist from "./MyWishlist";
+import { useStoreContext } from "../utils/GlobalState";
 import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
   ADD_TO_CART,
   UPDATE_PRODUCTS,
-  ADD_TO_WISHLIST
-} from '../utils/actions';
-import { QUERY_PRODUCTS } from '../utils/queries';
-import { idbPromise } from '../utils/helpers';
-import spinner from '../assets/spinner.gif';
+  ADD_TO_WISHLIST,
+} from "../utils/actions";
+import { QUERY_PRODUCTS } from "../utils/queries";
+import { idbPromise } from "../utils/helpers";
+//import spinner from '../assets/spinner.gif';
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
@@ -39,12 +39,12 @@ function Detail() {
       });
 
       data.products.forEach((product) => {
-        idbPromise('products', 'put', product);
+        idbPromise("products", "put", product);
       });
     }
     // get cache from idb
     else if (!loading) {
-      idbPromise('products', 'get').then((indexedProducts) => {
+      idbPromise("products", "get").then((indexedProducts) => {
         dispatch({
           type: UPDATE_PRODUCTS,
           products: indexedProducts,
@@ -61,7 +61,7 @@ function Detail() {
         _id: id,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
-      idbPromise('cart', 'put', {
+      idbPromise("cart", "put", {
         ...itemInCart,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
@@ -70,14 +70,16 @@ function Detail() {
         type: ADD_TO_CART,
         product: { ...currentProduct, purchaseQuantity: 1 },
       });
-      idbPromise('cart', 'put', { ...currentProduct, purchaseQuantity: 1 });
+      idbPromise("cart", "put", { ...currentProduct, purchaseQuantity: 1 });
     }
   };
 
   const addToWishlist = () => {
-  const itemInWishlist = Wishlist.find((WishlistItem) => WishlistItem._id === id);
+    const itemInWishlist = Wishlist.find(
+      (WishlistItem) => WishlistItem._id === id
+    );
     if (itemInWishlist) {
-      idbPromise('wishlist', 'put', {
+      idbPromise("wishlist", "put", {
         ...itemInWishlist,
       });
     } else {
@@ -85,7 +87,7 @@ function Detail() {
         type: ADD_TO_WISHLIST,
         product: { ...currentProduct },
       });
-      idbPromise('wishlist', 'put', { ...currentProduct});
+      idbPromise("wishlist", "put", { ...currentProduct });
     }
   };
 
@@ -95,17 +97,17 @@ function Detail() {
       _id: currentProduct._id,
     });
 
-    idbPromise('cart', 'delete', { ...currentProduct });
+    idbPromise("cart", "delete", { ...currentProduct });
   };
 
   return (
     <>
       {currentProduct && cart ? (
         <div className="container my-1">
-          <Link to="/">← Back to Gallery</Link>
+          <Link to={`/`}>← Back to Gallery</Link>
 
           <img
-            src={`/images/${currentProduct.image}`}
+            src={`${currentProduct.image}`}
             alt={currentProduct.title}
           />
 
@@ -116,7 +118,7 @@ function Detail() {
           <p>
             <strong>Price:</strong>${currentProduct.price}{" "}
             <button onClick={addToCart}>Add to Cart</button>
-            <button onClick={addToWishlist}>Add to Cart</button>
+            <button onClick={addToWishlist}>Add to Wishlist</button>
           </p>
 
           <div>
@@ -138,12 +140,8 @@ function Detail() {
               <option>5</option>
             </select>
           </div>
-
         </div>
       ) : null}
-      {loading ? <img src={spinner} alt="loading" /> : null}
-      <Cart />
-      <Wishlist />
     </>
   );
 }
