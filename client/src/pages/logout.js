@@ -11,8 +11,8 @@ export default function LogoutModal({ setOpenLogoutModal }) {
         ></div>
         <div className="flex items-center min-h-screen px-4 py-8">
           <div className="relative w-full max-w-lg p-4 mx-auto bg-white rounded-md shadow-lg">
-            <div className="mt-3 sm:flex">
-              <div className="mt-2 text-center sm:ml-4 sm:text-left">
+            <div className="mt-3 mb-4 sm:flex">
+              <div className="mt-2 text-center sm:ml-[4rem] sm:text-left">
                 <h4 className="text-lg font-medium text-gray-800">
                   Would you like to log out?
                 </h4>
