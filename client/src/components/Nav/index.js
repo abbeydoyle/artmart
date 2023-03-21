@@ -39,7 +39,7 @@ function Nav() {
               </span>
             </Navbar.Link>
             {/* TODO: wishlist */}
-            <Navbar.Link href="/mywishlist">
+            <Navbar.Link href="/wishlist">
               <span className="block py-2 pl-3 pr-4 md:text-lg text-white bg-[#508192] rounded md:bg-transparent md:text-[#508192] md:p-0">
                 Wishlist
               </span>
