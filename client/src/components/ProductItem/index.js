@@ -46,7 +46,6 @@ function ProductItem(item) {
   return (
     <div className="">
       <Link to={`/products/${_id}`}>
-        {/* <p>plz work</p> */}
         <img alt={name} src={`${image}`}/>
         <p>{name}</p>
         <p>{artistName}</p>
