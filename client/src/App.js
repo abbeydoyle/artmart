@@ -21,9 +21,7 @@ import Cart from "./components/Cart";
 import Profile from "./pages/MyProfile";
 import Wishlist from "./pages/MyWishlist";
 // import MyAddresses from "./pages/MyAddresses";
-
-// import Checkout from './pages/checkout';
-// import SingleArtDetail from './pages/SingleArtDetail';
+import Detail from "./pages/SingleArtDetail";
 import Success from "./pages/Success";
 
 const httpLink = createHttpLink({
@@ -50,7 +48,6 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="min-100-vh">
-
           <StoreProvider>
             <Nav />
             <div className="container flex flex-col justify-center items-center md:ml-[5rem]">
@@ -63,10 +60,10 @@ function App() {
                 <Route path="/success" element={<Success />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/profile" element={<Profile />} />
-                {<Route path="/wishlist" element={<Wishlist />} />}
+                <Route path="/wishlist" element={<Wishlist />} />
+                <Route path="/products/:id" element={<Detail />} />
               </Routes>
             </div>
-
 
             <FooterApp />
           </StoreProvider>
