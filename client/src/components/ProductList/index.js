@@ -52,11 +52,8 @@ function ProductList() {
 //   }
 
 
-  // were not handing any props
   return (
     <div className="">
-        {/* <div>ProductList comp</div>
-        <ProductItem /> */}
     <>{console.log(state)}</>
       {state.products.length ? (
         <div className="">
@@ -65,8 +62,8 @@ function ProductList() {
               key={product._id}
               _id={product._id}
               image={product.image}
-              title={product.name}
-              artist={product.artistName}
+              name={product.name}
+              artistName={product.artistName}
             />
           ))}
         </div>
