@@ -106,6 +106,13 @@ const Login = ({ props, setOpenLoginModal, signupToggle, showLoginModal, setOpen
                               Log in
                             </Button>
                           </form>
+
+
+                      {error && (
+                        <div className="text-xl font-bold text-white pt-5">
+                          {error.message}
+                        </div>
+                      )}
                           <h2 className="text-xl font-bold text-white pb-5 pt-5">
                             New user?{" "}
                             <Link
@@ -115,12 +122,6 @@ const Login = ({ props, setOpenLoginModal, signupToggle, showLoginModal, setOpen
                               Sign up
                             </Link>
                           </h2>
-                        </div>
-                      )}
-
-                      {error && (
-                        <div className="my-3 p-3 bg-danger text-white">
-                          {error.message}
                         </div>
                       )}
                     </div>

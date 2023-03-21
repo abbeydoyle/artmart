@@ -54,6 +54,7 @@ const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOp
             <div className="mt-3 sm:flex">
               <div className="mt-2 text-center sm:ml-4 sm:text-left w-[90%]">
                 <div className="w-[100%] m-5 p-5 rounded">
+                <div className="text-2xl text-white pb-2">
                   <h2 className="text-2xl font-bold text-white pb-2">
                     Welcome to ArtMart!
                   </h2>
@@ -112,13 +113,13 @@ const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOp
                     <Button
                       type="submit"
                       outline={true}
-                      className="md:w-[20%] w-[50%] md:ml-[40%]"
+                      className="md:w-[20%] w-[50%] md:ml-[40%] mt-[1rem]"
                       gradientDuoTone="redToYellow"
                     >
                       Sign up
                     </Button>
                   </form>
-                  <h2 className="text-xl font-bold text-white pb-5">
+                  <h2 className="text-xl font-bold text-white pb-5 pt-5">
                     Already have an account?{" "}
                     <Link
                       className="hover:text-[#cccccc] underline"
@@ -129,6 +130,7 @@ const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOp
                       Log in
                     </Link>
                   </h2>
+                  </div>
                 </div>
               </div>
             </div>
