@@ -3,14 +3,17 @@ const typeDefs = `#graphql
     _id: ID
     name: String
   }
-
+  type ArtSize {
+    price: Float
+    size: String
+  }
   type ArtProduct {
     _id: ID
     name: String
     artistName: String
     description: String
     image: String
-    sizes: [String] 
+    sizes: [ArtSize] 
     category: ArtCategory
   }
 
@@ -41,7 +44,7 @@ const typeDefs = `#graphql
 
   type Query {
     categories: [ArtCategory]
-    products(category: ID, name: String): [ArtProduct]
+    products: [ArtProduct]
     product(_id: ID!): ArtProduct
     user: User
     order(_id: ID!): ArtOrder
