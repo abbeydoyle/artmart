@@ -2,6 +2,7 @@ import React from "react";
 import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
+import Detail from "../../pages/SingleArtDetail";
 
 const CartItem = ({ item }) => {
   const [, dispatch] = useStoreContext();
@@ -32,12 +33,14 @@ const CartItem = ({ item }) => {
     }
   };
 
+  const value = localStorage.getItem(20);
+  console.log (value)
   return (
     <div className="flex-row">
       <div>{/* <img src={`/images/${item.image}`} alt="" /> */}</div>
       <div>
         <div>
-          {item.name}, ${item.price}
+          {item.name}, ${value}
         </div>
         <div>
           <span>Qty:</span>

@@ -119,6 +119,11 @@ function Detail() {
     }
   };
 
+const value = price;
+console.log(value)
+localStorage.setItem(price, value);
+
+
   return (
     <>
       {currentProduct && cart ? (
@@ -182,7 +187,7 @@ function Detail() {
                       />
                     </label>
                   </div>
-                  <div>
+                  {/* <div>
                     <p className="mb-1 text-md md:float-left md:pl-[2rem]">
                       Quantity:
                     </p>
@@ -194,7 +199,7 @@ function Detail() {
                       <option>4</option>
                       <option>5</option>
                     </select>
-                  </div>
+                  </div> */}
                 </div>
 
                 <p className="mb-3 md:mb-8 text-lg">
