@@ -37,22 +37,27 @@ const Cart = () => {
   function toggleCart() {
     dispatch({ type: TOGGLE_CART });
   }
+  const value = localStorage.getItem(20);
 
   function calculateTotal() {
     let sum = 0;
     state.cart.forEach((item) => {
-      sum += item.price * item.purchaseQuantity;
+      sum += value * item.purchaseQuantity;
     });
+    const total = sum;
+    localStorage.setItem(sum, total);
+    console.log(total)
     return sum.toFixed(2);
   }
 
   function submitCheckout() {
     const productIds = [];
-
+console.log("asdfg")
     state.cart.forEach((item) => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
         productIds.push(item._id);
       }
+      console.log("product" ,productIds)
     });
 
     getCheckout({

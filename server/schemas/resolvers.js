@@ -2,7 +2,7 @@ const { GraphQLError } = require("graphql");
 const { User, ArtProduct, ArtCategory, ArtOrder } = require("../models");
 const { signToken } = require("../utils/auth");
 require("dotenv").config();
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")("sk_test_51MllX3CqIZpk4OuxCGBxjStuTLuhrAPY6PTT1MDyrM0yGwO1tNpj9bw94JoipZhkJmpaVWetuGOqmLee2MRSzWta00gjsoUCAE");
 
 const resolvers = {
   Query: {
@@ -66,28 +66,24 @@ const resolvers = {
       const url = new URL(context.headers.referer).origin;
       const order = new ArtOrder({ products: args.products });
       const line_items = [];
-
       const { products } = await order.populate("products");
-
       for (let i = 0; i < products.length; i++) {
         const product = await stripe.products.create({
           name: products[i].name,
           description: products[i].description,
-          // images: [`${url}/images/${products[i].image}`],
-        });
-
+           images: [`google.com`],
+        }).catch(err => console.log(err))
         const price = await stripe.prices.create({
           product: product.id,
-          unit_amount: products[i].price * 100,
+          unit_amount: 2000 ,
           currency: "usd",
-        });
-
+        }).catch(err => console.log("price error",err))
         line_items.push({
           price: price.id,
           quantity: 1,
         });
       }
-
+console.log(url)
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
         line_items,
@@ -95,7 +91,7 @@ const resolvers = {
         success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${url}/`,
       });
-
+console.log("session", session)
       return { session: session.id };
     },
   },

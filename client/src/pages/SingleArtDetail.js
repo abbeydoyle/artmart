@@ -104,18 +104,18 @@ function Detail() {
   console.log(currentProduct.sizes);
 
   const [size, setSize] = useState("5x7");
-  const [price, setPrice] = useState(10);
+  const [price, setPrice] = useState(20);
   const handleSizeChange = (event) => {
     const newSize = event.target.value;
     setSize(newSize);
     if (newSize === "5x7") {
-      setPrice(10);
+      setPrice(20);
     } else if (newSize === "8x10") {
       setPrice(20);
     } else if (newSize === "18x24") {
-      setPrice(30);
+      setPrice(20);
     } else if (newSize === "24x36") {
-      setPrice(40);
+      setPrice(20);
     }
   };
 
