@@ -5,12 +5,6 @@ import { Table } from "flowbite-react";
 function Profile() {
   return (
 
-    <div className="md:grid md:grid-cols-8 gap-1 flex items-center justify-center h-screen">
-   <>
-    {/* <Link to="/Home" className="hover:text-[#cccccc] underline">
-          Log in
-        </Link> */}
-    <div className="md:grid md:grid-cols-8 gap-1">
       <div className="bg-[#508192] m-5 p-5 rounded md:col-span-4 shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
         <h2 className="text-2xl font-bold text-white pt-2">My Profile</h2>
         <Table className="bg-transparent text-white text-lg">
@@ -121,7 +115,6 @@ function Profile() {
         </Table>
       </div>
     </div>
-    </>
   );
 }
 
