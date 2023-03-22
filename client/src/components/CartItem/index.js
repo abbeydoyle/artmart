@@ -61,9 +61,9 @@ const CartItem = ({ item }) => {
     //     </div>
     //   </div>
     // </div>
-    <div className="w-full max-w-sm bg-white rounded-lg relative">
+    <div className="w-full max-w-sm bg-white rounded-lg relative m-8">
       <img
-        className="rounded-t-lg border-solid border-8 border-[#56280e]"
+        className="rounded-lg border-solid border-8 border-[#56280e]"
         src={`${item.image}`}
         alt={item.name}
       />
