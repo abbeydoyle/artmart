@@ -6,13 +6,13 @@ export default function LogoutModal({ setOpenLogoutModal }) {
     <>
       <div className="fixed inset-0 z-10 overflow-y-auto">
         <div
-          className="fixed inset-0 w-full h-full bg-black opacity-40"
+          className="fixed inset-0 w-full h-full bg-black opacity-70"
           onClick={() => setOpenLogoutModal(false)}
         ></div>
         <div className="flex items-center min-h-screen px-4 py-8">
           <div className="relative w-full max-w-lg p-4 mx-auto bg-white rounded-md shadow-lg">
-            <div className="mt-3 sm:flex">
-              <div className="mt-2 text-center sm:ml-4 sm:text-left">
+            <div className="mt-3 mb-4 sm:flex">
+              <div className="mt-2 text-center sm:ml-[4rem] sm:text-left">
                 <h4 className="text-lg font-medium text-gray-800">
                   Would you like to log out?
                 </h4>
@@ -21,7 +21,7 @@ export default function LogoutModal({ setOpenLogoutModal }) {
                 </p>
                 <div className="items-center gap-2 mt-3 sm:flex">
                   <button
-                    className="w-full mt-2 p-2.5 flex-1 text-white bg-red-600 rounded-md outline-none ring-offset-2 ring-red-600 focus:ring-2"
+                    className="w-full mt-2 p-2.5 flex-1 text-white hover:bg-red-600 bg-red-700 rounded-md outline-none ring-offset-2 ring-red-600 focus:ring-2"
                     onClick={Auth.logout}
                   >
                     Log out
