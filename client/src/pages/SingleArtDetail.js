@@ -103,6 +103,22 @@ function Detail() {
   console.log(currentProduct);
   console.log(currentProduct.sizes);
 
+  const [size, setSize] = useState("5x7");
+  const [price, setPrice] = useState("{currentProduct.sizes.[0].price}");
+  const handleSizeChange = (event) => {
+    const newSize = event.target.value;
+    setSize(newSize);
+    if (newSize === "5x7") {
+      setPrice(10);
+    } else if (newSize === "8x10") {
+      setPrice(20);
+    } else if (newSize === "18x24") {
+      setPrice(30);
+    } else if (newSize === "24x36") {
+      setPrice(40);
+    }
+  };
+
   return (
     <>
       {currentProduct && cart ? (
@@ -125,13 +141,46 @@ function Detail() {
                     <p className="mb-1 text-md md:float-left md:pl-[2rem]">
                       Select size:
                     </p>
-                    <select className="md:w-[85%] rounded-lg text-center bg-white hover:text-white hover:bg-[#36392c] focus:ring-2 focus:outline-none focus:ring-[#36392c]">
-                      <option disabled>Size</option>
-                      <option>5x7</option>
-                      <option>8x10</option>
-                      <option>18x24</option>
-                      <option>24x36</option>
-                    </select>
+                    <label>
+                      5x7
+                      <input
+                        type="radio"
+                        name="size"
+                        value="5x7"
+                        checked={size === "5x7"}
+                        onChange={handleSizeChange}
+                      />
+                    </label>
+                    <label>
+                    8x10
+                      <input
+                        type="radio"
+                        name="size"
+                        value="8x10"
+                        checked={size === "8x10"}
+                        onChange={handleSizeChange}
+                      />
+                    </label>
+                    <label>
+                    18x24
+                      <input
+                        type="radio"
+                        name="size"
+                        value="18x24"
+                        checked={size === "18x24"}
+                        onChange={handleSizeChange}
+                      />
+                    </label>
+                    <label>
+                    24x36
+                      <input
+                        type="radio"
+                        name="size"
+                        value="24x36"
+                        checked={size === "24x36"}
+                        onChange={handleSizeChange}
+                      />
+                    </label>
                   </div>
                   <div>
                     <p className="mb-1 text-md md:float-left md:pl-[2rem]">
@@ -149,7 +198,7 @@ function Detail() {
                 </div>
 
                 <p className="mb-3 md:mb-8 text-lg">
-                  <strong>Price: ${currentProduct.price} </strong>
+                  <strong>Price: ${price} </strong>
                 </p>
                 {/* ${currentProduct.price}{" "} */}
                 <div className="grid md:grid-cols-2 mb-3">
@@ -172,7 +221,9 @@ function Detail() {
                 </div>
               </div>
             </div>
-            <Link to={`/`} className="text-[#36392c] float-left font-bold">← Back to Gallery</Link>
+            <Link to={`/`} className="text-[#36392c] float-left font-bold">
+              ← Back to Gallery
+            </Link>
           </div>
         </div>
       ) : null}
