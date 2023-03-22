@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { Button } from "flowbite-react";
-
+import { Button, Alert } from "flowbite-react";
+import CartAlert from "../components/CartAlert/index";
 import Cart from "../components/Cart";
 import Wishlist from "./MyWishlist";
 import { useStoreContext } from "../utils/GlobalState";
@@ -22,6 +22,7 @@ function Detail() {
   const { id } = useParams();
 
   const [currentProduct, setCurrentProduct] = useState({});
+  const [showCartModal, setshowCartModal] = useState(false);
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
@@ -73,6 +74,8 @@ function Detail() {
       });
       idbPromise("cart", "put", { ...currentProduct, purchaseQuantity: 1 });
     }
+    // alert('This item has been added to your cart!');
+    setshowCartModal(true)
   };
 
   const addToWishlist = () => {
@@ -119,10 +122,9 @@ function Detail() {
     }
   };
 
-const value = price;
-console.log(value)
-localStorage.setItem(price, value);
-
+  const value = price;
+  console.log(value);
+  localStorage.setItem(price, value);
 
   return (
     <>
@@ -157,7 +159,7 @@ localStorage.setItem(price, value);
                       />
                     </label>
                     <label>
-                    8x10
+                      8x10
                       <input
                         type="radio"
                         name="size"
@@ -167,7 +169,7 @@ localStorage.setItem(price, value);
                       />
                     </label>
                     <label>
-                    18x24
+                      18x24
                       <input
                         type="radio"
                         name="size"
@@ -177,7 +179,7 @@ localStorage.setItem(price, value);
                       />
                     </label>
                     <label>
-                    24x36
+                      24x36
                       <input
                         type="radio"
                         name="size"
@@ -232,6 +234,7 @@ localStorage.setItem(price, value);
           </div>
         </div>
       ) : null}
+      {showCartModal && <CartAlert setOpenCartModal={setshowCartModal} />}
     </>
   );
 }

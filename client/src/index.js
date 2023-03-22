@@ -6,6 +6,7 @@ import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  // react strict mode has been disabled for stripe
     <App />
 );
 
