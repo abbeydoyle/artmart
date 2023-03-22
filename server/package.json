@@ -1,0 +1,29 @@
+{
+  "name": "ArtMart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon",
+    "seed": "node config/seed.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.5.0",
+    "@cloudinary/react": "^1.11.1",
+    "@cloudinary/url-gen": "^1.9.2",
+    "bcrypt": "^5.0.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.17.2",
+    "graphql": "^16.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.6",
+    "stripe": "^11.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
