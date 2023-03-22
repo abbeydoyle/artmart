@@ -104,7 +104,7 @@ function Detail() {
   console.log(currentProduct.sizes);
 
   const [size, setSize] = useState("5x7");
-  const [price, setPrice] = useState("{currentProduct.sizes.[0].price}");
+  const [price, setPrice] = useState(10);
   const handleSizeChange = (event) => {
     const newSize = event.target.value;
     setSize(newSize);
