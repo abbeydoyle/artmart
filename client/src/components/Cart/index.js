@@ -46,18 +46,18 @@ const Cart = () => {
     });
     const total = sum;
     localStorage.setItem(sum, total);
-    console.log(total)
+    console.log(total);
     return sum.toFixed(2);
   }
 
   function submitCheckout() {
     const productIds = [];
-console.log("asdfg")
+    console.log("asdfg");
     state.cart.forEach((item) => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
         productIds.push(item._id);
       }
-      console.log("product" ,productIds)
+      console.log("product", productIds);
     });
 
     getCheckout({
@@ -66,28 +66,60 @@ console.log("asdfg")
   }
 
   return (
-    <div className="cart">
-      <h2>Shopping Cart</h2>
-      {state.cart.length ? (
-        <div>
-          {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
-          ))}
+    // <div className="cart">
+    //   <h2>Shopping Cart</h2>
+    //   {state.cart.length ? (
+    //     <div>
+    //       {state.cart.map((item) => (
+    //         <CartItem key={item._id} item={item} />
+    //       ))}
 
-          <div className="flex-row space-between">
-            <strong>Total: ${calculateTotal()}</strong>
+    //       <div className="flex-row space-between">
+    //         <strong>Total: ${calculateTotal()}</strong>
 
-            {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
-            ) : (
-              <span>(log in to check out)</span>
-            )}
-          </div>
+    //         {Auth.loggedIn() ? (
+    //           <button onClick={submitCheckout}>Checkout</button>
+    //         ) : (
+    //           <span>(log in to check out)</span>
+    //         )}
+    //       </div>
+    //     </div>
+    //   ) : (
+    //     <h3>You haven't added anything to your cart yet!</h3>
+    //   )}
+    // </div>
+    <>
+      <h2 className="text-3xl font-bold underline text-[#36392c] pb-5">
+        Shopping Cart
+      </h2>
+      <div className="flex-row justify-between">
+        <strong className="ml-3 mr-3">Total: ${calculateTotal()}</strong>
+        {Auth.loggedIn() && state.cart.length ? (
+          <button 
+          onClick={submitCheckout}
+          className="hover:underline ml-3 mr-3"
+          >Checkout</button>
+        ) : (
+          <span className="ml-3">Log in <a href="/login" className="underline hover:text-[#508192]">here</a> to checkout</span>
+        )}
+      </div>
+      <main className="whitespace-nowrap text-[#36392c]">
+        <div className="gap-8 md:columns-2 m-5 whitespace-nowrap">
+          {state.cart.length ? (
+            <div>
+              {state.cart.map((item) => (
+                <CartItem key={item._id} item={item} />
+              ))}
+            </div>
+          ) : (
+            <>
+            <h3 className="font-bold text-lg ">You haven't added anything to your cart yet! </h3>
+            <h3 className="font-bold text-lg ">Start browsing prints <a href="/" className="underline hover:text-[#508192]">here</a>.</h3>
+            </>
+          )}
         </div>
-      ) : (
-        <h3>You haven't added anything to your cart yet!</h3>
-      )}
-    </div>
+      </main>
+    </>
   );
 };
 export default Cart;
