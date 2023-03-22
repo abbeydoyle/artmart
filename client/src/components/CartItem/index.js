@@ -61,7 +61,7 @@ const CartItem = ({ item }) => {
     //     </div>
     //   </div>
     // </div>
-    <div className="w-full max-w-sm bg-white rounded-lg relative m-8">
+    <div className="w-full max-w-sm bg-white rounded-lg relative m-8 text-[#36392c]">
       <img
         className="rounded-lg border-solid border-8 border-[#56280e]"
         src={`${item.image}`}
@@ -70,7 +70,7 @@ const CartItem = ({ item }) => {
 
       <div className="px-5 pb-5">
         <a href="#">
-          <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="text-lg font-semibold tracking-tight">
             {item.name}
           </h5>
         </a>
@@ -82,7 +82,7 @@ const CartItem = ({ item }) => {
           onChange={onChange}
           className="border border-transparent w-[20%]"
         />
-        <span class="text-3xl font-bold text-gray-900 dark:text-white float-right">
+        <span class="text-xl font-bold float-right">
           ${value}
         </span>
         <div className="flex items-center justify-between absolute bottom-0 right-0">
