@@ -5,6 +5,7 @@ const StoreContext = createContext();
 const { Provider } = StoreContext;
 
 const StoreProvider = ({ value = [], ...props }) => {
+  // const refresh = JSON.parse(localStorage.getItem("GlobalCart"));
   const [state, dispatch] = useProductReducer({
     products: [],
     cart: [],
@@ -14,8 +15,11 @@ const StoreProvider = ({ value = [], ...props }) => {
     wishlistOpen: false,
     categories: [],
     currentCategory: "",
-
   });
+  console.log("cart", state.cart);
+  if (state.cart.length > 0) {
+    localStorage.setItem("GlobalCart", JSON.stringify(state.cart));
+  }
 
   return <Provider value={[state, dispatch]} {...props} />;
 };

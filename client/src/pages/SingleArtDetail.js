@@ -7,7 +7,6 @@ import Cart from "../components/Cart";
 import Wishlist from "./MyWishlist";
 import { useStoreContext } from "../utils/GlobalState";
 import {
-  REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
   ADD_TO_CART,
   UPDATE_PRODUCTS,
@@ -55,11 +54,38 @@ function Detail() {
   }, [products, data, loading, dispatch, id]);
 
   const addToCart = () => {
-    const itemInCart = cart.find((cartItem) => cartItem._id === id);
+    // IMPORTANT BELOW
+    const pullChosenDetails = JSON.parse(localStorage.getItem("sizeChoice"));
+    const idChosen = currentProduct._id;
+    const priceChosen = pullChosenDetails.price;
+    const sizeChosen = pullChosenDetails.size;
+    // console.log("id Chosen", idChosen);
+    // console.log("price chosen", priceChosen);
+    // console.log("size chosen", sizeChosen);
+    const keyValue = idChosen.concat(priceChosen);
+    const productDetails = {
+      key: keyValue,
+      id: idChosen,
+      price: priceChosen,
+      size: sizeChosen,
+    };
+
+    // need to set in local storage so we can pull it later
+    localStorage.setItem(keyValue, JSON.stringify(productDetails));
+
+    // console.log("current cart", cart);
+
+    const itemInCart = cart.find((cartItem) => cartItem.key === keyValue);
+    console.log("Item in Cart", itemInCart);
+
+    // console.log("item in cart", itemInCart);
+    // console.log("cartItem", cartItem);
+    // console.log("cartItem_id", cartItem._id);
+    // console.log("id", id);
     if (itemInCart) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
-        _id: id,
+        key: keyValue,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
       idbPromise("cart", "put", {
@@ -69,9 +95,12 @@ function Detail() {
     } else {
       dispatch({
         type: ADD_TO_CART,
-        product: { ...currentProduct, purchaseQuantity: 1 },
+        product: { ...productDetails, purchaseQuantity: 1 },
       });
-      idbPromise("cart", "put", { ...currentProduct, purchaseQuantity: 1 });
+      idbPromise("cart", "put", {
+        ...productDetails,
+        purchaseQuantity: 1,
+      });
     }
   };
 
@@ -92,37 +121,34 @@ function Detail() {
     }
   };
 
-  const removeFromCart = () => {
-    dispatch({
-      type: REMOVE_FROM_CART,
-      _id: currentProduct._id,
-    });
+  // console.log(currentProduct);
+  // console.log(currentProduct.sizes);
 
-    idbPromise("cart", "delete", { ...currentProduct });
-  };
-  console.log(currentProduct);
-  console.log(currentProduct.sizes);
-
-  const [size, setSize] = useState("5x7");
-  const [price, setPrice] = useState(20);
+  const [size, setSize] = useState();
+  const [price, setPrice] = useState(0);
   const handleSizeChange = (event) => {
     const newSize = event.target.value;
     setSize(newSize);
     if (newSize === "5x7") {
-      setPrice(20);
+      setPrice(10);
     } else if (newSize === "8x10") {
       setPrice(20);
     } else if (newSize === "18x24") {
-      setPrice(20);
+      setPrice(30);
     } else if (newSize === "24x36") {
-      setPrice(20);
+      setPrice(40);
     }
   };
 
-const value = price;
-console.log(value)
-localStorage.setItem(price, value);
-
+  const value = price;
+  const storeObject = {
+    price: value,
+    size: size,
+  };
+  // console.log(storeObject);
+  // console.log(value);
+  // localStorage.setItem(price, value);
+  localStorage.setItem("sizeChoice", JSON.stringify(storeObject));
 
   return (
     <>
@@ -157,7 +183,7 @@ localStorage.setItem(price, value);
                       />
                     </label>
                     <label>
-                    8x10
+                      8x10
                       <input
                         type="radio"
                         name="size"
@@ -167,7 +193,7 @@ localStorage.setItem(price, value);
                       />
                     </label>
                     <label>
-                    18x24
+                      18x24
                       <input
                         type="radio"
                         name="size"
@@ -177,7 +203,7 @@ localStorage.setItem(price, value);
                       />
                     </label>
                     <label>
-                    24x36
+                      24x36
                       <input
                         type="radio"
                         name="size"

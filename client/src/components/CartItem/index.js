@@ -10,38 +10,44 @@ const CartItem = ({ item }) => {
   const removeFromCart = (item) => {
     dispatch({
       type: REMOVE_FROM_CART,
-      _id: item._id,
+      key: item.key,
     });
     idbPromise("cart", "delete", { ...item });
+    console.log("deleted", item);
   };
 
   const onChange = (e) => {
     const value = e.target.value;
+    // console.log("value on change", value);
     if (value === "0") {
       dispatch({
         type: REMOVE_FROM_CART,
-        _id: item._id,
+        _id: item.key,
       });
       idbPromise("cart", "delete", { ...item });
     } else {
       dispatch({
         type: UPDATE_CART_QUANTITY,
-        _id: item._id,
+        _id: item.key,
         purchaseQuantity: parseInt(value),
       });
       idbPromise("cart", "put", { ...item, purchaseQuantity: parseInt(value) });
     }
   };
 
-  const value = localStorage.getItem(20);
-  console.log (value)
+  // const value = localStorage.getItem(20);
+  // console.log (value)
+
+  // console.log(value);
+  // const price = value.price;
+  // // console.log(price);
+  // const size = value.size;
+  //   // console.log(size);
   return (
     <div className="flex-row">
       <div>{/* <img src={`/images/${item.image}`} alt="" /> */}</div>
       <div>
-        <div>
-          {item.name}, ${value}
-        </div>
+        <div>{item.key}</div>
         <div>
           <span>Qty:</span>
           <input

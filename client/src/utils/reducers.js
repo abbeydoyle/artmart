@@ -12,10 +12,11 @@ import {
   ADD_MULTIPLE_TO_CART,
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
-  ADD_MULTIPLE_TO_WISHLIST
+  ADD_MULTIPLE_TO_WISHLIST,
 } from "./actions";
 
 export const reducer = (state, action) => {
+  console.log("action", action);
   switch (action.type) {
     case ADD_TO_CART:
       return {
