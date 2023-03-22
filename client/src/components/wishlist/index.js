@@ -3,13 +3,14 @@ import { useLazyQuery } from "@apollo/client";
 import { idbPromise } from "../../utils/helpers";
 import Wishlistitem from "../wishlistitem/index";
 import { useStoreContext } from "../../utils/GlobalState";
+import { ADD_MULTIPLE_TO_WISHLIST} from "../../utils/actions";
 
 const Wishlistcomponent = () => {
     const [state, dispatch] = useStoreContext();
     useEffect(() => {
       async function getCart() {
         const cart = await idbPromise("wishlist", "get");
-        dispatch({ products: [...cart] });
+        dispatch({ type: ADD_MULTIPLE_TO_WISHLIST, products: [...cart] });
       }
   
       if (!state.wishlist.length) {
