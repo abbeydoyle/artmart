@@ -4,7 +4,6 @@ import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 import { Label, TextInput, Button } from "flowbite-react";
-import Login from "./login";
 
 const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOpenLoginModal }) => {
   // set initial form state
@@ -31,28 +30,6 @@ const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOp
     Auth.login(token);
   };
 
-  // const handleFormSubmit = async (event) => {
-  //   event.preventDefault();
-  //   console.log(formState);
-  //   // const mutationResponse = await addUser({
-  //   //   variables: {
-  //   //     firstName: formState.firstName,
-  //   //     lastName: formState.lastName,
-  //   //     email: formState.email,
-  //   //     password: formState.password,
-  //   //   },
-  //   // });
-  //   // const token = mutationResponse.data.addUser.token;
-  //   // Auth.login(token);
-
-  //   // setFormState({
-  //   //   firstName: "",
-  //   //   lastName: "",
-  //   //   email: "",
-  //   //   password: "",
-  //   // });
-  // };
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormState({
@@ -62,19 +39,14 @@ const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOp
   };
 
   function SignupSwitch() {
-    // setOpenSignupModal(false);
-    // Login()
     loginToggle()
   }
 
-  //TODO: HAVE TO CHANGE A LOT OF THESE NAMES BELOW
-  //TODO: ADD FEEDBACK???
-  // TODO: Style - get rid of either placeholder or label?
   return (
     <>
       <div className="fixed inset-0 overflow-y-auto z-10">
         <div
-          className="fixed inset-0 w-full h-full bg-black opacity-40"
+          className="fixed inset-0 w-full h-full bg-black opacity-70"
           onClick={() => setOpenSignupModal(false)}
         ></div>
         <div className="flex items-center min-h-screen px-4 py-8">
@@ -82,6 +54,7 @@ const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOp
             <div className="mt-3 sm:flex">
               <div className="mt-2 text-center sm:ml-4 sm:text-left w-[90%]">
                 <div className="w-[100%] m-5 p-5 rounded">
+                <div className="text-2xl text-white pb-2">
                   <h2 className="text-2xl font-bold text-white pb-2">
                     Welcome to ArtMart!
                   </h2>
@@ -140,13 +113,13 @@ const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOp
                     <Button
                       type="submit"
                       outline={true}
-                      className="md:w-[20%] w-[50%] md:ml-[40%]"
+                      className="md:w-[20%] w-[50%] md:ml-[40%] mt-[1rem]"
                       gradientDuoTone="redToYellow"
                     >
                       Sign up
                     </Button>
                   </form>
-                  <h2 className="text-xl font-bold text-white pb-5">
+                  <h2 className="text-xl font-bold text-white pb-5 pt-5">
                     Already have an account?{" "}
                     <Link
                       className="hover:text-[#cccccc] underline"
@@ -157,6 +130,7 @@ const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOp
                       Log in
                     </Link>
                   </h2>
+                  </div>
                 </div>
               </div>
             </div>

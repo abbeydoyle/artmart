@@ -12,7 +12,7 @@ import {
   ADD_MULTIPLE_TO_CART,
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
-
+  ADD_MULTIPLE_TO_WISHLIST
 } from "./actions";
 
 export const reducer = (state, action) => {
@@ -76,25 +76,31 @@ export const reducer = (state, action) => {
         wishlist: newwishlistState,
       };
 
-      case UPDATE_PRODUCTS:
+    case UPDATE_PRODUCTS:
       return {
         ...state,
         products: [...action.products],
       };
 
-      case ADD_MULTIPLE_TO_CART:
+    case ADD_MULTIPLE_TO_CART:
       return {
         ...state,
         cart: [...state.cart, ...action.products],
       };
 
-      case UPDATE_CATEGORIES:
+    case ADD_MULTIPLE_TO_WISHLIST:
+      return {
+        ...state,
+        cart: [...state.wishlist, ...action.products],
+      };
+
+    case UPDATE_CATEGORIES:
       return {
         ...state,
         categories: [...action.categories],
       };
 
-      case UPDATE_CURRENT_CATEGORY:
+    case UPDATE_CURRENT_CATEGORY:
       return {
         ...state,
         currentCategory: action.currentCategory,
