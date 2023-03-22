@@ -25,7 +25,7 @@ function Detail() {
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
-  const { products, cart } = state;
+  const { products, cart, wishlist } = state;
 
   useEffect(() => {
     // already in global store
@@ -76,7 +76,7 @@ function Detail() {
   };
 
   const addToWishlist = () => {
-    const itemInWishlist = Wishlist.find(
+    const itemInWishlist = wishlist.find(
       (WishlistItem) => WishlistItem._id === id
     );
     if (itemInWishlist) {
@@ -101,7 +101,7 @@ function Detail() {
     idbPromise("cart", "delete", { ...currentProduct });
   };
   console.log(currentProduct);
-  console.log(currentProduct.price);
+  console.log(currentProduct.sizes);
 
   return (
     <>
