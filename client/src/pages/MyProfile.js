@@ -4,6 +4,7 @@ import { Table } from "flowbite-react";
 
 function Profile() {
   return (
+
     <div className="md:grid md:grid-cols-8 gap-1 flex items-center justify-center h-screen">
    <>
     {/* <Link to="/Home" className="hover:text-[#cccccc] underline">
