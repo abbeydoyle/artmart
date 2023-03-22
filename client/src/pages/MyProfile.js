@@ -4,6 +4,8 @@ import { Table } from "flowbite-react";
 
 function Profile() {
   return (
+
+    <div className="md:grid md:grid-cols-8 gap-1 flex items-center justify-center h-screen">
    <>
     {/* <Link to="/Home" className="hover:text-[#cccccc] underline">
           Log in
@@ -20,7 +22,7 @@ function Profile() {
             </Table.HeadCell>
           </Table.Head>
           <Table.Body >
-          <Table.Row className="dark:border-gray-700">
+          <Table.Row className="border-gray-700">
               <Table.Cell className="whitespace-nowrap font-bold">
                 Address
               </Table.Cell>
