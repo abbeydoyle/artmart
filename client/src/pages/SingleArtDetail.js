@@ -93,11 +93,11 @@ function Detail() {
   }, [products, data, loading, dispatch, id]);
 
   const addToCart = () => {
-    console.log("CURR PRODUCTHERE", currentProduct);
-    console.log("EXTRA INFO", cartCapture);
+    // console.log("CURR PRODUCTHERE", currentProduct);
+    // console.log("EXTRA INFO", cartCapture);
     console.log("CARTITEM", cart);
     const itemInCart = cart.find((cartItem) => cartItem._id === id);
-    console.log("check", itemInCart);
+    // console.log("check", itemInCart);
 
     // if (itemInCart.sizes._id === itemInCart.sizeID) {
     //   // var correctSize = cartCapture.sizeID;
