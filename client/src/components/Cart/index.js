@@ -97,9 +97,12 @@ const Cart = () => {
         {Auth.loggedIn() && state.cart.length ? (
           <button 
           onClick={submitCheckout}
-          className="hover:underline ml-3 mr-3"
+          className="hover:underline ml-3 mr-3 hover:text-[#508192]"
           >Checkout</button>
-        ) : (
+        ) : Auth.loggedIn() && !state.cart.length ? (
+          <span className="ml-3">Add items to your cart to checkout</span>
+        )
+        : (
           <span className="ml-3">Log in <a href="/login" className="underline hover:text-[#508192]">here</a> to checkout</span>
         )}
       </div>
