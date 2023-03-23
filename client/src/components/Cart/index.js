@@ -104,7 +104,7 @@ const Cart = () => {
         )}
       </div>
       <main className="whitespace-nowrap text-[#36392c]">
-        <div className="gap-8 md:columns-2 m-5 whitespace-nowrap">
+        <div className="gap-8 md:columns-2 m-5">
           {state.cart.length ? (
             <div>
               {state.cart.map((item) => (
