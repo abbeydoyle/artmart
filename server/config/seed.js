@@ -42,6 +42,56 @@ db.once("open", async () => {
     },
 
     {
+      name: "La jungla",
+      artistName: "Wifredo Lam",
+      description: "Paint on canvas",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679609590/Picture3_jyvhoi.jpg",
+      category: categories[0]._id,
+      sizes: [
+        {
+          price: 10.0,
+          size: "5x7",
+        },
+        { 
+          price: 20.0, 
+          size: "8x10" 
+        },
+        {
+          price: 30.0,
+          size: "18x24",
+        },
+        {
+          price: 40.0,
+          size: "24x36",
+        },
+      ],
+    },
+
+    {
+      artistName: "Raqib Shaw",
+      name: "Absence of God VII",
+      description: "Mixed media",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679610240/RaqibShaw_aidd7l.jpg",
+      category: categories[0]._id,
+
+      sizes: [
+        {
+          price: 10.0,
+          size: "5x7",
+        },
+        { price: 20.0, size: "8x10" },
+        {
+          price: 30.0,
+          size: "18x24",
+        },
+        {
+          price: 40.0,
+          size: "24x36",
+        },
+      ],
+    },
+
+    {
       artistName: "Charles James Lewis",
       name: "Reading by the Window",
       description: "Oil on canvas",
@@ -66,10 +116,56 @@ db.once("open", async () => {
     },
 
     {
+      artistName: "Gabriella Possum Nungurrayi ",
+      name: "Grandmother's Country",
+      description: "Acrylic on linen",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679611602/Jap-020605-Gabriella-1_gjvm7g.jpg",
+      category: categories[1]._id,
+      sizes: [
+        {
+          price: 10.0,
+          size: "5x7",
+        },
+        { price: 20.0, size: "8x10" },
+        {
+          price: 30.0,
+          size: "18x24",
+        },
+        {
+          price: 40.0,
+          size: "24x36",
+        },
+      ],
+    },
+
+    {
       artistName: "Thomas Cole",
       name: "The Savage State",
       description: "Oil on canvas",
       image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679345559/Cole_Thomas_The_Course_of_Empire_The_Savage_State_1836_fbv5ds.jpg",
+      category: categories[1]._id,
+      sizes: [
+        {
+          price: 10.0,
+          size: "5x7",
+        },
+        { price: 20.0, size: "8x10" },
+        {
+          price: 30.0,
+          size: "18x24",
+        },
+        {
+          price: 40.0,
+          size: "24x36",
+        },
+      ],
+    },
+
+    {
+      artistName: "Michael Nelson Jagamara",
+      name: "Five Stories",
+      description: "Paint on canvas",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679611080/90_s87rgm.jpg",
       category: categories[1]._id,
       sizes: [
         {
@@ -201,10 +297,76 @@ db.once("open", async () => {
       ],
     },
     {
+      artistName: "Rafiy Okefolahan",
+      name: "Sans Titre",
+      description: "Oil on canvas",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679608339/rafiy-min_ihlp0j.jpg",
+      category: categories[1]._id,
+      sizes: [
+        {
+          price: 10.0,
+          size: "5x7",
+        },
+        { price: 20.0, size: "8x10" },
+        {
+          price: 30.0,
+          size: "18x24",
+        },
+        {
+          price: 40.0,
+          size: "24x36",
+        },
+      ],
+    },
+    {
+      artistName: "Hiba Kalache",
+      name: "Some dreams",
+      description: "Paint on canvas",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679609041/dreams_boxydo.webp",
+      category: categories[1]._id,
+      sizes: [
+        {
+          price: 10.0,
+          size: "5x7",
+        },
+        { price: 20.0, size: "8x10" },
+        {
+          price: 30.0,
+          size: "18x24",
+        },
+        {
+          price: 40.0,
+          size: "24x36",
+        },
+      ],
+    },
+    {
       artistName: "Thomas Cole",
       name: "The Consummation of Empire",
       description: "Oil on canvas",
       image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679345827/Cole_Thomas_The_Consummation_The_Course_of_the_Empire_1836_bbhni6.jpg",
+      category: categories[1]._id,
+      sizes: [
+        {
+          price: 10.0,
+          size: "5x7",
+        },
+        { price: 20.0, size: "8x10" },
+        {
+          price: 30.0,
+          size: "18x24",
+        },
+        {
+          price: 40.0,
+          size: "24x36",
+        },
+      ],
+    },
+    {
+      artistName: "Michael Armitage",
+      name: "Diamond Platnumz",
+      description: "Oil on  Lubugo bark cloth",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679612516/Schermafbeelding-2022-02-01-om-17.59.08_wgvaso.png",
       category: categories[1]._id,
       sizes: [
         {
@@ -292,6 +454,53 @@ db.once("open", async () => {
         },
       ],
     },
+
+    {
+      artistName: "Ntombephi Ntobela",
+      name: "The President",
+      description: "Beaded canvas",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679608659/ntombephi-min_pw0u9b.jpg",
+      category: categories[2]._id,
+      sizes: [
+        {
+          price: 10.0,
+          size: "5x7",
+        },
+        { price: 20.0, size: "8x10" },
+        {
+          price: 30.0,
+          size: "18x24",
+        },
+        {
+          price: 40.0,
+          size: "24x36",
+        },
+      ],
+    },
+
+    {
+      artistName: "Nicky Nodjoumi",
+      name: "New York Times",
+      description: "Watercolor on print",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679609296/times_wkmerb.webp",
+      category: categories[2]._id,
+      sizes: [
+        {
+          price: 10.0,
+          size: "5x7",
+        },
+        { price: 20.0, size: "8x10" },
+        {
+          price: 30.0,
+          size: "18x24",
+        },
+        {
+          price: 40.0,
+          size: "24x36",
+        },
+      ],
+    },
+
     {
       artistName: "Thomas Cole",
       name: "Destruction",
@@ -343,6 +552,30 @@ db.once("open", async () => {
       name: "Roses and Jasmine in a Delft Vase",
       description: "Oil on canvas",
       image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679340868/1gKSqPq1.mockup_fprvsa.jpg",
+      category: categories[1]._id,
+
+      sizes: [
+        {
+          price: 10.0,
+          size: "5x7",
+        },
+        { price: 20.0, size: "8x10" },
+        {
+          price: 30.0,
+          size: "18x24",
+        },
+        {
+          price: 40.0,
+          size: "24x36",
+        },
+      ],
+    },
+
+    {
+      artistName: "Kawashima Shigenobu",
+      name: "Excursions",
+      description: "Color woodblock print",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679610678/Kawashima-Shigenobu_saqbtg.jpg",
       category: categories[1]._id,
 
       sizes: [
