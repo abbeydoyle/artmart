@@ -17,14 +17,16 @@ export const QUERY_CHECKOUT = gql`
 export const QUERY_PRODUCTS = gql`
   query getProducts {
     products {
-    _id
-    artistName
-    description
-    image
-    name
-    sizes {
-      price
-      size
+      _id
+      artistName
+      description
+      image
+      name
+      sizes {
+        _id
+        price
+        size
+      }
     }
-  }}
+  }
 `;

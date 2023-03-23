@@ -95,12 +95,20 @@ const Cart = () => {
       <div className="flex-row justify-between">
         <strong className="ml-3 mr-3">Total: ${calculateTotal()}</strong>
         {Auth.loggedIn() && state.cart.length ? (
-          <button 
-          onClick={submitCheckout}
-          className="hover:underline ml-3 mr-3"
-          >Checkout</button>
+          <button
+            onClick={submitCheckout}
+            className="hover:underline ml-3 mr-3"
+          >
+            Checkout
+          </button>
         ) : (
-          <span className="ml-3">Log in <a href="/login" className="underline hover:text-[#508192]">here</a> to checkout</span>
+          <span className="ml-3">
+            Log in{" "}
+            <a href="/login" className="underline hover:text-[#508192]">
+              here
+            </a>{" "}
+            to checkout
+          </span>
         )}
       </div>
       <main className="whitespace-nowrap text-[#36392c]">
@@ -113,8 +121,16 @@ const Cart = () => {
             </div>
           ) : (
             <>
-            <h3 className="font-bold text-lg ">You haven't added anything to your cart yet! </h3>
-            <h3 className="font-bold text-lg ">Start browsing prints <a href="/" className="underline hover:text-[#508192]">here</a>.</h3>
+              <h3 className="font-bold text-lg ">
+                You haven't added anything to your cart yet!{" "}
+              </h3>
+              <h3 className="font-bold text-lg ">
+                Start browsing prints{" "}
+                <a href="/" className="underline hover:text-[#508192]">
+                  here
+                </a>
+                .
+              </h3>
             </>
           )}
         </div>

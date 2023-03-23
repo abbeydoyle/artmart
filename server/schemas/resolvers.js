@@ -1,8 +1,16 @@
 const { GraphQLError } = require("graphql");
-const { User, ArtProduct, ArtCategory, ArtOrder } = require("../models");
+const {
+  User,
+  ArtProduct,
+  ArtCategory,
+  ArtOrder,
+  ArtSize,
+} = require("../models");
 const { signToken } = require("../utils/auth");
 require("dotenv").config();
-const stripe = require("stripe")("sk_test_51MllX3CqIZpk4OuxCGBxjStuTLuhrAPY6PTT1MDyrM0yGwO1tNpj9bw94JoipZhkJmpaVWetuGOqmLee2MRSzWta00gjsoUCAE");
+const stripe = require("stripe")(
+  "sk_test_51MllX3CqIZpk4OuxCGBxjStuTLuhrAPY6PTT1MDyrM0yGwO1tNpj9bw94JoipZhkJmpaVWetuGOqmLee2MRSzWta00gjsoUCAE"
+);
 
 const resolvers = {
   Query: {
@@ -10,24 +18,20 @@ const resolvers = {
       return await ArtCategory.find();
     },
     products: async (parent, { category, name }) => {
-      // const params = {};
-
-      // if (category) {
-      //   params.category = category;
-      // }
-
-      // if (name) {
-      //   params.name = {
-      //     $regex: name,
-      //   };
-      // }
-
-      // return await ArtProduct.find(params).populate("category");
       return await ArtProduct.find({}).populate("category");
     },
+
     product: async (parent, { _id }) => {
       return await ArtProduct.findById(_id).populate("category");
     },
+
+    size: async (parent, { _id }) => {
+      return await ArtSize.findById(_id).populate("sizes");
+    },
+    sizes: async (parent, { category, name }) => {
+      return await ArtSize.find({}).populate("product");
+    },
+
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
@@ -68,22 +72,26 @@ const resolvers = {
       const line_items = [];
       const { products } = await order.populate("products");
       for (let i = 0; i < products.length; i++) {
-        const product = await stripe.products.create({
-          name: products[i].name,
-          description: products[i].description,
-           images: [`google.com`],
-        }).catch(err => console.log(err))
-        const price = await stripe.prices.create({
-          product: product.id,
-          unit_amount: 2000 ,
-          currency: "usd",
-        }).catch(err => console.log("price error",err))
+        const product = await stripe.products
+          .create({
+            name: products[i].name,
+            description: products[i].description,
+            images: [`google.com`],
+          })
+          .catch((err) => console.log(err));
+        const price = await stripe.prices
+          .create({
+            product: product.id,
+            unit_amount: 2000,
+            currency: "usd",
+          })
+          .catch((err) => console.log("price error", err));
         line_items.push({
           price: price.id,
           quantity: 1,
         });
       }
-console.log(url)
+      console.log(url);
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
         line_items,
@@ -91,7 +99,7 @@ console.log(url)
         success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${url}/`,
       });
-console.log("session", session)
+      console.log("session", session);
       return { session: session.id };
     },
   },

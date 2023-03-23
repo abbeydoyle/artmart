@@ -4,6 +4,7 @@ const typeDefs = `#graphql
     name: String
   }
   type ArtSize {
+    _id: ID
     price: Float
     size: String
   }
@@ -33,6 +34,8 @@ const typeDefs = `#graphql
     orders: [ArtOrder]
   }
 
+  
+
   type Checkout {
     session: ID
   }
@@ -44,6 +47,8 @@ const typeDefs = `#graphql
 
   type Query {
     categories: [ArtCategory]
+    sizes: [ArtSize]
+    size(_id: ID!): ArtSize
     products: [ArtProduct]
     product(_id: ID!): ArtProduct
     user: User
