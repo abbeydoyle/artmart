@@ -82,7 +82,7 @@ const CartItem = ({ item }) => {
           onChange={onChange}
           className="border border-transparent w-[20%]"
         />
-        <span class="text-xl font-bold float-right">
+        <span className="text-xl font-bold float-right">
           ${item.price}
         </span>
         <div className="flex items-center justify-between absolute bottom-0 right-0">
