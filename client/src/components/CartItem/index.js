@@ -61,9 +61,9 @@ const CartItem = ({ item }) => {
     //     </div>
     //   </div>
     // </div>
-    <div className="w-full max-w-sm bg-white rounded-lg relative m-8 text-[#36392c] break-after-auto nosplit">
+    <div className="w-full max-w-sm bg-white rounded-lg relative m-8 text-[#36392c] nosplit">
       <img
-        className="rounded-lg border-solid border-8 border-[#56280e]"
+        className="rounded-lg border-solid border-8 border-[#56280e] nosplit"
         src={`${item.image}`}
         alt={item.name}
       />
