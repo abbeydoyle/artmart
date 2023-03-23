@@ -14,9 +14,8 @@ const StoreProvider = ({ value = [], ...props }) => {
     wishlistOpen: false,
     categories: [],
     currentCategory: "",
-
   });
-
+  console.log("GLOBAL CART STATE", state.cart);
   return <Provider value={[state, dispatch]} {...props} />;
 };
 

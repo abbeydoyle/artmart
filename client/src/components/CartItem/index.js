@@ -63,12 +63,12 @@ const CartItem = ({ item }) => {
     // </div>
     <div className="w-full max-w-sm bg-white rounded-lg relative m-8 text-[#36392c] nosplit">
       <img
-        className="rounded-lg border-solid border-8 border-[#56280e] nosplit"
+        className="rounded-lg border-solid border-8 border-[#56280e]"
         src={`${item.image}`}
         alt={item.name}
       />
 
-      <div className="px-5 pb-5 nosplit">
+      <div className="px-5 pb-5">
         <a href="#">
           <h5 className="text-lg font-semibold tracking-tight">
             {item.name}
@@ -83,7 +83,7 @@ const CartItem = ({ item }) => {
           className="border border-transparent w-[20%]"
         />
         <span class="text-xl font-bold float-right">
-          ${value}
+          ${item.price}
         </span>
         <div className="flex items-center justify-between absolute bottom-0 right-0">
           <a onClick={() => removeFromCart(item)}>

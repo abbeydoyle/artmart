@@ -9,7 +9,7 @@ import Auth from "../../utils/auth";
 import { useStoreContext } from "../../utils/GlobalState";
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+const stripePromise = loadStripe("pk_test_51MllX3CqIZpk4OuxPgM2Q11XVOYoe6g7TDffvN3kQ2eqXLOQaouPquU4dU0LaymqWGBizDRBmBKuDGAEoE4jAxaX00bZkOe6zh");
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
@@ -26,6 +26,7 @@ const Cart = () => {
   useEffect(() => {
     async function getCart() {
       const cart = await idbPromise("cart", "get");
+      console.log("GETCART", cart);
       dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
     }
 
@@ -42,7 +43,7 @@ const Cart = () => {
   function calculateTotal() {
     let sum = 0;
     state.cart.forEach((item) => {
-      sum += value * item.purchaseQuantity;
+      sum += item.price * item.purchaseQuantity;
     });
     const total = sum;
     localStorage.setItem(sum, total);
@@ -107,7 +108,7 @@ const Cart = () => {
         )}
       </div>
       <main className="whitespace-nowrap text-[#36392c]">
-        <div className="gap-8 md:columns-2 m-5">
+        <div className="gap-8 md:columns-2 m-5 nosplit">
           {state.cart.length ? (
             <div>
               {state.cart.map((item) => (

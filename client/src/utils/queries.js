@@ -23,8 +23,10 @@ export const QUERY_PRODUCTS = gql`
     image
     name
     sizes {
-      price
-      size
+        _id
+        price
+        size
+      }
     }
-  }}
+  }
 `;

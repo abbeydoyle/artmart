@@ -19,11 +19,48 @@ import { idbPromise } from "../utils/helpers";
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
+  console.log("SINGLE PAGE CART STATE", state);
   const { id } = useParams();
-
   const [currentProduct, setCurrentProduct] = useState({});
   const [showCartModal, setshowCartModal] = useState(false);
+  const [size, setSize] = useState({});
+  const [price, setPrice] = useState();
+  // console.log("CURR PROD", currentProduct);
+  const sizeArray = currentProduct.sizes;
+  // console.log("SIZE ARRAY", sizeArray);
 
+  const handleSizeChange = (event) => {
+    const newSize = event.target.value;
+    // console.log("newSize", newSize);
+    // setSize(newSize);
+    if (newSize === "5x7") {
+      setPrice(10);
+      setSize({ sizeID: sizeArray[0]._id, sizeName: newSize });
+    } else if (newSize === "8x10") {
+      setPrice(20);
+      setSize({ sizeID: sizeArray[1]._id, sizeName: newSize });
+    } else if (newSize === "18x24") {
+      setPrice(30);
+      setSize({ sizeID: sizeArray[2]._id, sizeName: newSize });
+    } else if (newSize === "24x36") {
+      setPrice(40);
+      setSize({ sizeID: sizeArray[3]._id, sizeName: newSize });
+    }
+  };
+
+  const cartCapture = {
+    productArray: currentProduct,
+    _id: currentProduct._id,
+    sizeID: size.sizeID,
+    sizeName: size.sizeName,
+    price: price,
+  };
+
+  console.log("CARTCAPTURE", cartCapture);
+
+  // console.log("CURR PROD SELECTED: ", currentProduct);
+
+  // console.log("CURR SIZE ", size);
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
   const { products, cart, wishlist } = state;
@@ -56,8 +93,18 @@ function Detail() {
   }, [products, data, loading, dispatch, id]);
 
   const addToCart = () => {
+    // console.log("CURR PRODUCTHERE", currentProduct);
+    // console.log("EXTRA INFO", cartCapture);
+    console.log("CARTITEM", cart);
     const itemInCart = cart.find((cartItem) => cartItem._id === id);
-    if (itemInCart) {
+    // console.log("check", itemInCart);
+
+    // if (itemInCart.sizes._id === itemInCart.sizeID) {
+    //   // var correctSize = cartCapture.sizeID;
+    //   console.log("YES?");
+    // }
+    // BELOW & SIZES ACCURATE
+    if (itemInCart && itemInCart.sizeID === cartCapture.sizeID) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: id,
@@ -70,67 +117,33 @@ function Detail() {
     } else {
       dispatch({
         type: ADD_TO_CART,
-        product: { ...currentProduct, purchaseQuantity: 1 },
+        product: {
+          ...currentProduct,
+          sizeID: cartCapture.sizeID,
+          sizeName: cartCapture.sizeName,
+          price: cartCapture.price,
+          purchaseQuantity: 1,
+        },
       });
-      idbPromise("cart", "put", { ...currentProduct, purchaseQuantity: 1 });
+      idbPromise("cart", "put", {
+        ...currentProduct,
+        price:price,
+        purchaseQuantity: 1,
+      });
     }
     // alert('This item has been added to your cart!');
     setshowCartModal(true);
   };
 
-  const addToWishlist = () => {
-    const itemInWishlist = wishlist.find(
-      (WishlistItem) => WishlistItem._id === id
-    );
-    if (itemInWishlist) {
-      idbPromise("wishlist", "put", {
-        ...itemInWishlist,
-      });
-    } else {
-      dispatch({
-        type: ADD_TO_WISHLIST,
-        product: { ...currentProduct },
-      });
-      idbPromise("wishlist", "put", { ...currentProduct });
-    }
-  };
-
-  const removeFromCart = () => {
-    dispatch({
-      type: REMOVE_FROM_CART,
-      _id: currentProduct._id,
-    });
-
-    idbPromise("cart", "delete", { ...currentProduct });
-  };
-  console.log(currentProduct);
-  console.log(currentProduct.sizes);
-
-  const [size, setSize] = useState("5x7");
-  const [price, setPrice] = useState(20);
-  const handleSizeChange = (event) => {
-    const newSize = event.target.value;
-    setSize(newSize);
-    if (newSize === "5x7") {
-      setPrice(20);
-    } else if (newSize === "8x10") {
-      setPrice(20);
-    } else if (newSize === "18x24") {
-      setPrice(20);
-    } else if (newSize === "24x36") {
-      setPrice(20);
-    }
-  };
-
-  const value = price;
-  console.log(value);
-  localStorage.setItem(price, value);
+  // const value = price;
+  // // console.log(value);
+  // localStorage.setItem(price, value);
 
   return (
     <>
       {currentProduct && cart ? (
         <div>
-          <div className="grid md:grid-cols-3 gap-4 text-[#36392c] nosplit">
+          <div className="grid md:grid-cols-3 gap-4 text-[#36392c]">
             <img
               src={`${currentProduct.image}`}
               alt={currentProduct.title}
@@ -145,119 +158,58 @@ function Detail() {
                 </div>
                 <div class="main border object-scale-down rounded-full overflow-hidden m-4 select-none accent-pink-500">
                   <div className="object-scale-down flex ">
-                  <div class="title py-3 my-auto px-5 bg-[#36392c] text-white text-sm font-semibold mr-3">
-                    Size
-                  </div>
-                  <label class="flex radio p-2 cursor-pointer">
-                    <input
-                      class="my-auto transform scale-75 checked:bg-[#36392c] checked:hover:bg-[#36392c] checked:active:bg-[#36392c] checked:focus:bg-emerald-400 focus:bg-[#36392c] focus:outline-none focus:ring-1 focus:ring-[#36392c]"
-                      type="radio"
-                      name="size"
-                      value="5x7"
-                      checked={size === "5x7"}
-                      onChange={handleSizeChange}
-                    />
-                    <div class="title">5x7</div>
-                  </label>
-
-                  <label class="flex radio p-2 cursor-pointer">
-                    <input
-                      class="my-auto transform scale-75 checked:bg-[#36392c] checked:hover:bg-[#36392c] checked:active:bg-[#36392c] checked:focus:bg-emerald-400 focus:bg-[#36392c] focus:outline-none focus:ring-1 focus:ring-[#36392c]"
-                      type="radio"
-                        name="size"
-                        value="8x10"
-                        checked={size === "8x10"}
-                        onChange={handleSizeChange}
-                    />
-                    <div class="title">8x10</div>
-                  </label>
-
-                  <label class="flex radio p-2 cursor-pointer">
-                    <input
-                      class="my-auto transform scale-75 checked:bg-[#36392c] checked:hover:bg-[#36392c] checked:active:bg-[#36392c] checked:focus:bg-emerald-400 focus:bg-[#36392c] focus:outline-none focus:ring-1 focus:ring-[#36392c]"
-                      type="radio"
-                        name="size"
-                        value="18x24"
-                        checked={size === "18x24"}
-                        onChange={handleSizeChange}
-                    />
-                    <div class="title">18x24</div>
-                  </label>
-
-                  <label class="flex radio p-2 cursor-pointer">
-                    <input
-                      class="my-auto transform scale-75 checked:bg-[#36392c] checked:hover:bg-[#36392c] checked:active:bg-[#36392c] checked:focus:bg-emerald-400 focus:bg-[#36392c] focus:outline-none focus:ring-1 focus:ring-[#36392c]"
-                      type="radio"
-                        name="size"
-                        value="24x36"
-                        checked={size === "24x36"}
-                        onChange={handleSizeChange}
-                    />
-                    <div class="title">24x36</div>
-                  </label>
-                </div>
-                </div>
-                {/* <div className="grid md:grid-cols-2 mb-3 md:mb-8">
-                  <div>
-                    <p className="mb-1 text-md md:float-left md:pl-[2rem]">
-                      Select size:
-                    </p>
-                    <label>
-                      5x7
+                    <div class="title py-3 my-auto px-5 bg-[#36392c] text-white text-sm font-semibold mr-3">
+                      Size
+                    </div>
+                    <label class="flex radio p-2 cursor-pointer">
                       <input
+                        class="my-auto transform scale-75 checked:bg-[#36392c] checked:hover:bg-[#36392c] checked:active:bg-[#36392c] checked:focus:bg-emerald-400 focus:bg-[#36392c] focus:outline-none focus:ring-1 focus:ring-[#36392c]"
                         type="radio"
                         name="size"
                         value="5x7"
-                        checked={size === "5x7"}
+                        // checked={size === "5x7"}
                         onChange={handleSizeChange}
                       />
+                      <div class="title">5x7</div>
                     </label>
-                    <label>
-                      8x10
+
+                    <label class="flex radio p-2 cursor-pointer">
                       <input
+                        class="my-auto transform scale-75 checked:bg-[#36392c] checked:hover:bg-[#36392c] checked:active:bg-[#36392c] checked:focus:bg-emerald-400 focus:bg-[#36392c] focus:outline-none focus:ring-1 focus:ring-[#36392c]"
                         type="radio"
                         name="size"
                         value="8x10"
-                        checked={size === "8x10"}
+                        // checked={size === "8x10"}
                         onChange={handleSizeChange}
                       />
+                      <div class="title">8x10</div>
                     </label>
-                    <label>
-                      18x24
+
+                    <label class="flex radio p-2 cursor-pointer">
                       <input
+                        class="my-auto transform scale-75 checked:bg-[#36392c] checked:hover:bg-[#36392c] checked:active:bg-[#36392c] checked:focus:bg-emerald-400 focus:bg-[#36392c] focus:outline-none focus:ring-1 focus:ring-[#36392c]"
                         type="radio"
                         name="size"
                         value="18x24"
-                        checked={size === "18x24"}
+                        // checked={size === "18x24"}
                         onChange={handleSizeChange}
                       />
+                      <div class="title">18x24</div>
                     </label>
-                    <label>
-                      24x36
+
+                    <label class="flex radio p-2 cursor-pointer">
                       <input
+                        class="my-auto transform scale-75 checked:bg-[#36392c] checked:hover:bg-[#36392c] checked:active:bg-[#36392c] checked:focus:bg-emerald-400 focus:bg-[#36392c] focus:outline-none focus:ring-1 focus:ring-[#36392c]"
                         type="radio"
                         name="size"
                         value="24x36"
-                        checked={size === "24x36"}
+                        // checked={size === "24x36"}
                         onChange={handleSizeChange}
                       />
+                      <div class="title">24x36</div>
                     </label>
                   </div>
-                  {/* <div>
-                    <p className="mb-1 text-md md:float-left md:pl-[2rem]">
-                      Quantity:
-                    </p>
-                    <select className="md:w-[85%] text-center rounded-lg bg-white hover:text-white hover:bg-[#36392c] focus:ring-2 focus:outline-none focus:ring-[#36392c]">
-                      <option disabled>Qty</option>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                  </div> */}
-                {/* </div> */} 
-
+                </div>
                 <p className="mb-3 md:mb-8 text-lg">
                   <strong>Price: ${price} </strong>
                 </p>
@@ -269,14 +221,6 @@ function Detail() {
                       onClick={addToCart}
                     >
                       🛒 Add to Cart
-                    </button>
-                  </div>
-                  <div>
-                    <button
-                      className="md:w-[85%] text-[#36392c] hover:text-white border border-[#36392c] hover:bg-[#36392c] focus:ring-2 focus:outline-none focus:ring-[#36392c] font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2"
-                      onClick={addToWishlist}
-                    >
-                      ✨ Add to Wishlist
                     </button>
                   </div>
                 </div>
@@ -292,5 +236,6 @@ function Detail() {
     </>
   );
 }
+
 
 export default Detail;
