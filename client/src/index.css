@@ -32,3 +32,10 @@ body {
     @apply class stuff;
   }
 } */
+
+
+.nosplit {
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
