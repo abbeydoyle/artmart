@@ -19,7 +19,7 @@ db.once("open", async () => {
       name: "Water Lilies and Japanese Bridge",
       artistName: "Claude Monet",
       description: "Oil on canvas",
-      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679290144/waterlily_cwwqml.jpg",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679529728/1256px-Claude_Monet_-_Water_Lilies_and_Japanese_Bridge_gkntgr.jpg",
       category: categories[0]._id,
       sizes: [
         {
@@ -92,7 +92,7 @@ db.once("open", async () => {
       artistName: "Clause Monet",
       name: "Pathway in Monet's Garden at Giverny",
       description: "Oil on canvas",
-      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679290091/garden_ccgm8f.jpg",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679529924/garden-path-at-giverny_rmihku.jpg",
       category: categories[1]._id,
 
       sizes: [
@@ -160,7 +160,7 @@ db.once("open", async () => {
       artistName: "Hokusai",
       name: "The Great Wave off Kanagawa",
       description: "Ink print",
-      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679290101/kanawaga_gt8xjy.jpg",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679530026/main-image_q3xj5c.jpg",
       category: categories[1]._id,
       sizes: [
         {
@@ -226,7 +226,7 @@ db.once("open", async () => {
       artistName: "Vincent van Gogh",
       name: "Starry Night Over the Rhône",
       description: "Oil on canvas",
-      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679340133/images_rsht5j.jpg",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679530161/the-starry-night-over-the-rhone_txvdu9.jpg",
       category: categories[2]._id,
       sizes: [
         {
@@ -271,7 +271,7 @@ db.once("open", async () => {
       name: "Cliffs by the Sea at Trouville",
       artistName: "Gustave Caillebotte",
       description: "Oil on canvas",
-      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679340598/cliffs-by-the-sea-at-trouville_u-l-ooy6f0_tzazct.jpg",
+      image: "https://res.cloudinary.com/duxmtidm1/image/upload/v1679530345/Screen_Shot_2023-03-22_at_5.12.00_PM_aah4lz.png",
       category: categories[0]._id,
       sizes: [
         {
