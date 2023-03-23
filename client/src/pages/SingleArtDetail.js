@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { Button } from "flowbite-react";
-
+import { Button, Alert } from "flowbite-react";
+import CartAlert from "../components/CartAlert/index";
 import Cart from "../components/Cart";
 import Wishlist from "./MyWishlist";
 import { useStoreContext } from "../utils/GlobalState";
@@ -22,6 +22,7 @@ function Detail() {
   const { id } = useParams();
 
   const [currentProduct, setCurrentProduct] = useState({});
+  const [showCartModal, setshowCartModal] = useState(false);
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
@@ -73,6 +74,8 @@ function Detail() {
       });
       idbPromise("cart", "put", { ...currentProduct, purchaseQuantity: 1 });
     }
+    // alert('This item has been added to your cart!');
+    setshowCartModal(true);
   };
 
   const addToWishlist = () => {
@@ -104,20 +107,24 @@ function Detail() {
   console.log(currentProduct.sizes);
 
   const [size, setSize] = useState("5x7");
-  const [price, setPrice] = useState(10);
+  const [price, setPrice] = useState(20);
   const handleSizeChange = (event) => {
     const newSize = event.target.value;
     setSize(newSize);
     if (newSize === "5x7") {
-      setPrice(10);
+      setPrice(20);
     } else if (newSize === "8x10") {
       setPrice(20);
     } else if (newSize === "18x24") {
-      setPrice(30);
+      setPrice(20);
     } else if (newSize === "24x36") {
-      setPrice(40);
+      setPrice(20);
     }
   };
+
+  const value = price;
+  console.log(value);
+  localStorage.setItem(price, value);
 
   return (
     <>
@@ -136,7 +143,61 @@ function Detail() {
                   <p className="">{currentProduct.artistName}</p>
                   <p className="">{currentProduct.description}</p>
                 </div>
-                <div className="grid md:grid-cols-2 mb-3 md:mb-8">
+                <div class="main border object-scale-down rounded-full overflow-hidden m-4 select-none accent-pink-500">
+                  <div className="object-scale-down flex ">
+                  <div class="title py-3 my-auto px-5 bg-[#36392c] text-white text-sm font-semibold mr-3">
+                    Size
+                  </div>
+                  <label class="flex radio p-2 cursor-pointer">
+                    <input
+                      class="my-auto transform scale-75 checked:bg-[#36392c] checked:hover:bg-[#36392c] checked:active:bg-[#36392c] checked:focus:bg-emerald-400 focus:bg-[#36392c] focus:outline-none focus:ring-1 focus:ring-[#36392c]"
+                      type="radio"
+                      name="size"
+                      value="5x7"
+                      checked={size === "5x7"}
+                      onChange={handleSizeChange}
+                    />
+                    <div class="title">5x7</div>
+                  </label>
+
+                  <label class="flex radio p-2 cursor-pointer">
+                    <input
+                      class="my-auto transform scale-75 checked:bg-[#36392c] checked:hover:bg-[#36392c] checked:active:bg-[#36392c] checked:focus:bg-emerald-400 focus:bg-[#36392c] focus:outline-none focus:ring-1 focus:ring-[#36392c]"
+                      type="radio"
+                        name="size"
+                        value="8x10"
+                        checked={size === "8x10"}
+                        onChange={handleSizeChange}
+                    />
+                    <div class="title">8x10</div>
+                  </label>
+
+                  <label class="flex radio p-2 cursor-pointer">
+                    <input
+                      class="my-auto transform scale-75 checked:bg-[#36392c] checked:hover:bg-[#36392c] checked:active:bg-[#36392c] checked:focus:bg-emerald-400 focus:bg-[#36392c] focus:outline-none focus:ring-1 focus:ring-[#36392c]"
+                      type="radio"
+                        name="size"
+                        value="18x24"
+                        checked={size === "18x24"}
+                        onChange={handleSizeChange}
+                    />
+                    <div class="title">18x24</div>
+                  </label>
+
+                  <label class="flex radio p-2 cursor-pointer">
+                    <input
+                      class="my-auto transform scale-75 checked:bg-[#36392c] checked:hover:bg-[#36392c] checked:active:bg-[#36392c] checked:focus:bg-emerald-400 focus:bg-[#36392c] focus:outline-none focus:ring-1 focus:ring-[#36392c]"
+                      type="radio"
+                        name="size"
+                        value="24x36"
+                        checked={size === "24x36"}
+                        onChange={handleSizeChange}
+                    />
+                    <div class="title">24x36</div>
+                  </label>
+                </div>
+                </div>
+                {/* <div className="grid md:grid-cols-2 mb-3 md:mb-8">
                   <div>
                     <p className="mb-1 text-md md:float-left md:pl-[2rem]">
                       Select size:
@@ -152,7 +213,7 @@ function Detail() {
                       />
                     </label>
                     <label>
-                    8x10
+                      8x10
                       <input
                         type="radio"
                         name="size"
@@ -162,7 +223,7 @@ function Detail() {
                       />
                     </label>
                     <label>
-                    18x24
+                      18x24
                       <input
                         type="radio"
                         name="size"
@@ -172,7 +233,7 @@ function Detail() {
                       />
                     </label>
                     <label>
-                    24x36
+                      24x36
                       <input
                         type="radio"
                         name="size"
@@ -182,7 +243,7 @@ function Detail() {
                       />
                     </label>
                   </div>
-                  <div>
+                  {/* <div>
                     <p className="mb-1 text-md md:float-left md:pl-[2rem]">
                       Quantity:
                     </p>
@@ -194,8 +255,8 @@ function Detail() {
                       <option>4</option>
                       <option>5</option>
                     </select>
-                  </div>
-                </div>
+                  </div> */}
+                {/* </div> */} 
 
                 <p className="mb-3 md:mb-8 text-lg">
                   <strong>Price: ${price} </strong>
@@ -227,6 +288,7 @@ function Detail() {
           </div>
         </div>
       ) : null}
+      {showCartModal && <CartAlert setOpenCartModal={setshowCartModal} />}
     </>
   );
 }
