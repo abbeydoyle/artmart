@@ -50,8 +50,8 @@ function ProductList() {
   //   }
 
   return (
-    <main className="whitespace-nowrap text-sm">
-      <div className="gap-4 md:columns-5 columns-2 m-5 whitespace-nowrap">
+    <main className="text-sm">
+      <div className="gap-4 md:columns-5 columns-2 m-5 ">
         <div className="">
           <>{console.log(state)}</>
           {state.products.length ? (

@@ -61,14 +61,14 @@ const CartItem = ({ item }) => {
     //     </div>
     //   </div>
     // </div>
-    <div className="w-full max-w-sm bg-white rounded-lg relative m-8 text-[#36392c]">
+    <div className="w-full max-w-sm bg-white rounded-lg relative m-8 text-[#36392c] nosplit">
       <img
-        className="rounded-lg border-solid border-8 border-[#56280e]"
+        className="rounded-lg border-solid border-8 border-[#56280e] nosplit"
         src={`${item.image}`}
         alt={item.name}
       />
 
-      <div className="px-5 pb-5">
+      <div className="px-5 pb-5 nosplit">
         <a href="#">
           <h5 className="text-lg font-semibold tracking-tight">
             {item.name}

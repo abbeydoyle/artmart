@@ -130,7 +130,7 @@ function Detail() {
     <>
       {currentProduct && cart ? (
         <div>
-          <div className="grid md:grid-cols-3 gap-4 text-[#36392c]">
+          <div className="grid md:grid-cols-3 gap-4 text-[#36392c] nosplit">
             <img
               src={`${currentProduct.image}`}
               alt={currentProduct.title}
