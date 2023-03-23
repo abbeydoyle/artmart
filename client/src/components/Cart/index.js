@@ -64,6 +64,7 @@ const Cart = () => {
     getCheckout({
       variables: { products: productIds },
     });
+    console.log("stripe")
   }
 
   return (

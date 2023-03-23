@@ -34,8 +34,8 @@ const CartItem = ({ item }) => {
     }
   };
 
-  const value = localStorage.getItem(20);
-  console.log(value);
+  // const value = localStorage.getItem(20);
+  // console.log(value);
   return (
     // <div className="flex-row">
     //   <div>{/* <img src={`/images/${item.image}`} alt="" /> */}</div>
