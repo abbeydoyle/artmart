@@ -65,7 +65,7 @@ function Profile() {
           </Table>
         </div>
 
-        <div className="m-5 p-5 rounded md:col-span-4 bg-[#36392c] bg-opacity-95">
+        <div className="m-5 p-5 rounded md:col-span-4 bg-[#36392c] bg-opacity-99">
           <h2 className="text-2xl font-bold text-white pt-2">My Lists</h2>
           <Table className="bg-transparent text-white text-lg">
             <Table.Head className="bg-transparent text-black">
