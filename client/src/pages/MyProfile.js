@@ -8,7 +8,7 @@ function Profile() {
     <div className="bg-[url('https://res.cloudinary.com/duxmtidm1/image/upload/v1679341630/1-ocean-view-childe-hassam_odnxph.jpg')] rounded shadow-[0_4px_4px_rgba(0,0,0,0.25)] mt-8 ">
       <div className="bg-black bg-opacity-50">
       <div className="md:grid md:grid-cols-8 grid grid-cols-1 gap-1 flex items-center justify-center md:pt-[15%] md:pb-[15%]">
-        <div className="m-5 p-5 rounded md:col-span-4 bg-[#36392c] bg-opacity-95">
+        <div className="m-5 p-5 rounded md:col-span-4 bg-[#36392c] bg-opacity-99">
           <h2 className="text-2xl font-bold text-white pt-2">My Profile</h2>
           <Table className="bg-transparent text-white text-lg">
             <Table.Head className="bg-transparent text-black">
