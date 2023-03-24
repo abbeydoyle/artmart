@@ -1,9 +1,11 @@
+// imports and dependencies
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 import { Label, TextInput, Button } from "flowbite-react";
+const chalk = require('chalk');
 
 const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOpenLoginModal }) => {
   // set initial form state
@@ -15,9 +17,10 @@ const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOp
   });
   const [addUser, { error }] = useMutation(ADD_USER);
 
+  // submit signup with token
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+    console.log(chalk.bgHex('#508192').white((formState)));
     const mutationResponse = await addUser({
       variables: {
         firstName: formState.firstName,
@@ -38,6 +41,7 @@ const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOp
     });
   };
 
+  // switch to login
   function SignupSwitch() {
     loginToggle()
   }
@@ -45,6 +49,7 @@ const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOp
   return (
     <>
       <div className="fixed inset-0 overflow-y-auto z-10">
+        {/* click off modal to exit */}
         <div
           className="fixed inset-0 w-full h-full bg-black opacity-70"
           onClick={() => setOpenSignupModal(false)}
@@ -119,6 +124,7 @@ const Signup = ({ props, setOpenSignupModal, loginToggle, showSignupModal, setOp
                       Sign up
                     </Button>
                   </form>
+                  {/* login switch */}
                   <h2 className="text-xl font-bold text-white pb-5 pt-5">
                     Already have an account?{" "}
                     <Link

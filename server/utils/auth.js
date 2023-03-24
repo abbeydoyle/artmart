@@ -1,8 +1,10 @@
+const chalk = require('chalk');
 const jwt = require("jsonwebtoken");
 
 const secret = "mysecretssshhhhhhh";
 const expiration = "2h";
 
+// token authorization
 module.exports = {
   authMiddleware: function ({ req }) {
     let token = req.body.token || req.query.token || req.headers.authorization;
@@ -19,7 +21,7 @@ module.exports = {
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
     } catch {
-      console.log("Invalid token");
+      console.log(chalk.bgHex('#508192').white(("Invalid token")));
     }
 
     return req;
@@ -29,5 +31,3 @@ module.exports = {
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };
-
-//taken from activities mern 01 activities and 26

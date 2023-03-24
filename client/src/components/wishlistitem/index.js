@@ -1,3 +1,4 @@
+// FUTURE GOAL
 import React from "react";
 import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_FROM_WISHLIST} from "../../utils/actions";

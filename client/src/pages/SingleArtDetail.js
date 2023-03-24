@@ -1,3 +1,4 @@
+// imports and dependencies
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
@@ -15,9 +16,10 @@ import {
 } from "../utils/actions";
 import { QUERY_PRODUCTS } from "../utils/queries";
 import { idbPromise } from "../utils/helpers";
-//import spinner from '../assets/spinner.gif';
+const chalk = require('chalk');
 
 function Detail() {
+  // use state and queries
   const [state, dispatch] = useStoreContext();
   const { id } = useParams();
 
@@ -55,6 +57,7 @@ function Detail() {
     }
   }, [products, data, loading, dispatch, id]);
 
+  // add art to cart, update cart qty if already in cart
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === id);
     if (itemInCart) {
@@ -74,10 +77,11 @@ function Detail() {
       });
       idbPromise("cart", "put", { ...currentProduct, purchaseQuantity: 1 });
     }
-    // alert('This item has been added to your cart!');
+    // alert modal appears once item has been added to cart
     setshowCartModal(true);
   };
 
+  // FUTURE GOAL CURRENTLY NONFUNCTIONING
   const addToWishlist = () => {
     const itemInWishlist = wishlist.find(
       (WishlistItem) => WishlistItem._id === id
@@ -95,6 +99,7 @@ function Detail() {
     }
   };
 
+  // FUTURE GOAL
   const removeFromCart = () => {
     dispatch({
       type: REMOVE_FROM_CART,
@@ -103,9 +108,11 @@ function Detail() {
 
     idbPromise("cart", "delete", { ...currentProduct });
   };
-  console.log(currentProduct);
-  console.log(currentProduct.sizes);
+  console.log(chalk.bgHex('#508192').white((currentProduct)));
 
+  // use state for setting item size
+  // CURRENTLY ALL PRICES HARDCODE AT 20 FOR STRIPE FUNCTIONALITY\
+  // this is fixed in branch "pricerabbey" but not implemented in main as the the app is still lacking the ability to translate this price to stripe in resolvers - will require a new model
   const [size, setSize] = useState("5x7");
   const [price, setPrice] = useState(20);
   const handleSizeChange = (event) => {
@@ -123,7 +130,7 @@ function Detail() {
   };
 
   const value = price;
-  console.log(value);
+  console.log((chalk.bgHex('#508192').white(value)));
   localStorage.setItem(price, value);
 
   return (
@@ -197,67 +204,6 @@ function Detail() {
                   </label>
                 </div>
                 </div>
-                {/* <div className="grid md:grid-cols-2 mb-3 md:mb-8">
-                  <div>
-                    <p className="mb-1 text-md md:float-left md:pl-[2rem]">
-                      Select size:
-                    </p>
-                    <label>
-                      5x7
-                      <input
-                        type="radio"
-                        name="size"
-                        value="5x7"
-                        checked={size === "5x7"}
-                        onChange={handleSizeChange}
-                      />
-                    </label>
-                    <label>
-                      8x10
-                      <input
-                        type="radio"
-                        name="size"
-                        value="8x10"
-                        checked={size === "8x10"}
-                        onChange={handleSizeChange}
-                      />
-                    </label>
-                    <label>
-                      18x24
-                      <input
-                        type="radio"
-                        name="size"
-                        value="18x24"
-                        checked={size === "18x24"}
-                        onChange={handleSizeChange}
-                      />
-                    </label>
-                    <label>
-                      24x36
-                      <input
-                        type="radio"
-                        name="size"
-                        value="24x36"
-                        checked={size === "24x36"}
-                        onChange={handleSizeChange}
-                      />
-                    </label>
-                  </div>
-                  {/* <div>
-                    <p className="mb-1 text-md md:float-left md:pl-[2rem]">
-                      Quantity:
-                    </p>
-                    <select className="md:w-[85%] text-center rounded-lg bg-white hover:text-white hover:bg-[#36392c] focus:ring-2 focus:outline-none focus:ring-[#36392c]">
-                      <option disabled>Qty</option>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                  </div> */}
-                {/* </div> */} 
-
                 <p className="mb-3 md:mb-8 text-lg">
                   <strong>Price: ${price} </strong>
                 </p>
@@ -288,6 +234,7 @@ function Detail() {
           </div>
         </div>
       ) : null}
+      {/* cartalert modal call */}
       {showCartModal && <CartAlert setOpenCartModal={setshowCartModal} />}
     </>
   );

@@ -1,5 +1,5 @@
+// imports and dependencies
 import "./App.css";
-// import logo from "./logo.svg";
 import React from "react";
 import {
   ApolloClient,
@@ -16,18 +16,17 @@ import Login from "./pages/login";
 import Nav from "./components/Nav";
 import FooterApp from "./components/footer/index.js";
 import Cart from "./components/Cart";
-// import Pastorders from './pages/pastorder';
-
 import Profile from "./pages/MyProfile";
 import Wishlist from "./pages/MyWishlist";
-// import MyAddresses from "./pages/MyAddresses";
 import Detail from "./pages/SingleArtDetail";
 import Success from "./pages/Success";
 
+// db link
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
 
+// token session
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
   return {
@@ -38,11 +37,13 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+// apollo connection
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
+// main app routers
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -56,7 +57,6 @@ function App() {
                 <Route path="/home" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
-                {/* <Route path="/address" element={<MyAddresses />} /> */}
                 <Route path="/success" element={<Success />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/profile" element={<Profile />} />
@@ -64,7 +64,6 @@ function App() {
                 <Route path="/products/:id" element={<Detail />} />
               </Routes>
             </div>
-
             <FooterApp />
           </StoreProvider>
         </div>

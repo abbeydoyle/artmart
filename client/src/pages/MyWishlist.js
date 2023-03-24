@@ -1,3 +1,6 @@
+// THIS PAGE IS DISPLAYED AS AN EXAMPLE AND HAS NO FUNCTIONALITY
+// FUTURE GOAL
+// imports and dependencies
 import React from "react";
 import Wishlistcomponent from "../components/wishlist/index";
 

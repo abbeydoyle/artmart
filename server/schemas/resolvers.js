@@ -1,28 +1,18 @@
+// imports and dependencies
 const { GraphQLError } = require("graphql");
 const { User, ArtProduct, ArtCategory, ArtOrder } = require("../models");
 const { signToken } = require("../utils/auth");
 require("dotenv").config();
-const stripe = require("stripe")("sk_test_51MllX3CqIZpk4OuxCGBxjStuTLuhrAPY6PTT1MDyrM0yGwO1tNpj9bw94JoipZhkJmpaVWetuGOqmLee2MRSzWta00gjsoUCAE");
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const chalk = require('chalk');
 
 const resolvers = {
+  // CATEGORIES ARE A FUTURE GOAL
   Query: {
     categories: async () => {
       return await ArtCategory.find();
     },
     products: async (parent, { category, name }) => {
-      // const params = {};
-
-      // if (category) {
-      //   params.category = category;
-      // }
-
-      // if (name) {
-      //   params.name = {
-      //     $regex: name,
-      //   };
-      // }
-
-      // return await ArtProduct.find(params).populate("category");
       return await ArtProduct.find({}).populate("category");
     },
     product: async (parent, { _id }) => {
@@ -32,7 +22,6 @@ const resolvers = {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
           path: "orders.products",
-          // populate: "category",
         });
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
@@ -62,6 +51,10 @@ const resolvers = {
         },
       });
     },
+
+    // stripe checkout 
+    // THIS IS THE CURRENT ISSUE THAT IS NOT RESOLVED IN "pricerabbey"
+    // A NEW MODEL WILL BE CREATED TO TRANSLATE THE USER'S CHOSEN PRICE TO THE CART ITEM TO THEN GIVE TO STRIPE
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
       const order = new ArtOrder({ products: args.products });
@@ -72,18 +65,19 @@ const resolvers = {
           name: products[i].name,
           description: products[i].description,
            images: [`google.com`],
-        }).catch(err => console.log(err))
+        }).catch(err => console.log(chalk.bgHex('#508192').white((err))))
         const price = await stripe.prices.create({
           product: product.id,
+          // HARDCODED 2000 AS $20
           unit_amount: 2000 ,
           currency: "usd",
-        }).catch(err => console.log("price error",err))
+        }).catch(err => console.log(chalk.bgHex('#508192').white(("price error",err))))
         line_items.push({
           price: price.id,
           quantity: 1,
         });
       }
-console.log(url)
+      console.log(chalk.bgHex('#508192').white((url)))
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
         line_items,
@@ -91,7 +85,7 @@ console.log(url)
         success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${url}/`,
       });
-console.log("session", session)
+      console.log(chalk.bgHex('#508192').white(("session", session)))
       return { session: session.id };
     },
   },
@@ -103,7 +97,7 @@ console.log("session", session)
       return { token, user };
     },
     addOrder: async (parent, { products }, context) => {
-      console.log(context);
+      console.log(chalk.bgHex('#508192').white((context)));
       if (context.user) {
         const order = new ArtOrder({ products });
 

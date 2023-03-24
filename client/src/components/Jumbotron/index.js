@@ -1,3 +1,4 @@
+// imports and dependencies
 import React from "react";
 
 function Jumbotron({ children }) {

@@ -1,5 +1,8 @@
+// imports and dependencies
 import React from "react";
 import Jumbotron from '../components/Jumbotron';
+
+// success message
 const Success = () => {
   return (
     <>

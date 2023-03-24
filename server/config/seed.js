@@ -1,5 +1,7 @@
+// seed files once database is connected
 const db = require("./connection");
 const { User, ArtProduct, ArtCategory } = require("../models");
+const chalk = require('chalk');
 
 db.once("open", async () => {
   await ArtCategory.deleteMany();
@@ -10,7 +12,7 @@ db.once("open", async () => {
     { name: "graphic" },
   ]);
 
-  console.log("categories seeded");
+  console.log(chalk.bgHex('#508192').white(("categories seeded")));
 
   await ArtProduct.deleteMany();
 
@@ -663,7 +665,7 @@ db.once("open", async () => {
     },
   ]);
 
-  console.log("art seeded");
+  console.log(chalk.bgHex('#508192').white(("art seeded")));
 
   await User.deleteMany();
 
@@ -693,35 +695,7 @@ db.once("open", async () => {
     ],
   });
 
-  // await User.create({
-  //   firstName: '',
-  //   lastName: '',
-  //   email: '',
-  //   password: ''
-  // });
-
-  // await User.create({
-  //   firstName: '',
-  //   lastName: '',
-  //   email: '',
-  //   password: ''
-  // });
-
-  // await User.create({
-  //   firstName: '',
-  //   lastName: '',
-  //   email: '',
-  //   password: ''
-  // });
-
-  // await User.create({
-  //   firstName: '',
-  //   lastName: '',
-  //   email: '',
-  //   password: ''
-  // });
-
-  console.log("users seeded");
+  console.log((chalk.bgHex('#508192').white("users seeded")));
 
   process.exit();
 });

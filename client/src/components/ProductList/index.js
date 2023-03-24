@@ -1,3 +1,4 @@
+// imports and dependencies
 import React, { useEffect } from "react";
 import ProductItem from "../ProductItem";
 import { useStoreContext } from "../../utils/GlobalState";
@@ -5,21 +6,22 @@ import { UPDATE_PRODUCTS } from "../../utils/actions";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
-// import spinner from '../../assets/spinner.gif';
 import { Link, useParams } from "react-router-dom";
 import { Spinner } from "flowbite-react";
+const chalk = require('chalk');
 
 function ProductList() {
   const [state, dispatch] = useStoreContext();
   const { id } = useParams();
-  //   const { currentCategory } = state; // I don't know if this is needed if we aren't doing categories at the moment
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
-  console.log(data);
+  (chalk.bgHex('#508192').white((data)));
 
+  // update and display products
+  // display spinner while loading or if no data
   useEffect(() => {
     if (data) {
-      console.log(data);
+      console.log(chalk.bgHex('#508192').white((data)));
       dispatch({
         type: UPDATE_PRODUCTS,
         products: data.products,
@@ -37,23 +39,11 @@ function ProductList() {
     }
   }, [data, loading, dispatch]);
 
-  ///// REACH GOAL? /////
-
-  //   function filterProducts() {
-  //     // if (!currentCategory) {
-  //     //   return state.products;
-  //     // }
-
-  //     return state.products.filter(
-  //       (product) => product.category._id === currentCategory
-  //     );
-  //   }
-
   return (
     <main className="text-sm">
       <div className="gap-4 md:columns-5 columns-2 m-5 ">
         <div className="">
-          <>{console.log(state)}</>
+          <>{console.log(chalk.bgHex('#508192').white((state)))}</>
           {state.products.length ? (
             <div className="">
               {state.products.map((product) => (
@@ -72,8 +62,6 @@ function ProductList() {
           ) : (
             <div><Spinner color="warning" aria-label="Warning spinner example" size="lg"/></div>
           )}
-
-          {/* {loading ? <img src={spinner} alt="loading" /> : null} */}
         </div>
       </div>
     </main>

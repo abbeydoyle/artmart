@@ -1,3 +1,4 @@
+// imports and dependencies
 const express = require("express");
 const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
@@ -6,12 +7,12 @@ const {
 } = require("@apollo/server/plugin/drainHttpServer");
 const http = require("http");
 const path = require("path");
-
 const { authMiddleware } = require("./utils/auth");
-
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
+const chalk = require('chalk');
 
+// local host port and db connection
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -30,6 +31,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
+// revert to client build indexhtml if specified route path cannot be founr
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
@@ -46,8 +48,8 @@ const startApolloServer = async (typeDefs, resolvers) => {
 
   db.once("open", () => {
     httpServer.listen(PORT, () => {
-      console.log(`API server running on port ${PORT}!`);
-      console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
+      console.log(chalk.bgHex('#508192').white((`API server running on port ${PORT}!`)));
+      console.log(chalk.bgHex('#508192').white((`Use GraphQL at http://localhost:${PORT}/graphql`)));
     });
   });
 };

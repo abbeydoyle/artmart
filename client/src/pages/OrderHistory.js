@@ -1,3 +1,5 @@
+// THIS PAGE HAS NO FUNCTIONALITY
+// FUTURE GOAL
 import React from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";

@@ -1,3 +1,5 @@
+// THIS IS A FUTURE GOAL
+// CREATE A WISHLIST SIMILAR TO CART
 import React, { useEffect } from "react";
 import { useLazyQuery } from "@apollo/client";
 import { idbPromise } from "../../utils/helpers";

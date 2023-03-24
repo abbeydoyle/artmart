@@ -1,3 +1,4 @@
+// imports and dependencies
 import React, { useState } from "react";
 import Auth from "../../utils/auth";
 import { Navbar } from "flowbite-react";
@@ -6,13 +7,13 @@ import Signup from "../../pages/signup";
 import Login from "../../pages/login";
 
 function Nav() {
+  // modal use states
   const [showLogoutModal, setshowLogoutModal] = useState(false);
   const [showSignupModal, setshowSignupModal] = useState(false);
   const [showLoginModal, setshowLoginModal] = useState(false);
 
+  // switch from signup modal to login modal
   function loginToggle() {
-    console.log(showLoginModal)
-    console.log(showSignupModal)
     if (showSignupModal) {
       setshowSignupModal(false);
       setshowLoginModal(true);
@@ -21,9 +22,8 @@ function Nav() {
     }
   }
 
+  // switch from login modal to signup modal
   function signupToggle() {
-    console.log(showLoginModal)
-    console.log(showSignupModal)
     if (showLoginModal) {
       setshowSignupModal(true);
       setshowLoginModal(false);
@@ -34,6 +34,7 @@ function Nav() {
 
 
   function showNavigation() {
+    // navbar if user is logged in
     if (Auth.loggedIn()) {
       return (
         <Navbar fluid={true} rounded={true}>
@@ -62,7 +63,6 @@ function Nav() {
                 Profile
               </span>
             </Navbar.Link>
-            {/* TODO: wishlist */}
             <Navbar.Link href="/wishlist">
               <span className="block md:py-2 pl-3 pr-4 md:text-lg rounded bg-transparent text-[#508192] md:p-0">
                 Wishlist
@@ -86,14 +86,11 @@ function Nav() {
           {showLogoutModal && <LogoutModal setOpenLogoutModal={setshowLogoutModal} />}
         </Navbar>
       );
+      // logged out navbar
     } else {
       return (
         <Navbar fluid={true} rounded={true}>
           <Navbar.Brand
-            // as={{
-            //   $$typeof: Symbol(react.forward_ref),
-            //   render: LinkWithRef
-            // }}
             to="/"
           >
             <img
@@ -134,13 +131,14 @@ function Nav() {
               </span>
             </Navbar.Link>
           </Navbar.Collapse>
+          {/* modal use state calls */}
           {showSignupModal && <Signup setOpenSignupModal={setshowSignupModal} loginToggle={loginToggle} showSignupModal={showSignupModal} setOpenLoginModal={setshowLoginModal}/>}
           {showLoginModal && <Login setOpenLoginModal={setshowLoginModal} signupToggle={signupToggle} showLoginModal={showLoginModal} setOpenSignupModal={setshowSignupModal}/>}
         </Navbar>
       );
     }
   }
-  return <header className="">{showNavigation()}</header>;
+  return <header>{showNavigation()}</header>;
 }
 
 export default Nav;

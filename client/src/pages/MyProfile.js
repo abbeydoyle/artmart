@@ -1,10 +1,11 @@
+// THIS PAGE IS DISPLAYED AS AN EXAMPLE AND HAS NO FUNCTIONALITY OTHER THAN WISHLIST AND CART REDIRECTION
+// FUTURE GOAL
+// imports and dependencies
 import React from "react";
-import { Link } from "react-router-dom";
 import { Table } from "flowbite-react";
 
 function Profile() {
   return (
-  
     <div className="bg-[url('https://res.cloudinary.com/duxmtidm1/image/upload/v1679341630/1-ocean-view-childe-hassam_odnxph.jpg')] rounded shadow-[0_4px_4px_rgba(0,0,0,0.25)] mt-8 ">
       <div className="bg-black bg-opacity-50">
       <div className="md:grid md:grid-cols-8 grid grid-cols-1 gap-1 flex items-center justify-center md:pt-[15%] md:pb-[15%]">

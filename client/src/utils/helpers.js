@@ -1,10 +1,6 @@
-export function pluralize(name, count) {
-  if (count === 1) {
-    return name;
-  }
-  return name + "s";
-}
+const chalk = require('chalk');
 
+// helper idbpromise function, put get delete
 export function idbPromise(storeName, method, object) {
   return new Promise((resolve, reject) => {
     const request = window.indexedDB.open("ArtMart", 1);
@@ -17,7 +13,7 @@ export function idbPromise(storeName, method, object) {
     };
 
     request.onerror = function (e) {
-      console.log("There was an error");
+      console.log(chalk.bgHex('#508192').white(("There was an error")));
     };
 
     request.onsuccess = function (e) {
@@ -44,7 +40,7 @@ export function idbPromise(storeName, method, object) {
           store.delete(object._id);
           break;
         default:
-          console.log("No valid method");
+          console.log(chalk.bgHex('#508192').white(("No valid method")));
           break;
       }
 

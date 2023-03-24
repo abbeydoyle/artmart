@@ -1,3 +1,5 @@
+// imports and dependencies
+// global state storeprovider
 import React, { createContext, useContext } from "react";
 import { useProductReducer } from "./reducers";
 

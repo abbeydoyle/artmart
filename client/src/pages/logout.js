@@ -1,3 +1,4 @@
+// imports and dependencies
 import React from "react";
 import Auth from "../utils/auth";
 
@@ -5,6 +6,7 @@ export default function LogoutModal({ setOpenLogoutModal }) {
   return (
     <>
       <div className="fixed inset-0 z-10 overflow-y-auto">
+        {/* click off modal to exit */}
         <div
           className="fixed inset-0 w-full h-full bg-black opacity-70"
           onClick={() => setOpenLogoutModal(false)}

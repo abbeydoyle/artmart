@@ -1,9 +1,12 @@
+// dependency
 import React from "react";
 
+// modal to appear when item as been added to cart
 export default function CartAlert({ setOpenCartModal }) {
   return (
     <>
       <div className="fixed inset-0 z-10 overflow-y-auto">
+        {/* exit modal when clicking outside of modal element */}
         <div
           className="fixed inset-0 w-full h-full bg-black opacity-70"
           onClick={() => setOpenCartModal(false)}

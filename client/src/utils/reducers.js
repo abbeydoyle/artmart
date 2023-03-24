@@ -1,3 +1,4 @@
+// imports and dependences
 import { useReducer } from "react";
 import {
   ADD_TO_CART,
@@ -15,6 +16,7 @@ import {
   ADD_MULTIPLE_TO_WISHLIST
 } from "./actions";
 
+// actions
 export const reducer = (state, action) => {
   switch (action.type) {
     case ADD_TO_CART:
