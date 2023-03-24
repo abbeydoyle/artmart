@@ -71,6 +71,14 @@ Follow this [link](https://devartmart.herokuapp.com) to visit the app and create
 6. Run application in your browser locally using "http://localhost:3001/"
 5. Play as you'd like!
 
+<img src="https://res.cloudinary.com/duxmtidm1/image/upload/v1679630345/ArtMart_d76xdr.png" height="200">
+<img src="https://res.cloudinary.com/duxmtidm1/image/upload/v1679630001/ArtMartSignup_peqe5n.png" height="200">
+<img src="https://res.cloudinary.com/duxmtidm1/image/upload/v1679630001/ArtMartLogin_drywlx.png"  height="200">
+<img src="https://res.cloudinary.com/duxmtidm1/image/upload/v1679630002/ArtMartProfile_y1hs65.png" height="200">
+<img src="https://res.cloudinary.com/duxmtidm1/image/upload/v1679630003/ArtMartSingle_gc0pmo.png" height="200">
+<img src="https://res.cloudinary.com/duxmtidm1/image/upload/v1679630003/ArtMartWishlist_p6qimy.png" height="200">
+<img src="https://res.cloudinary.com/duxmtidm1/image/upload/v1679630002/ArtMartCart_wlywwf.png" height="200">
+<img src="https://res.cloudinary.com/duxmtidm1/image/upload/v1679630001/ArtMartCheckout_ndlme1.png" height="200">
 
 <!-- Provide instructions and examples for use. Include screenshots as needed.
 
